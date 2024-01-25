@@ -11,7 +11,7 @@ namespace GeneralInsuranceManagement
 {
 
 
-    public partial class DefaultUI
+    public partial class Site1
     {
 
         /// <summary>

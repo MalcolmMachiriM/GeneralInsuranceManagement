@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Registration.Master.cs" Inherits="GeneralInsuranceManagement.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <!-- vendor css -->
+    <link href="Content/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="Content/Ionicons/css/ionicons.css" rel="stylesheet">
+
+
+    <!-- Starlight CSS -->
+    <link rel="stylesheet" href="Content/starlight.css">
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="d-flex align-items-center justify-content-center bg-sl-primary ht-100v">
+
+      <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-white">
+        <div class="signin-logo tx-center tx-24 tx-bold tx-inverse">starlight <span class="tx-info tx-normal">admin</span></div>
+        <div class="tx-center mg-b-60">Professional Admin Template Design</div>
+          
+        
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        
+
+      </div><!-- login-wrapper -->
+    </div><!-- d-flex -->
+
+    </form>
+
+    <script src="Scripts/jquery/jquery.js" type="text/javascript"></script>
+    <script src="Scripts/popper.js/popper.js" type="text/javascript"></script>
+    <script src="Scripts/bootstrap/bootstrap.js" type="text/javascript"></script>
+</body>
+</html>
