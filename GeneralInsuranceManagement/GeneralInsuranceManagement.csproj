@@ -183,6 +183,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\ionicons.css" />
+    <Content Include="Content\ionicons.min.css" />
     <Content Include="Content\perfect-scrollbar.css" />
     <Content Include="Content\rickshaw.min.css" />
     <Content Include="Content\Site.css" />
