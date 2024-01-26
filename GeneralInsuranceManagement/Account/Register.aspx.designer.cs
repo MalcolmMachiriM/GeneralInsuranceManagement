@@ -15,6 +15,15 @@ namespace GeneralInsuranceManagement.Account
     {
 
         /// <summary>
+        /// UserId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField UserId;
+
+        /// <summary>
         /// ErrorMessage control.
         /// </summary>
         /// <remarks>
@@ -42,13 +51,13 @@ namespace GeneralInsuranceManagement.Account
         protected global::System.Web.UI.WebControls.TextBox Lastname;
 
         /// <summary>
-        /// Usename control.
+        /// Username control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Usename;
+        protected global::System.Web.UI.WebControls.TextBox Username;
 
         /// <summary>
         /// Email control.
@@ -112,5 +121,14 @@ namespace GeneralInsuranceManagement.Account
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox AllowPasswordReuse;
+
+        /// <summary>
+        /// PasswordExpires control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox PasswordExpires;
     }
 }

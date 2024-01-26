@@ -12,6 +12,10 @@ namespace GeneralInsuranceManagement.Account
 {
     public partial class Register : Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            UserId.Value = "0";
+        }
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -39,19 +43,64 @@ namespace GeneralInsuranceManagement.Account
             try
             {
                 Users U = new Users("",1);
-                U.ID = 1;
-                U.Username = Email.Text;
+                U.ID = long.Parse(UserId.Value);
+                U.Username = Username.Text;
+                U.Firstnames = FirstName.Text;
+                U.Surname = Lastname.Text;
+                U.EmailAddress = Email.Text;
+                U.DepartmentID = int.Parse(DepartmentId.SelectedValue);
+                U.PasswordLifeSpan = int.Parse(PasswordLifeSpan.Text);
+                U.UserRoleID = int.Parse(UserRoleID.SelectedValue);
+                U.ContactNumber = PhoneNumber.Text;
+                if (AllowPasswordReuse.Checked)
+                {
 
-                if (U.Save() == true) { 
-                
+                    U.AllowPasswordReuse = true;
                 }
+                else
+                {
+                    U.AllowPasswordReuse = false;
+                }
+                if (PasswordExpires.Checked)
+                {
 
+                    U.PasswordExpires = true;
+                }
+                else
+                {
+                    U.PasswordExpires = false;
+                }
+                
+
+                if (U.Save() == true) 
+                {
+                    ErrorMessage.Text = $"{U.Firstnames} Saved Successfully";
+                    UserId.Value = U.ID.ToString();
+                    UserAccountAuthorizationLog ual = new UserAccountAuthorizationLog("", 1)
+                    {
+                        ID=0,
+                        UserID = long.Parse(UserId.Value),
+                        RecordUpdateTypeID = 0,
+                        CurrentStatusID = U.StatusID,
+                        RequestStatusID = 1,
+                        RequestUpdateBy = 1,
+
+                    };
+                    if (ual.Save() == true) 
+                    {
+                        U.getSavedUsers();//dataset for grid 
+                    }
+                }
             }
             catch (Exception x)
             {
-
-                throw;
+                ErrorMessage.Text = x.Message;
             }
+        }
+
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+            SaveUserAccount();
         }
     }
 }

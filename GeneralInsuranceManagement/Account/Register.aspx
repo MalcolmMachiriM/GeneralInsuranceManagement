@@ -2,6 +2,7 @@
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <div class="row row-sm mg-t-20">
+        <asp:HiddenField ID="UserId" runat="server" />
           <div class="col-xl-12">
             <div class="card pd-20 pd-sm-40 form-layout form-layout-4">
               <h6 class="card-body-title">Create a new account</h6>
@@ -20,17 +21,17 @@
               <div class="row mg-t-20">
                 <asp:Label runat="server" AssociatedControlID="Lastname" class="col-sm-4 form-control-label">Lastname: <span class="tx-danger">*</span></asp:Label>
                 <div class="col-sm-8 mg-t-10 mg-sm-t-0">
-                    <asp:TextBox runat="server" ID="Lastname" CssClass="form-control" TextMode="Email" placeholder="Enter lastname"/>
+                    <asp:TextBox runat="server" ID="Lastname" CssClass="form-control"  placeholder="Enter lastname"/>
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Lastname"
                     CssClass="text-danger" ErrorMessage="The Lastname field is required." />
                 </div>
               </div>
               <div class="row mg-t-20">
-                <asp:Label runat="server" AssociatedControlID="Usename" class="col-sm-4 form-control-label">Username: <span class="tx-danger">*</span></asp:Label>
+                <asp:Label runat="server" AssociatedControlID="Username" class="col-sm-4 form-control-label">Username: <span class="tx-danger">*</span></asp:Label>
                 <div class="col-sm-8 mg-t-10 mg-sm-t-0">
-                    <asp:TextBox runat="server" ID="Usename" CssClass="form-control" TextMode="Email" placeholder="Enter Usename"/>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Usename"
-                    CssClass="text-danger" ErrorMessage="The Usename field is required." />
+                    <asp:TextBox runat="server" ID="Username" CssClass="form-control"  placeholder="Enter Username"/>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Username"
+                    CssClass="text-danger" ErrorMessage="The Username field is required." />
                 </div>
               </div>
               <div class="row mg-t-20">
@@ -68,17 +69,18 @@
               <div class="row mg-t-20">
                     <asp:Label runat="server" AssociatedControlID="UserRoleID" class="col-sm-4 form-control-label">User Role: <span class="tx-danger">*</span></asp:Label>
                 <div class="col-sm-8 mg-t-10 mg-sm-t-0">
-                    <asp:DropDownList ID="UserRoleID" runat="server" CssClass="form-select" ></asp:DropDownList>
+                    <asp:DropDownList ID="UserRoleID" runat="server" CssClass="form-select" >
+                        <asp:ListItem Value="1">--Select User Role--</asp:ListItem>
+                    </asp:DropDownList>
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="UserRoleID"
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="The User Role  password field is required." />
-                    <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="UserRoleID"
-                        CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
                 </div>
               </div>
               <div class="row mg-t-20">
                     <asp:Label runat="server" AssociatedControlID="DepartmentId" class="col-sm-4 form-control-label">Department : <span class="tx-danger">*</span></asp:Label>
                 <div class="col-sm-8 mg-t-10 mg-sm-t-0">
-                    <asp:DropDownList ID="DepartmentId" runat="server" CssClass="form-select" ></asp:DropDownList>
+                    <asp:DropDownList ID="DepartmentId" runat="server" CssClass="form-select" >
+                        <asp:ListItem Value="1">--Select Department--</asp:ListItem></asp:DropDownList>
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="DepartmentId"
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="The DepartmentId field is required." />
                     <%--<asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
@@ -91,9 +93,15 @@
                     <asp:CheckBox ID="AllowPasswordReuse" CssClass="form-check" runat="server" />
                 </div>
               </div>
+              <div class="row mg-t-20">
+                    <asp:Label runat="server" AssociatedControlID="PasswordExpires" class="col-sm-4 form-control-label">Password Expires?: <span class="tx-danger">*</span></asp:Label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                    <asp:CheckBox ID="PasswordExpires" CssClass="form-check" runat="server" />
+                </div>
+              </div>
               <div class="form-layout-footer mg-t-30">
-                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-info mg-r-5" />
-                <button class="btn btn-secondary">Cancel</button>
+                <asp:Button runat="server" OnClick="Unnamed_Click" Text="Register" CssClass="btn btn-info mg-r-5" />
+                <%--<button class="btn btn-secondary">Cancel</button>--%>
               </div><!-- form-layout-footer -->
             </div><!-- card -->
           </div><!-- col-6 -->
