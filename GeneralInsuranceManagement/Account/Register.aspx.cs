@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using GeneralInsuranceManagement.Models;
+using GeneralInsuranceBusinessLogic;
 
 namespace GeneralInsuranceManagement.Account
 {
@@ -30,6 +31,26 @@ namespace GeneralInsuranceManagement.Account
             else 
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
+            }
+        }
+
+        protected void SaveUserAccount()
+        {
+            try
+            {
+                Users U = new Users("",1);
+                U.ID = 1;
+                U.Username = Email.Text;
+
+                if (U.Save() == true) { 
+                
+                }
+
+            }
+            catch (Exception x)
+            {
+
+                throw;
             }
         }
     }
