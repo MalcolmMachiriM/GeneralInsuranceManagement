@@ -42,7 +42,7 @@ namespace GeneralInsuranceManagement.Account
         {
             try
             {
-                Users U = new Users("",1);
+                Users U = new Users("cn",1);
                 U.ID = long.Parse(UserId.Value);
                 U.Username = Username.Text;
                 U.Firstnames = FirstName.Text;
@@ -52,31 +52,16 @@ namespace GeneralInsuranceManagement.Account
                 U.PasswordLifeSpan = int.Parse(PasswordLifeSpan.Text);
                 U.UserRoleID = int.Parse(UserRoleID.SelectedValue);
                 U.ContactNumber = PhoneNumber.Text;
-                if (AllowPasswordReuse.Checked)
-                {
-
-                    U.AllowPasswordReuse = true;
-                }
-                else
-                {
-                    U.AllowPasswordReuse = false;
-                }
-                if (PasswordExpires.Checked)
-                {
-
-                    U.PasswordExpires = true;
-                }
-                else
-                {
-                    U.PasswordExpires = false;
-                }
-                
+                U.Password = Password.Text;
+                U.AllowPasswordReuse = AllowPasswordReuse.Checked ? true : false;
+                U.PasswordExpires = PasswordExpires.Checked ? true : false;
 
                 if (U.Save() == true) 
                 {
                     ErrorMessage.Text = $"{U.Firstnames} Saved Successfully";
                     UserId.Value = U.ID.ToString();
-                    UserAccountAuthorizationLog ual = new UserAccountAuthorizationLog("", 1)
+                    ClearForm();
+                    UserAccountAuthorizationLog ual = new UserAccountAuthorizationLog("cn", 1)
                     {
                         ID=0,
                         UserID = long.Parse(UserId.Value),
@@ -96,6 +81,21 @@ namespace GeneralInsuranceManagement.Account
             {
                 ErrorMessage.Text = x.Message;
             }
+        }
+        protected void ClearForm()
+        {
+            FirstName.Text = string.Empty;
+            Lastname.Text = string.Empty;
+            Username.Text = string.Empty;
+            Email.Text = string.Empty;
+            PhoneNumber.Text = string.Empty;
+            Password.Text = string.Empty;
+            PasswordLifeSpan.Text = string.Empty;
+            UserRoleID.SelectedIndex = 0;
+            DepartmentId.SelectedIndex = 0;
+            AllowPasswordReuse.Checked = false;
+            PasswordExpires.Checked = false;
+
         }
 
         protected void Unnamed_Click(object sender, EventArgs e)
