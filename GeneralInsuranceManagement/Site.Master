@@ -110,6 +110,17 @@
         </ul>
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
+            <i class="menu-item-icon icon ion-ios-bookmarks-outline tx-20"></i>
+            <span class="menu-item-label">User Management</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div><!-- menu-item -->
+        </a><!-- sl-menu-link -->
+        <ul class="sl-menu-sub nav flex-column">
+          <li class="nav-item"><a runat="server" class="nav-link" href="~/Account/Register">Register</a></li>
+          <li class="nav-item"><a href="table-datatable.html" class="nav-link">Enquiries</a></li>
+        </ul>
+        <a href="#" class="sl-menu-link">
+          <div class="sl-menu-item">
             <i class="menu-item-icon icon ion-ios-navigate-outline tx-24"></i>
             <span class="menu-item-label">Claims</span>
             <i class="menu-item-arrow fa fa-angle-down"></i>
@@ -159,7 +170,6 @@
             <asp:LoginView runat="server" ViewStateMode="Disabled">
                 <AnonymousTemplate>
                     <ul class="navbar-nav navbar-right">
-                        <li><a runat="server" class="nav-link" href="~/Account/Register">Register</a></li>
                         <li><a runat="server" class="nav-link" href="~/Account/Login">Log in</a></li>
                     </ul>
                 </AnonymousTemplate>
