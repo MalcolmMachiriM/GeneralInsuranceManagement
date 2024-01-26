@@ -2,7 +2,7 @@
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <div class="row row-sm mg-t-20">
-          <div class="col-xl-6">
+          <div class="col-xl-12">
             <div class="card pd-20 pd-sm-40 form-layout form-layout-4">
               <h6 class="card-body-title">Create a new account</h6>
               <p class="text-danger">
@@ -26,11 +26,27 @@
                 </div>
               </div>
               <div class="row mg-t-20">
+                <asp:Label runat="server" AssociatedControlID="Usename" class="col-sm-4 form-control-label">Username: <span class="tx-danger">*</span></asp:Label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                    <asp:TextBox runat="server" ID="Usename" CssClass="form-control" TextMode="Email" placeholder="Enter Usename"/>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Usename"
+                    CssClass="text-danger" ErrorMessage="The Usename field is required." />
+                </div>
+              </div>
+              <div class="row mg-t-20">
                 <asp:Label runat="server" AssociatedControlID="Email" class="col-sm-4 form-control-label">Email: <span class="tx-danger">*</span></asp:Label>
                 <div class="col-sm-8 mg-t-10 mg-sm-t-0">
                     <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" placeholder="Enter your email"/>
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                     CssClass="text-danger" ErrorMessage="The email field is required." />
+                </div>
+              </div>
+              <div class="row mg-t-20">
+                <asp:Label runat="server" AssociatedControlID="PhoneNumber" class="col-sm-4 form-control-label">Phone Number: <span class="tx-danger">*</span></asp:Label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                    <asp:TextBox runat="server" ID="PhoneNumber" CssClass="form-control" TextMode="Phone" placeholder="Enter your Phone Number"/>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
+                    CssClass="text-danger" ErrorMessage="The PhoneNumber field is required." />
                 </div>
               </div>
               <div class="row mg-t-20">
@@ -42,13 +58,37 @@
                 </div>
               </div>
               <div class="row mg-t-20">
-                    <asp:Label runat="server" AssociatedControlID="ConfirmPassword" class="col-sm-4 form-control-label">ConfirmPassword: <span class="tx-danger">*</span></asp:Label>
+                <asp:Label runat="server" AssociatedControlID="PasswordLifeSpan" class="col-sm-4 form-control-label">Password Life Span(in Days): <span class="tx-danger">*</span></asp:Label>
                 <div class="col-sm-8 mg-t-10 mg-sm-t-0">
-                    <asp:TextBox runat="server" ID="ConfirmPassword" CssClass="form-control" TextMode="Password" placeholdder="Confirm password"/>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="ConfirmPassword"
-                        CssClass="text-danger" Display="Dynamic" ErrorMessage="The confirm password field is required." />
-                    <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
+                    <asp:TextBox runat="server" ID="PasswordLifeSpan" CssClass="form-control" textmode="Number"  placeholder="Enter life span"/>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="PasswordLifeSpan"
+                    CssClass="text-danger" ErrorMessage="The PasswordLifeSpan field is required." />
+                </div>
+              </div>
+              <div class="row mg-t-20">
+                    <asp:Label runat="server" AssociatedControlID="UserRoleID" class="col-sm-4 form-control-label">User Role: <span class="tx-danger">*</span></asp:Label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                    <asp:DropDownList ID="UserRoleID" runat="server" CssClass="form-select" ></asp:DropDownList>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="UserRoleID"
+                        CssClass="text-danger" Display="Dynamic" ErrorMessage="The User Role  password field is required." />
+                    <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="UserRoleID"
                         CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
+                </div>
+              </div>
+              <div class="row mg-t-20">
+                    <asp:Label runat="server" AssociatedControlID="DepartmentId" class="col-sm-4 form-control-label">Department : <span class="tx-danger">*</span></asp:Label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                    <asp:DropDownList ID="DepartmentId" runat="server" CssClass="form-select" ></asp:DropDownList>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="DepartmentId"
+                        CssClass="text-danger" Display="Dynamic" ErrorMessage="The DepartmentId field is required." />
+                    <%--<asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
+                        CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />--%>
+                </div>
+              </div>
+              <div class="row mg-t-20">
+                    <asp:Label runat="server" AssociatedControlID="AllowPasswordReuse" class="col-sm-4 form-control-label">Allow Password Reuse?: <span class="tx-danger">*</span></asp:Label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                    <asp:CheckBox ID="AllowPasswordReuse" CssClass="form-check" runat="server" />
                 </div>
               </div>
               <div class="form-layout-footer mg-t-30">

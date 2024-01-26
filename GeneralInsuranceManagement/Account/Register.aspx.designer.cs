@@ -42,6 +42,15 @@ namespace GeneralInsuranceManagement.Account
         protected global::System.Web.UI.WebControls.TextBox Lastname;
 
         /// <summary>
+        /// Usename control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Usename;
+
+        /// <summary>
         /// Email control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace GeneralInsuranceManagement.Account
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Email;
+
+        /// <summary>
+        /// PhoneNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PhoneNumber;
 
         /// <summary>
         /// Password control.
@@ -60,12 +78,39 @@ namespace GeneralInsuranceManagement.Account
         protected global::System.Web.UI.WebControls.TextBox Password;
 
         /// <summary>
-        /// ConfirmPassword control.
+        /// PasswordLifeSpan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ConfirmPassword;
+        protected global::System.Web.UI.WebControls.TextBox PasswordLifeSpan;
+
+        /// <summary>
+        /// UserRoleID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList UserRoleID;
+
+        /// <summary>
+        /// DepartmentId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DepartmentId;
+
+        /// <summary>
+        /// AllowPasswordReuse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox AllowPasswordReuse;
     }
 }
