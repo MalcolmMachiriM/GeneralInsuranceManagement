@@ -1,5 +1,5 @@
-﻿<%@ Page Title="User Enquiries" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="UserEnquiries.aspx.cs" Inherits="GeneralInsuranceManagement.UserManagement.UserEnquiries" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+﻿<%@ Page Title="User Enquiries" Language="C#" MasterPageFile="~/DEfaultUIS.Master" AutoEventWireup="true" CodeBehind="UserEnquiries.aspx.cs" Inherits="GeneralInsuranceManagement.UserManagement.UserEnquiries" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%--<div class="sl-mainpanel">--%>
         <nav class="breadcrumb sl-breadcrumb">
             <a class="breadcrumb-item" href="index.html">Short Term</a>
@@ -15,8 +15,10 @@
 
         <div class="card pd-20 pd-sm-40"> 
             <h5 class="card-body-title">User Enquiries</h5>
+            <p class="mg-b-20 mg-sm-b-30"></p>
+
             <div class="table-wrapper">
-                <%--<div class="form-group row gutters">--%>
+                <div class="form-group row gutters">
                     <div class="form-group row gutters col-12">
                         <div class="col-sm-12 align-content-center">
                             <asp:GridView ID="grdUsers" Width="100%" runat="server"
@@ -40,7 +42,7 @@
                             </asp:GridView>
                         </div>
                     </div>
-                <%--</div>--%>
+                </div>
             </div>
         </div>
     <%--</div>--%>
