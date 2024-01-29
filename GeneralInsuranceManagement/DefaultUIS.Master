@@ -50,10 +50,11 @@
 			<div class="sidebar-header">
 				<div>
 					<%--<img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">--%>
-					<asp:Image ID="Image1" runat="server" ImageUrl="~/assets/images/logo-icon.png" />
+					<asp:Image ID="Image1" runat="server" ImageUrl="~/assets/images/logo-icon.png" CssClass="logo-icon" AlternateText="logo icon" 
+               style="width: 80%; height: 80%; max-width: 80%; max-height: 80%;" />/>
 				</div>
 				<div>
-					<h4 class="logo-text">Rukada</h4>
+					<h4 class="logo-text">Insurance Management</h4>
 				</div>
 				<div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
 				</div>
