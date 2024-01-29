@@ -9,14 +9,15 @@
 
         <div class="sl-pagebody">
           <div class="sl-page-title">
-          <h5>User Enquiries</h5>
+          
         </div><!-- sl-page-title -->
         </div>
 
-        <div class="card pd-20 pd-sm-40">
+        <div class="card pd-20 pd-sm-40"> 
+            <h5 class="card-body-title">User Enquiries</h5>
             <div class="table-wrapper">
                 <%--<div class="form-group row gutters">--%>
-                    <%--<div class="form-group row gutters col-12">--%>
+                    <div class="form-group row gutters col-12">
                         <div class="col-sm-12 align-content-center">
                             <asp:GridView ID="grdUsers" Width="100%" runat="server"
                                 AutoGenerateColumns="False" AutoGenerateSelectButton="False" 
@@ -38,7 +39,7 @@
                                 </Columns>
                             </asp:GridView>
                         </div>
-                    <%--</div>--%>
+                    </div>
                 <%--</div>--%>
             </div>
         </div>
