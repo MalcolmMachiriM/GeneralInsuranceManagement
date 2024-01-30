@@ -44,7 +44,8 @@ namespace GeneralInsuranceManagement.UserManagement
                 {
                     grdUsers.DataSource = ds;
                     grdUsers.DataBind();
-                }else
+                }
+                else
                 {
                     grdUsers.DataSource = null;
                     grdUsers.DataBind();
@@ -53,8 +54,17 @@ namespace GeneralInsuranceManagement.UserManagement
             }
             catch (Exception ex)
             {
-
                 RedAlert(ex.Message);
+            }
+        }
+
+
+        protected void grdUsers_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "selectRecord")
+            {
+                long index = long.Parse(e.CommandArgument.ToString());
+                Response.Redirect(string.Format("~/Account/Register?UserId=" + index, index), false);
             }
         }
     }

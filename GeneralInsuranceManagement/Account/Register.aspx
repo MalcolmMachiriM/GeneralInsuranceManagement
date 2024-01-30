@@ -37,7 +37,7 @@
         <div class="col-lg-8 mx-auto">
             <div class="card ">
                 <div class="card-body p-4">
-                    <h5 class="mb-4">Create User</h5>
+                    <h5 class="mb-4" id="title">Create User</h5>
                     <p class="text-danger">
                         <asp:Literal runat="server" ID="ErrorMessage" />
                     </p>
@@ -122,7 +122,7 @@
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <span class="input-group-text"><i class="text-primary" data-feather="user-check"></i></span>
-                                <asp:DropDownList ID="UserRoleID" runat="server" CssClass="form-select">
+                                <asp:DropDownList ID="UserRoleID" runat="server" CssClass="form-select" >
                                     <asp:ListItem Value="1">--Select User Role--</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
@@ -149,7 +149,7 @@
                         <asp:Label runat="server" AssociatedControlID="AllowPasswordReuse" class="col-sm-3 col-form-label">Allow Password Reuse? </asp:Label>
                         <div class="col-sm-9">
                             <div class="form-check">
-                                <asp:CheckBox ID="AllowPasswordReuse" CssClass="form-check" runat="server" />
+                                <asp:CheckBox ID="AllowPasswordReuse" CssClass="form-check" runat="server"  />
                             </div>
                         </div>
                     </div>
@@ -163,13 +163,26 @@
                         </div>
                     </div>
                     <!-- row -->
-                    <div class="row">
-                        <label class="col-sm-3 col-form-label"></label>
-                        <div class="col-sm-9">
-                            <asp:Button runat="server" OnClick="Unnamed_Click" Text="Register" CssClass="btn btn-primary px-4 " />
-                            <asp:Button runat="server" OnClick="Unnamed_Click" Text="Reset" CssClass="btn btn-light px-4 " />
+                    <asp:Panel ID="pnlSave" runat="server">
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <asp:Button runat="server" OnClick="Save_Click" ID="btnRegister" Text="Register" CssClass="btn btn-primary px-4 " />
+                                <asp:Button runat="server" OnClick="btnReset_Click" ID="btnReset" Text="Reset" CssClass="btn btn-light px-4 " />
+                            </div>
                         </div>
-                    </div>
+                    </asp:Panel>
+                    <!-- row -->
+                    <asp:Panel ID="pnlApprove" runat="server">
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <asp:Button runat="server" OnClick="Approve_Click" ID="btnApprove" Text="Approve" CssClass="btn btn-success px-4 " />
+                                <asp:Button runat="server" OnClick="btnReject_Click" ID="btnReject" Text="Reject" CssClass="btn btn-danger px-4 " />
+                            </div>
+                        </div>
+                    </asp:Panel>
+
 
                     <!-- form-layout-footer -->
                 </div>

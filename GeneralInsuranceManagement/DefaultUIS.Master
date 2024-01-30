@@ -14,6 +14,7 @@
     <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
     <link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
     <link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+	<link href="assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 
 
     <!-- loader-->
@@ -94,7 +95,7 @@
                     <ul>
                         <li><a runat="server" href="~/Account/Register"><i class='bx bx-radio-circle'></i>Registration</a>
                         </li>
-                        <li><a href="app-chat-box.html"><i class='bx bx-radio-circle'></i>Approval</a>
+                        <li><a runat="server" href="~/UserManagement/UserEnquiries"><i class='bx bx-radio-circle'></i>Approval</a>
                         </li>
                         <li><a href="app-file-manager.html"><i class='bx bx-radio-circle'></i>Enquiries</a>
                         </li>
@@ -727,11 +728,17 @@
         <%: Scripts.Render("~/assets/js/app.js") %>
         <%: Scripts.Render("~/lib/font-awesome/js/fontawesome.js") %>
         <%: Scripts.Render("~/lib/font-awesome/js/fontawesome.min.js") %>
+        <%: Scripts.Render("~/assets/plugins/datatable/js/jquery.dataTables.min.js") %>
+        <%: Scripts.Render("~/assets/plugins/datatable/js/dataTables.bootstrap5.min.js") %>
         <%: Scripts.Render("https://unpkg.com/feather-icons") %>
 
     </asp:PlaceHolder>
 
-
+    <script>
+        $(document).ready(function () {
+            $('.example').DataTable();
+        });
+    </script>
 
     <script>
         $(function () {

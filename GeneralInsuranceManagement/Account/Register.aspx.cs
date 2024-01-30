@@ -1,13 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Web;
+﻿using GeneralInsuranceBusinessLogic;
+using System;
 using System.Web.UI;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Owin;
-using GeneralInsuranceManagement.Models;
-using GeneralInsuranceBusinessLogic;
-using System.Data;
 
 namespace GeneralInsuranceManagement.Account
 {
@@ -17,7 +10,8 @@ namespace GeneralInsuranceManagement.Account
         {
             if (!IsPostBack)
             {
-                if (Request.QueryString["UserId"] != null && Request.QueryString["UserId"]!="0")
+                pnlApprove.Visible = false;
+                if (Request.QueryString["UserId"] != null && Request.QueryString["UserId"] != "0")
                 {
                     UserId.Value = Request.QueryString["UserId"].ToString();
                     GetUserDetails(long.Parse(UserId.Value));
@@ -50,33 +44,65 @@ namespace GeneralInsuranceManagement.Account
         //        ErrorMessage.Text = result.Errors.FirstOrDefault();
         //    }
         //}
+        #region alerts
+        protected void RedAlert(string MsgFlg)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Error!', '" + MsgFlg + "', 'error');", true);
 
+        }
+
+        protected void WarningAlert(string MsgFlg)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Warning!', '" + MsgFlg + "', 'warning');", true);
+
+        }
+
+        protected void SuccessAlert(string MsgFlg)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
         private void GetUserDetails(long userId)
         {
-            Users user = new Users("cn",1);
-            if (user.Retrieve(userId))
+            try
             {
-                FirstName.Text = user.Firstnames;
-                Lastname.Text = user.Surname;
-                Username.Text = user.Username;
-                Email.Text = user.EmailAddress;
-                PhoneNumber.Text = user.ContactNumber;
-                PasswordLifeSpan.Text = user.PasswordLifeSpan.ToString();
-                UserRoleID.SelectedValue = user.UserRoleID.ToString();
-                DepartmentId.SelectedValue = user.DepartmentID.ToString();
-                if (user.AllowPasswordReuse )
+                Users user = new Users("cn", 1);
+                if (user.Retrieve(userId))
                 {
-                    All
+                    FirstName.Text = user.Firstnames;
+                    FirstName.ReadOnly = true;
+                    Lastname.Text = user.Surname;
+                    Lastname.ReadOnly = true;
+                    Username.Text = user.Username;
+                    Username.ReadOnly = true;
+                    Email.Text = user.EmailAddress;
+                    Email.ReadOnly = true;
+                    PhoneNumber.Text = user.ContactNumber;
+                    PhoneNumber.ReadOnly = true;
+                    PasswordLifeSpan.Text = user.PasswordLifeSpan.ToString();
+                    PasswordLifeSpan.ReadOnly = true;
+                    UserRoleID.SelectedValue = user.UserRoleID.ToString();
+                    DepartmentId.SelectedValue = user.DepartmentID.ToString();
+                    AllowPasswordReuse.Checked = user.AllowPasswordReuse;
+                    PasswordExpires.Checked = user.PasswordExpires;
+                    Title = "User Approval";
+                    pnlSave.Visible = false;
+                    pnlApprove.Visible = true;
                 }
+            }
+            catch (Exception ex)
+            {
 
-            } 
+                RedAlert(ex.Message);
+            }
         }
 
         protected void SaveUserAccount()
         {
             try
             {
-                Users U = new Users("cn",1);
+                Users U = new Users("cn", 1);
                 U.ID = long.Parse(UserId.Value);
                 U.Username = Username.Text;
                 U.Firstnames = FirstName.Text;
@@ -90,14 +116,14 @@ namespace GeneralInsuranceManagement.Account
                 U.AllowPasswordReuse = AllowPasswordReuse.Checked ? true : false;
                 U.PasswordExpires = PasswordExpires.Checked ? true : false;
 
-                if (U.Save() == true) 
+                if (U.Save() == true)
                 {
-                    ErrorMessage.Text = $"{U.Firstnames} Saved Successfully";
+                    SuccessAlert($"{U.Firstnames} Saved Successfully");
                     UserId.Value = U.ID.ToString();
                     ClearForm();
                     UserAccountAuthorizationLog ual = new UserAccountAuthorizationLog("cn", 1)
                     {
-                        ID=0,
+                        ID = 0,
                         UserID = long.Parse(UserId.Value),
                         RecordUpdateTypeID = 0,
                         CurrentStatusID = U.StatusID,
@@ -105,7 +131,7 @@ namespace GeneralInsuranceManagement.Account
                         RequestUpdateBy = 1,
 
                     };
-                    if (ual.Save() == true) 
+                    if (ual.Save() == true)
                     {
                         U.getSavedUsers();//dataset for grid 
                     }
@@ -132,9 +158,24 @@ namespace GeneralInsuranceManagement.Account
 
         }
 
-        protected void Unnamed_Click(object sender, EventArgs e)
+        protected void Save_Click(object sender, EventArgs e)
         {
             SaveUserAccount();
+        }
+
+        protected void Approve_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+
+        protected void btnReject_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
