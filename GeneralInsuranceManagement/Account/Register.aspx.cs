@@ -165,7 +165,11 @@ namespace GeneralInsuranceManagement.Account
 
         protected void Approve_Click(object sender, EventArgs e)
         {
-
+            Users user = new Users("cn", 1);
+            if (user.ActionUserAccountStatusRequest(int.Parse(UserId.Value),2,2,1))
+            {
+                SuccessAlert("Approved");
+            }
         }
 
         protected void btnReset_Click(object sender, EventArgs e)
