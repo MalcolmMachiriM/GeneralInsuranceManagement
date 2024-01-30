@@ -21,7 +21,7 @@ namespace GeneralInsuranceManagement.Account
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
             var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text };
-            IdentityResult result = manager.Create(user, Password.Text);
+            IdentityResult result = manager.Create(user, "pass@123");
             if (result.Succeeded)
             {
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -52,7 +52,7 @@ namespace GeneralInsuranceManagement.Account
                 U.PasswordLifeSpan = int.Parse(PasswordLifeSpan.Text);
                 U.UserRoleID = int.Parse(UserRoleID.SelectedValue);
                 U.ContactNumber = PhoneNumber.Text;
-                U.Password = Password.Text;
+                U.Password = "pass@123";
                 U.AllowPasswordReuse = AllowPasswordReuse.Checked ? true : false;
                 U.PasswordExpires = PasswordExpires.Checked ? true : false;
 
@@ -89,7 +89,7 @@ namespace GeneralInsuranceManagement.Account
             Username.Text = string.Empty;
             Email.Text = string.Empty;
             PhoneNumber.Text = string.Empty;
-            Password.Text = string.Empty;
+            //Password.Text = string.Empty;
             PasswordLifeSpan.Text = string.Empty;
             UserRoleID.SelectedIndex = 0;
             DepartmentId.SelectedIndex = 0;

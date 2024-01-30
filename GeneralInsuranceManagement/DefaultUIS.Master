@@ -27,6 +27,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
     <link href="assets/css/app.css" rel="stylesheet">
     <link href="assets/css/icons.css" rel="stylesheet">
+    <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofT8+cuH2LZj/6T7SRT8qO4BybBmkKcf40" crossorigin="anonymous">
+
+
     <!-- Theme Style CSS -->
     <link rel="stylesheet" href="assets/css/dark-theme.css" />
     <link rel="stylesheet" href="assets/css/semi-dark.css" />
@@ -85,22 +89,14 @@
                         <div class="parent-icon">
                             <i class="bx bx-category"></i>
                         </div>
-                        <div class="menu-title">Application</div>
+                        <div class="menu-title">User Management</div>
                     </a>
                     <ul>
-                        <li><a href="app-emailbox.html"><i class='bx bx-radio-circle'></i>Email</a>
+                        <li><a runat="server" href="~/Account/Register"><i class='bx bx-radio-circle'></i>Registration</a>
                         </li>
-                        <li><a href="app-chat-box.html"><i class='bx bx-radio-circle'></i>Chat Box</a>
+                        <li><a href="app-chat-box.html"><i class='bx bx-radio-circle'></i>Approval</a>
                         </li>
-                        <li><a href="app-file-manager.html"><i class='bx bx-radio-circle'></i>File Manager</a>
-                        </li>
-                        <li><a href="app-contact-list.html"><i class='bx bx-radio-circle'></i>Contatcs</a>
-                        </li>
-                        <li><a href="app-to-do.html"><i class='bx bx-radio-circle'></i>Todo List</a>
-                        </li>
-                        <li><a href="app-invoice.html"><i class='bx bx-radio-circle'></i>Invoice</a>
-                        </li>
-                        <li><a href="app-fullcalender.html"><i class='bx bx-radio-circle'></i>Calendar</a>
+                        <li><a href="app-file-manager.html"><i class='bx bx-radio-circle'></i>Enquiries</a>
                         </li>
                     </ul>
                 </li>
@@ -573,7 +569,7 @@
                     </div>
                     <div class="user-box dropdown px-3">
                         <a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">
+                            <%--<img src="~/assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">--%>
                             <div class="user-info">
                                 <p class="user-name mb-0">Pauline Seitz</p>
                                 <p class="designattion mb-0">Web Designer</p>
@@ -729,6 +725,10 @@
         <%: Scripts.Render("~/assets/plugins/jquery-knob/jquery.knob.js") %>
         <%: Scripts.Render("~/assets/js/index.js") %>
         <%: Scripts.Render("~/assets/js/app.js") %>
+        <%: Scripts.Render("~/lib/font-awesome/js/fontawesome.js") %>
+        <%: Scripts.Render("~/lib/font-awesome/js/fontawesome.min.js") %>
+        <%: Scripts.Render("https://unpkg.com/feather-icons") %>
+
     </asp:PlaceHolder>
 
 
@@ -741,6 +741,9 @@
     <!--app JS-->
     <script>
 		//new PerfectScrollbar(".app-container")
+    </script>
+    <script>
+        feather.replace()
     </script>
 </body>
 </html>
