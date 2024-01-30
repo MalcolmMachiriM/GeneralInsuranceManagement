@@ -19,7 +19,7 @@
 	<!-- loader-->
 	<link href="assets/css/pace.min.css" rel="stylesheet"/>
 	<asp:PlaceHolder runat="server">
-    <%: Scripts.Render("~/assets/js/pace.min.js") %>
+    <%--: Scripts.Render("~/assets/js/pace.min.js") --%>
 	</asp:PlaceHolder>
 	<!-- Bootstrap CSS -->
 	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -51,7 +51,7 @@
 				<div>
 					<%--<img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">--%>
 					<asp:Image ID="Image1" runat="server" ImageUrl="~/assets/images/logo-icon.png" CssClass="logo-icon" AlternateText="logo icon" 
-               style="width: 80%; height: 80%; max-width: 80%; max-height: 80%;" />/>
+						style="width: 80%; height: 80%; max-width: 80%; max-height: 80%;" />
 				</div>
 				<div>
 					<h4 class="logo-text">Insurance Management</h4>
