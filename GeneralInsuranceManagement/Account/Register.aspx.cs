@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using GeneralInsuranceManagement.Models;
 using GeneralInsuranceBusinessLogic;
+using System.Data;
 
 namespace GeneralInsuranceManagement.Account
 {
@@ -14,28 +15,61 @@ namespace GeneralInsuranceManagement.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["UserId"] != null && Request.QueryString["UserId"]!="0")
+                {
+                    UserId.Value = Request.QueryString["UserId"].ToString();
+                    GetUserDetails(long.Parse(UserId.Value));
+
+                }
+            }
             UserId.Value = "0";
         }
-        protected void CreateUser_Click(object sender, EventArgs e)
-        {
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text };
-            IdentityResult result = manager.Create(user, "pass@123");
-            if (result.Succeeded)
-            {
-                // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                //string code = manager.GenerateEmailConfirmationToken(user.Id);
-                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
-                //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
-                signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-            }
-            else 
+
+        //protected void CreateUser_Click(object sender, EventArgs e)
+        //{
+        //    var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+        //    var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
+        //    var user = new ApplicationUser() { UserName = Email.Text, Email = Email.Text };
+        //    //IdentityResult result = manager.Create(user, password.Text);
+        //    IdentityResult result = manager.Create(user, "pass@123");
+        //    if (result.Succeeded)
+        //    {
+        //        // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+        //        //string code = manager.GenerateEmailConfirmationToken(user.Id);
+        //        //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
+        //        //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
+
+        //        signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+        //        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+        //    }
+        //    else 
+        //    {
+        //        ErrorMessage.Text = result.Errors.FirstOrDefault();
+        //    }
+        //}
+
+        private void GetUserDetails(long userId)
+        {
+            Users user = new Users("cn",1);
+            if (user.Retrieve(userId))
             {
-                ErrorMessage.Text = result.Errors.FirstOrDefault();
-            }
+                FirstName.Text = user.Firstnames;
+                Lastname.Text = user.Surname;
+                Username.Text = user.Username;
+                Email.Text = user.EmailAddress;
+                PhoneNumber.Text = user.ContactNumber;
+                PasswordLifeSpan.Text = user.PasswordLifeSpan.ToString();
+                UserRoleID.SelectedValue = user.UserRoleID.ToString();
+                DepartmentId.SelectedValue = user.DepartmentID.ToString();
+                if (user.AllowPasswordReuse )
+                {
+                    All
+                }
+
+            } 
         }
 
         protected void SaveUserAccount()
