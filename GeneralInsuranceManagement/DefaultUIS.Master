@@ -146,7 +146,7 @@
             </div>
             <!--navigation-->
             <ul class="metismenu" id="menu">
-                <li>
+                <%--<li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon">
                             <i class='bx bx-home-alt'></i>
@@ -163,7 +163,16 @@
                         <li><a href="index4.html"><i class='bx bx-radio-circle'></i>Human Resources</a>
                         </li>
                     </ul>
+                </li>--%>
+                <li>
+                    <a runat="server" href="~/Default">
+                        <div class="parent-icon">
+                            <i class='bx bx-home-alt'></i>
+                        </div>
+                        <div class="menu-title">Dashboard</div>
+                    </a>
                 </li>
+
                 <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon">
@@ -176,34 +185,23 @@
                         </li>
                         <li><a runat="server" href="~/UserManagement/UserEnquiries"><i class='bx bx-radio-circle'></i>Approval</a>
                         </li>
-                        <li><a href="~/UserManagement/ApprovedUsers"><i class='bx bx-radio-circle'></i>Enquiries</a>
+                        <li><a runat="server" href="~/UserManagement/ApprovedUsers"><i class='bx bx-radio-circle'></i>Enquiries</a>
                         </li>
                     </ul>
                 </li>
-                <li class="menu-label">UI Elements</li>
-                <li>
-                    <a href="widgets.html">
-                        <div class="parent-icon">
-                            <i class='bx bx-cookie'></i>
-                        </div>
-                        <div class="menu-title">Widgets</div>
-                    </a>
-                </li>
+                <li class="menu-label">Elements</li>
+
                 <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon">
                             <i class='bx bx-cart'></i>
                         </div>
-                        <div class="menu-title">eCommerce</div>
+                        <div class="menu-title">Schemes</div>
                     </a>
                     <ul>
-                        <li><a href="ecommerce-products.html"><i class='bx bx-radio-circle'></i>Products</a>
+                        <li><a runat="server" href="~/Schemes/SchemeCreation"><i class='bx bx-radio-circle'></i>Creation</a>
                         </li>
-                        <li><a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Product Details</a>
-                        </li>
-                        <li><a href="ecommerce-add-new-products.html"><i class='bx bx-radio-circle'></i>Add New Products</a>
-                        </li>
-                        <li><a href="ecommerce-orders.html"><i class='bx bx-radio-circle'></i>Orders</a>
+                        <li><a runat="server" href="~/Schemes/SchemeEnquiries"><i class='bx bx-radio-circle'></i>Enquiries</a>
                         </li>
                     </ul>
                 </li>

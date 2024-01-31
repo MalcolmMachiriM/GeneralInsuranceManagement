@@ -42,7 +42,7 @@
                     <%--<div class="col-sm-12 align-content-center">--%>
                     <asp:GridView ID="grdUsers" Width="100%" runat="server"
                         AutoGenerateColumns="False" AutoGenerateSelectButton="False"
-                        DataKeyNames="ID" OnRowCommand="grdUsers_RowCommand"
+                        DataKeyNames="ID" 
                         CssClass="table table-striped table-bordered example" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
                         Style="border-collapse: collapse !important; width=100%"
                         AllowPaging="True" AllowSorting="True" PageSize="10">

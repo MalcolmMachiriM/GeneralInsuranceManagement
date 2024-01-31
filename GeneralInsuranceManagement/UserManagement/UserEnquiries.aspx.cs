@@ -39,7 +39,7 @@ namespace GeneralInsuranceManagement.UserManagement
             try
             {
                 Users users = new Users("cn", 1);
-                DataSet ds = users.getUserAccountsByStatus(0);
+                DataSet ds = users.getSavedUsers();
                 if (ds != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
                 {
                     grdUsers.DataSource = ds;

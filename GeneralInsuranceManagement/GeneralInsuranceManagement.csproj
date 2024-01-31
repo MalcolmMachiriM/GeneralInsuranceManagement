@@ -992,6 +992,7 @@
     <Content Include="lib\font-awesome\sprites\regular.svg" />
     <Content Include="lib\font-awesome\sprites\solid.svg" />
     <Content Include="Schemes\SchemeCreation.aspx" />
+    <Content Include="Schemes\SchemeEnquiries.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -1237,6 +1238,13 @@
     </Compile>
     <Compile Include="Schemes\SchemeCreation.aspx.designer.cs">
       <DependentUpon>SchemeCreation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Schemes\SchemeEnquiries.aspx.cs">
+      <DependentUpon>SchemeEnquiries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Schemes\SchemeEnquiries.aspx.designer.cs">
+      <DependentUpon>SchemeEnquiries.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
