@@ -1,6 +1,8 @@
 ﻿using GeneralInsuranceBusinessLogic;
 using System;
+using System.Data;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace GeneralInsuranceManagement.Account
 {
@@ -17,8 +19,10 @@ namespace GeneralInsuranceManagement.Account
                     GetUserDetails(long.Parse(UserId.Value));
 
                 }
+                UserId.Value = "0";
+                getDepartments();
+                getRoles();
             }
-            UserId.Value = "0";
         }
 
 
@@ -95,6 +99,68 @@ namespace GeneralInsuranceManagement.Account
             {
 
                 RedAlert(ex.Message);
+            }
+        }
+        private void getRoles()
+        {
+
+            try
+            {
+                Users agm = new Users("cn", 1);
+                DataSet ds = agm.getUserRoles();
+                if (ds != null)
+                {
+                    ListItem listItem = new ListItem("Select Role", "0");
+                    UserRoleID.DataSource = ds;
+                    UserRoleID.DataValueField = "ID";
+                    UserRoleID.DataTextField = "Description";
+                    UserRoleID.DataBind();
+                    UserRoleID.Items.Insert(0, listItem);
+                }
+                else
+                {
+                    ListItem li = new ListItem("No role found", "0");
+                    UserRoleID.Items.Clear();
+                    UserRoleID.DataSource = null;
+                    UserRoleID.DataBind();
+                    UserRoleID.Items.Insert(0, li);
+                }
+            }
+            catch (Exception a)
+            {
+
+                RedAlert(a.Message);
+            }
+        }
+        private void getDepartments()
+        {
+
+            try
+            {
+                Users agm = new Users("cn", 1);
+                DataSet ds = agm.getDepartments();
+                if (ds != null)
+                {
+                    ListItem listItem = new ListItem("Select department", "0");
+                    DepartmentId.DataSource = ds;
+                    DepartmentId.DataValueField = "ID";
+                    DepartmentId.DataTextField = "DepartmentName";
+                    DepartmentId.DataBind();
+                    DepartmentId.Items.Insert(0, listItem);
+                }
+                else
+                {
+                    ListItem li = new ListItem("No departments found", "0");
+                    DepartmentId.Items.Clear();
+                    DepartmentId.DataSource = null;
+                    DepartmentId.DataBind();
+                    DepartmentId.Items.Insert(0, li);
+                }
+            }
+            catch (Exception a)
+            {
+
+                RedAlert(a.Message);
             }
         }
 

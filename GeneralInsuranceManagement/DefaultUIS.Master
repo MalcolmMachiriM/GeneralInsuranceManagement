@@ -39,6 +39,85 @@
 
 
     <title><%: Page.Title %> - General Insurance Management</title>
+
+
+
+         <%-- swal --%>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <%-- Alerts --%>
+    <script type="text/javascript">
+
+        function success(msg) {
+
+            toastr.option = {
+
+                "debug": false,
+
+                "positionClass": "toast-top-center",
+
+                "Onclick": null
+
+            }
+
+            toastr.success(msg, "Success");
+
+            return false;
+
+        }
+
+
+        function error(msg) {
+
+            toastr.option = {
+
+                "debug": false,
+
+                "positionClass": "toast-top-center",
+
+                "Onclick": null
+
+            }
+
+            toastr.error(msg, "Error");
+
+            return false;
+
+        }
+
+        function warning(msg) {
+
+            toastr.option = {
+
+                "debug": false,
+
+                "positionClass": "toast-top-center",
+
+                "Onclick": null
+
+            }
+
+            toastr.warning(msg, "Warning");
+
+            return false;
+
+        }
+
+
+    </script>
+    <%-- Alerts --%>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+
+ <link media="screen" rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" />
+ 
+
+    
+    <%-- end swal --%>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

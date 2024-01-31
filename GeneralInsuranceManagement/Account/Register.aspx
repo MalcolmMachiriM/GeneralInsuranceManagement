@@ -123,7 +123,6 @@
                             <div class="input-group">
                                 <span class="input-group-text"><i class="text-primary" data-feather="user-check"></i></span>
                                 <asp:DropDownList ID="UserRoleID" runat="server" CssClass="form-select" >
-                                    <asp:ListItem Value="1">--Select User Role--</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="UserRoleID"
@@ -137,7 +136,6 @@
                             <div class="input-group">
                                 <span class="input-group-text"><i class="text-primary" data-feather="archive"></i></span>
                                 <asp:DropDownList ID="DepartmentId" runat="server" CssClass="form-select">
-                                    <asp:ListItem Value="1">--Select User Role--</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="DepartmentId"
