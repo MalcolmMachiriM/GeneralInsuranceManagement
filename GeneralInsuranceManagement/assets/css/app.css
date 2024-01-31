@@ -30,6 +30,13 @@ body {
 
 }
 
+#background {
+	background-image: url('../images/login-images/house-car-cover.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
 
 
 a {
