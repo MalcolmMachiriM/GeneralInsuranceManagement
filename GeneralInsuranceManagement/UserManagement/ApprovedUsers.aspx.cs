@@ -1,11 +1,15 @@
 ﻿using GeneralInsuranceBusinessLogic;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace GeneralInsuranceManagement.UserManagement
 {
-    public partial class UserEnquiries : System.Web.UI.Page
+    public partial class ApprovedUsers : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,17 +43,20 @@ namespace GeneralInsuranceManagement.UserManagement
             try
             {
                 Users users = new Users("cn", 1);
-                DataSet ds = users.getUserAccountsByStatus(0);
+                //DataSet ds = users.getUserAccountsByStatus(1);
+                DataSet ds = users.getSavedUsers();
                 if (ds != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
                 {
                     grdUsers.DataSource = ds;
                     grdUsers.DataBind();
+                    usersCard.Visible = true;
                 }
                 else
                 {
                     grdUsers.DataSource = null;
                     grdUsers.DataBind();
-                    WarningAlert("No Companies Found");
+                    usersCard.Visible = false;
+                    WarningAlert("No Approved Users Found");
                 }
             }
             catch (Exception ex)

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="User Enquiries" Language="C#" MasterPageFile="~/DEfaultUIS.Master" AutoEventWireup="true" CodeBehind="UserEnquiries.aspx.cs" Inherits="GeneralInsuranceManagement.UserManagement.UserEnquiries" %>
+﻿<%@ Page Title="User Approvals" Language="C#" MasterPageFile="~/DEfaultUIS.Master" AutoEventWireup="true" CodeBehind="UserApprovals.aspx.cs" Inherits="UserApprovals" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -39,26 +39,26 @@
         <div class="card-body">
             <div class="table-responsive">
                 <%--<div class="col-sm-12 align-content-center">--%>
-                <asp:GridView ID="grdUsers" Width="100%" runat="server"
-                    AutoGenerateColumns="False" AutoGenerateSelectButton="False"
-                    DataKeyNames="ID" OnRowCommand="grdUsers_RowCommand"
-                    CssClass="table table-striped table-bordered example" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
-                    Style="border-collapse: collapse !important; width=100%"
-                    AllowPaging="True" AllowSorting="True" PageSize="10">
-                    <Columns>
-                        <asp:BoundField Visible="false" DataField="ID" HeaderText="ID"></asp:BoundField>
-                        <asp:BoundField DataField="Firstnames" HeaderText="First Name(s)"></asp:BoundField>
-                        <asp:BoundField DataField="Surname" HeaderText="Surname"></asp:BoundField>
-                        <asp:BoundField DataField="DepartmentName" HeaderText="Department"></asp:BoundField>
-                        <asp:BoundField DataField="UserRole" HeaderText="User Type"></asp:BoundField>
-                        <asp:TemplateField HeaderText="Select">
-                            <ItemTemplate>
-                                <asp:LinkButton ID="Edit" runat="server" ForeColor="blue" CssClass="bx bxs-edit" CommandArgument='<%#Eval("ID")%>'
-                                    CommandName="selectRecord"></asp:LinkButton>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                </asp:GridView>
+                    <asp:GridView ID="grdUsers" Width="100%" runat="server"
+                        AutoGenerateColumns="False" AutoGenerateSelectButton="False"
+                        DataKeyNames="ID" OnRowCommand="grdUsers_RowCommand"
+                        CssClass="table table-striped table-bordered example" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
+                        Style="border-collapse: collapse !important; width=100%"
+                        AllowPaging="True" AllowSorting="True" PageSize="10">
+                        <Columns>
+                            <asp:BoundField Visible="false" DataField="ID" HeaderText="ID"></asp:BoundField>
+                            <asp:BoundField DataField="Firstnames" HeaderText="First Name(s)"></asp:BoundField>
+                            <asp:BoundField DataField="Surname" HeaderText="Surname"></asp:BoundField>
+                            <asp:BoundField DataField="DepartmentName" HeaderText="Department"></asp:BoundField>
+                            <asp:BoundField DataField="UserRole" HeaderText="User Type"></asp:BoundField>
+                            <asp:TemplateField HeaderText="Select">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="Edit" runat="server" ForeColor="blue" CssClass="bx bxs-edit" CommandArgument='<%#Eval("ID")%>'
+                                        CommandName="selectRecord" ></asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
                 <%--</div>--%>
             </div>
         </div>

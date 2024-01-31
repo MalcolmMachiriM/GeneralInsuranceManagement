@@ -118,8 +118,8 @@
 
 
     <%-- end swal --%>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <%--<asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>--%>
 </head>
 <body>
 
@@ -176,7 +176,7 @@
                         </li>
                         <li><a runat="server" href="~/UserManagement/UserEnquiries"><i class='bx bx-radio-circle'></i>Approval</a>
                         </li>
-                        <li><a href="app-file-manager.html"><i class='bx bx-radio-circle'></i>Enquiries</a>
+                        <li><a href="~/UserManagement/ApprovedUsers"><i class='bx bx-radio-circle'></i>Enquiries</a>
                         </li>
                     </ul>
                 </li>
@@ -651,25 +651,25 @@
                         <a class="d-flex align-items-center nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <%--<img src="~/assets/images/avatars/avatar-2.png" class="user-img" alt="user avatar">--%>
                             <div class="user-info">
-                               <%-- <p class="user-name mb-0">Pauline Seitz</p>
+                                <%-- <p class="user-name mb-0">Pauline Seitz</p>
                                 <p class="designattion mb-0">Web Designer</p>--%>
 
-                                
-                            <asp:LoginView runat="server" ViewStateMode="Disabled">
-                                <AnonymousTemplate>
-                                    
+
+                                <asp:LoginView runat="server" ViewStateMode="Disabled">
+                                    <AnonymousTemplate>
+
                                         <p><a runat="server" class="user-name mb-0" href="~/Account/Login">Log in</a></p>
-                                    
-                                </AnonymousTemplate>
-                                <LoggedInTemplate>
-                                    
+
+                                    </AnonymousTemplate>
+                                    <LoggedInTemplate>
+
                                         <p><a runat="server" class="user-name mb-0" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></p>
                                         <p>
                                             <asp:LoginStatus runat="server" CssClass="nav-link" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                         </p>
-                                    
-                                </LoggedInTemplate>
-                            </asp:LoginView>
+
+                                    </LoggedInTemplate>
+                                </asp:LoginView>
                             </div>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">

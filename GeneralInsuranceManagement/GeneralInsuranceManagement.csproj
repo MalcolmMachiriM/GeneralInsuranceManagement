@@ -1080,6 +1080,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="UserManagement\ApprovedUsers.aspx" />
     <Content Include="UserManagement\UserEnquiries.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -1251,6 +1252,13 @@
       <DependentUpon>Registration.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="UserManagement\ApprovedUsers.aspx.cs">
+      <DependentUpon>ApprovedUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManagement\ApprovedUsers.aspx.designer.cs">
+      <DependentUpon>ApprovedUsers.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\UserEnquiries.aspx.cs">
       <DependentUpon>UserEnquiries.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
