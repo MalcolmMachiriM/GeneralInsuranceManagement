@@ -37,7 +37,8 @@
         <div class="col-lg-8 mx-auto">
             <div class="card ">
                 <div class="card-body p-4">
-                    <h5 runat="server" class="mb-4" >  <asp:Literal runat="server" ID="pagetitle" /></h5>
+                    <h5 runat="server" class="mb-4">
+                        <asp:Literal runat="server" ID="pagetitle" /></h5>
                     <p class="text-danger">
                         <asp:Literal runat="server" ID="ErrorMessage" />
                     </p>
@@ -122,7 +123,7 @@
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <span class="input-group-text"><i class="text-primary" data-feather="user-check"></i></span>
-                                <asp:DropDownList ID="UserRoleID" runat="server" CssClass="form-select" >
+                                <asp:DropDownList ID="UserRoleID" runat="server" CssClass="form-select">
                                 </asp:DropDownList>
                             </div>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="UserRoleID"
@@ -147,7 +148,7 @@
                         <asp:Label runat="server" AssociatedControlID="AllowPasswordReuse" class="col-sm-3 col-form-label">Allow Password Reuse? </asp:Label>
                         <div class="col-sm-9">
                             <div class="form-check">
-                                <asp:CheckBox ID="AllowPasswordReuse" CssClass="form-check" runat="server"  />
+                                <asp:CheckBox ID="AllowPasswordReuse" CssClass="form-check" runat="server" />
                             </div>
                         </div>
                     </div>
