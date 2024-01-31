@@ -15,11 +15,16 @@ namespace GeneralInsuranceManagement.Account
                 pnlApprove.Visible = false;
                 if (Request.QueryString["UserId"] != null && Request.QueryString["UserId"] != "0")
                 {
+                    pagetitle.Text = "Approve User";
                     UserId.Value = Request.QueryString["UserId"].ToString();
                     GetUserDetails(long.Parse(UserId.Value));
 
                 }
-                UserId.Value = "0";
+                else
+                {
+                    UserId.Value = "0";
+                    pagetitle.Text = "Create User";
+                }
                 getDepartments();
                 getRoles();
             }
@@ -90,7 +95,6 @@ namespace GeneralInsuranceManagement.Account
                     DepartmentId.SelectedValue = user.DepartmentID.ToString();
                     AllowPasswordReuse.Checked = user.AllowPasswordReuse;
                     PasswordExpires.Checked = user.PasswordExpires;
-                    Title = "User Approval";
                     pnlSave.Visible = false;
                     pnlApprove.Visible = true;
                 }
@@ -245,7 +249,11 @@ namespace GeneralInsuranceManagement.Account
 
         protected void btnReject_Click(object sender, EventArgs e)
         {
-
+            Users user = new Users("cn", 1);
+            if (user.ActionUserAccountStatusRequest(int.Parse(UserId.Value), 2, 2, 1))
+            {
+                SuccessAlert("Approved");
+            }
         }
     }
 }

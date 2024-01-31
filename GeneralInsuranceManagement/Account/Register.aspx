@@ -37,7 +37,7 @@
         <div class="col-lg-8 mx-auto">
             <div class="card ">
                 <div class="card-body p-4">
-                    <h5 class="mb-4" id="title">Create User</h5>
+                    <h5 runat="server" class="mb-4" >  <asp:Literal runat="server" ID="pagetitle" /></h5>
                     <p class="text-danger">
                         <asp:Literal runat="server" ID="ErrorMessage" />
                     </p>
