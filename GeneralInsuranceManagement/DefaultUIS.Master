@@ -146,24 +146,6 @@
             </div>
             <!--navigation-->
             <ul class="metismenu" id="menu">
-                <%--<li>
-                    <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon">
-                            <i class='bx bx-home-alt'></i>
-                        </div>
-                        <div class="menu-title">Dashboard</div>
-                    </a>
-                    <ul>
-                        <li><a href="index.html"><i class='bx bx-radio-circle'></i>Default</a>
-                        </li>
-                        <li><a href="index2.html"><i class='bx bx-radio-circle'></i>Alternate</a>
-                        </li>
-                        <li><a href="index3.html"><i class='bx bx-radio-circle'></i>Digital Marketing</a>
-                        </li>
-                        <li><a href="index4.html"><i class='bx bx-radio-circle'></i>Human Resources</a>
-                        </li>
-                    </ul>
-                </li>--%>
                 <li>
                     <a runat="server" href="~/Default">
                         <div class="parent-icon">
