@@ -56,15 +56,15 @@
                                     <div class="form-body">
                                         <form class="row g-3" runat="server">
                                             <div class="col-12">
-                                                <asp:Label runat="server" for="inputEmailAddress" CssClass="form-label">Email</asp:Label>
-                                                <asp:TextBox runat="server" ID="EmailAddress" CssClass="form-control" TextMode="email" placeholder="admin@user.com" />
+                                                <asp:Label runat="server" for="inputEmailAddress" AssociatedControlID="Email" CssClass="form-label">Email</asp:Label>
+                                                <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" placeholder="admin@user.com" />
                                                 <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="inputUsername"--%>
                                                 <%--CssClass="text-danger " ErrorMessage="The Username field is required." />--%>
                                             </div>
                                             <div class="col-12">
                                                 <asp:Label runat="server" for="Password" CssClass="form-label border-end-0">Password</asp:Label>
                                                 <div class="input-group" id="show_hide_password">
-                                                    <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" TextMode="SingleLine" />
+                                                    <asp:TextBox runat="server" ID="Password" CssClass="form-control" TextMode="SingleLine" />
                                                     <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
                                                     <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="inputUsername"--%>
                                                     <%--CssClass="text-danger " ErrorMessage="The Username field is required." />--%>
@@ -72,8 +72,8 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
-                                                    <label class="form-check-label" for="flexSwitchCheckChecked">Remember Me</label>
+                                                    <asp:CheckBox runat="server" ID="RememberMe" />
+                                                    <asp:Label runat="server" for="flexSwitchCheckChecked" CssClass="form-check-label">Remember Me</asp:Label>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 text-end">
