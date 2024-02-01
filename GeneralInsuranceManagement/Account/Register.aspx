@@ -166,7 +166,7 @@
                         <div class="row">
                             <label class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <asp:Button runat="server" OnClick="Save_Click" ID="btnRegister" Text="Register" CssClass="btn btn-primary px-4 " />
+                                <asp:Button runat="server" OnClick="CreateUser_Click" ID="btnRegister" Text="Register" CssClass="btn btn-primary px-4 " />
                                 <asp:Button runat="server" OnClick="btnReset_Click" ID="btnReset" Text="Reset" CssClass="btn btn-light px-4 " />
                             </div>
                         </div>
