@@ -196,6 +196,23 @@ a {
 
 }
 
+.btn-primary {
+	background-color: #00416a;
+}
+
+#background {
+	background-image: url('../images/login-images/house-car-cover.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+#register_background {
+	background-image: url('../images/login-images/cover-insurer.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
 
 
 .page-content {
