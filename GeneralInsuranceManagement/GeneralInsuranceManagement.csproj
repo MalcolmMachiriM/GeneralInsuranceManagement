@@ -48,6 +48,12 @@
     <Reference Include="GeneralInsuranceBusinessLogic">
       <HintPath>..\packages\GeneralInsuranceBusinessLogic.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.Base, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Configuration.ConfigurationBuilders.Base.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.2.0.0\lib\Net471\Microsoft.Configuration.ConfigurationBuilders.UserSecrets.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
       <HintPath>..\..\AGMSystem\AGMSystem\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
@@ -1088,8 +1094,12 @@
     <Content Include="Site.Master" />
     <Content Include="UserManagement\ApprovedUsers.aspx" />
     <Content Include="UserManagement\UserEnquiries.aspx" />
+
     <Content Include="UserManagement\userlogin.aspx" />
     <Content Include="UserManagement\user_Register.aspx" />
+
+    <Content Include="UserManagement\UserLogs.aspx" />
+
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -1288,6 +1298,7 @@
     <Compile Include="UserManagement\UserEnquiries.aspx.designer.cs">
       <DependentUpon>UserEnquiries.aspx</DependentUpon>
     </Compile>
+
     <Compile Include="UserManagement\userlogin.aspx.cs">
       <DependentUpon>userlogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1301,6 +1312,14 @@
     </Compile>
     <Compile Include="UserManagement\user_Register.aspx.designer.cs">
       <DependentUpon>user_Register.aspx</DependentUpon>
+
+    <Compile Include="UserManagement\UserLogs.aspx.cs">
+      <DependentUpon>UserLogs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManagement\UserLogs.aspx.designer.cs">
+      <DependentUpon>UserLogs.aspx</DependentUpon>
+
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

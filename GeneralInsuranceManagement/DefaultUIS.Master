@@ -642,7 +642,6 @@
                                             <p class="user-name mb-0"><%--<a runat="server"  href="~/Account/Manage" title="Manage your account"></a>--%>Hello, <%: Context.User.Identity.GetUserName()  %> !</p>
                                             <p class="designattion mb-0">
                                                 Web Designer <% Context.User.Identity.GetUserId(); %>
-                                                <%--<asp:LoginStatus  runat="server" CssClass="nav-link" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />--%>
                                             </p>
 
                                         </LoggedInTemplate>
@@ -657,7 +656,7 @@
                                     <a class="dropdown-item d-flex align-items-center" runat="server" href="~/Account/Manage" title="Manage your account"><i class="bx bx-user fs-5"></i><span>Profile</span></a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i class="bx bx-cog fs-5"></i><span>Logs</span></a>
+                                    <a class="dropdown-item d-flex align-items-center" runat="server" href="~/UserManagement/UserLogs"><i class="bx bx-cog fs-5"></i><span>Logs</span></a>
                                 </li>
                                 <li>
                                     <p class="dropdown-item d-flex align-items-center"><i class="bx bx-log-out-circle"></i>
