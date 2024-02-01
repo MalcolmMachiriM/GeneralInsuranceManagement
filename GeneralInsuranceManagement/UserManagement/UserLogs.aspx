@@ -8,7 +8,7 @@
              <ol class="breadcrumb mb-0 p-0">
                  <li class="breadcrumb-item"><a href="~/Default"><i class="bx bx-home-alt"></i></a>
                  </li>
-                 <li class="breadcrumb-item active" aria-current="page">Register</li>
+                 <li class="breadcrumb-item active" aria-current="page">Logs</li>
              </ol>
          </nav>
      </div>
@@ -36,9 +36,9 @@
     <div class="card-body">
         <div class="table-responsive">
             <%--<div class="col-sm-12 align-content-center">--%>
-            <asp:GridView ID="grdUsers" Width="100%" runat="server"
+            <asp:GridView ID="grdLogs" Width="100%" runat="server"
                 AutoGenerateColumns="False" AutoGenerateSelectButton="False"
-                DataKeyNames="ID" OnRowCommand="grdUsers_RowCommand"
+                DataKeyNames="ID"
                 CssClass="table table-striped table-bordered example" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
                 Style="border-collapse: collapse !important; width=100%"
                 AllowPaging="True" AllowSorting="True" PageSize="10">
