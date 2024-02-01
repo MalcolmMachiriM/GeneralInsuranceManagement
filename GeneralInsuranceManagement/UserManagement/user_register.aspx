@@ -22,7 +22,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
     <link href="../assets/css/app.css" rel="stylesheet">
     <link href="../assets/css/icons.css" rel="stylesheet">
-    <title>Login</title>
+    <title>Register</title>
 </head>
 <body>
     <!--wrapper-->
@@ -47,35 +47,42 @@
                                         <p class="mb-0">Please fill the below details to create your account</p>
                                     </div>
                                     <div class="form-body">
-                                        <form class="row g-3">
+                                        <form class="row g-3" runat="server">
                                             <div class="col-12">
-                                                <label for="inputUsername" class="form-label">Username</label>
-                                                <input type="email" class="form-control" id="inputUsername" placeholder="Jhon">
+                                                <asp:Label runat="server" for="inputUsername" CssClass="form-label">Username</asp:Label>
+                                                <asp:TextBox runat="server" ID="inputUsername" CssClass="form-control" TextMode="SingleLine" />
+                                                <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="inputUsername"--%>
+                                                <%--CssClass="text-danger " ErrorMessage="The Username field is required." />--%>
                                             </div>
                                             <div class="col-12">
-                                                <label for="inputEmailAddress" class="form-label">Email Address</label>
-                                                <input type="email" class="form-control" id="inputEmailAddress" placeholder="example@user.com">
+                                                <asp:Label runat="server" for="inputEmailAddress" CssClass="form-label">Email Address</asp:Label>
+                                                <asp:TextBox runat="server" ID="EmailAddress" CssClass="form-control" TextMode="email" placeholder="admin@user.com" />
+                                                <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="inputUsername"--%>
+                                                <%--CssClass="text-danger " ErrorMessage="The Username field is required." />--%>
                                             </div>
                                             <div class="col-12">
-                                                <label for="inputChoosePassword" class="form-label">Password</label>
+                                                <asp:Label runat="server" for="Password" CssClass="form-label border-end-0">Password</asp:Label>
                                                 <div class="input-group" id="show_hide_password">
-                                                    <input type="password" class="form-control border-end-0" id="inputChoosePassword" value="12345678" placeholder="Enter Password">
+                                                    <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" TextMode="SingleLine" />
                                                     <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+                                                    <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="inputUsername"--%>
+                                                    <%--CssClass="text-danger " ErrorMessage="The Username field is required." />--%>
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <label for="inputSelectCountry" class="form-label">Country</label>
-                                                <select class="form-select" id="inputSelectCountry" aria-label="Default select example">
-                                                    <option selected>India</option>
-                                                    <option value="1">United Kingdom</option>
-                                                    <option value="2">America</option>
-                                                    <option value="3">Dubai</option>
-                                                </select>
+                                                <asp:Label runat="server" for="inputSelectCountry" CssClass="form-label">Country</asp:Label>
+                                                <asp:DropDownList runat="server" ID="inputSelectCountry" CssClass="form-select"
+                                                    aria-label="Default select example">
+                                                    <asp:ListItem Text="" Value="" />
+                                                    <asp:ListItem Text="Botswana" Value="1" />
+                                                    <asp:ListItem Text="Zimbabwe" Value="2" />
+                                                    <asp:ListItem Text="Zambia" Value="3" />
+                                                </asp:DropDownList>
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-check form-switch">
-                                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
-                                                    <label class="form-check-label" for="flexSwitchCheckChecked">I read and agree to Terms & Conditions</label>
+                                                    <asp:CheckBox runat="server" ID="flexSwitchCheckChecked" />
+                                                    <asp:Label runat="server" for="flexSwitchCheckChecked" CssClass="form-check-label">I read and agree to Terms & Conditions</asp:Label>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -85,7 +92,11 @@
                                             </div>
                                             <div class="col-12">
                                                 <div class="text-center ">
-                                                    <p class="mb-0">Already have an account? <a href="auth-cover-signin.html" style="color: #00416a;">Sign in here</a></p>
+                                                    <p class="mb-0">
+                                                        Already have an account? 
+                                                        <asp:HyperLink runat="server" ID="signInLink" NavigateUrl="auth-cover-signin.html"
+                                                            CssClass="signin-link" Text="Sign in here" Style="color: #00416a;" />
+                                                    </p>
                                                 </div>
                                             </div>
                                         </form>
