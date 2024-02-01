@@ -827,7 +827,11 @@
     <Content Include="assets\images\login-images\bg-forgot-password.jpg" />
     <Content Include="assets\images\login-images\bg-lock-screen.jpg" />
     <Content Include="assets\images\login-images\bg-login-img.png" />
+    <Content Include="assets\images\login-images\cover-insurer.jpg" />
     <Content Include="assets\images\login-images\forgot-password-cover.svg" />
+    <Content Include="assets\images\login-images\house-car-cover.jpg" />
+    <Content Include="assets\images\login-images\house-cover.jpg" />
+    <Content Include="assets\images\login-images\house-cover2.jpg" />
     <Content Include="assets\images\login-images\login-cover.svg" />
     <Content Include="assets\images\login-images\register-cover.svg" />
     <Content Include="assets\images\login-images\reset-password-cover.svg" />
@@ -1084,6 +1088,8 @@
     <Content Include="Site.Master" />
     <Content Include="UserManagement\ApprovedUsers.aspx" />
     <Content Include="UserManagement\UserEnquiries.aspx" />
+    <Content Include="UserManagement\userlogin.aspx" />
+    <Content Include="UserManagement\user_Register.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -1281,6 +1287,20 @@
     </Compile>
     <Compile Include="UserManagement\UserEnquiries.aspx.designer.cs">
       <DependentUpon>UserEnquiries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\userlogin.aspx.cs">
+      <DependentUpon>userlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManagement\userlogin.aspx.designer.cs">
+      <DependentUpon>userlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\user_Register.aspx.cs">
+      <DependentUpon>user_Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManagement\user_Register.aspx.designer.cs">
+      <DependentUpon>user_Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
