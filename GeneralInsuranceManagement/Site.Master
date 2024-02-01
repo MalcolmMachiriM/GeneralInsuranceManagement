@@ -16,12 +16,14 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     
-    <link href="Content/perfect-scrollbar.css" rel="stylesheet" />
-    <link href="Content/font-awesome.css" rel="stylesheet" />
-    <link href="Content/ionicons.css" rel="stylesheet" />
-    <link href="Content/rickshaw.min.css" rel="stylesheet" />
-    <link href="Content/ionicons.min.css" rel="stylesheet" />
-    <link href="Content/starlight.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="~/Content/perfect-scrollbar.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/ionicons.css" rel="stylesheet" />
+    <link href="~/Content/rickshaw.min.css" rel="stylesheet" />
+    <link href="~/Content/ionicons.min.css" rel="stylesheet" />
+    <link href="~/Content/starlight.css" rel="stylesheet" />
+    <%--<link href="lib/font-awesome/css/fontawesome.css" type="text/css" rel="stylesheet" />--%>
 
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
      <%-- swal --%>
@@ -128,7 +130,7 @@
       <label class="sidebar-label">Navigation</label>
 
       <div class="sl-sideleft-menu">
-        <a href="index.html" class="sl-menu-link active">
+        <a href="~/Default.aspx" class="sl-menu-link active">
           <div class="sl-menu-item">
             <i class="menu-item-icon fas fa-home tx-22"></i>
             <span class="menu-item-label">Dashboard</span>
@@ -192,7 +194,7 @@
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
           <li class="nav-item"><a runat="server" class="nav-link" href="~/Account/Register">Register</a></li>
-          <li class="nav-item"><a href="table-datatable.html" class="nav-link">Enquiries</a></li>
+          <li class="nav-item"><a runat="server" class="nav-link" href="~/UserManagement/UserEnquiries">Enquiries</a></li>
         </ul>
         <a href="#" class="sl-menu-link">
           <div class="sl-menu-item">
@@ -444,6 +446,8 @@
     </asp:PlaceHolder>
 
     
+    <script src="lib/font-awesome/js/fontawesome.js" type="text/javascript"></script>
+    <script src="lib/ionicons/ionicons.js"></script>
     <script src="Scripts/popper.js"></script>
     <script src="Scripts/jquery-ui.js"></script>
     <script src="Scripts/perfect-scrollbar.jquery.js"></script>
