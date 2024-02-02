@@ -1312,7 +1312,7 @@
     </Compile>
     <Compile Include="UserManagement\user_Register.aspx.designer.cs">
       <DependentUpon>user_Register.aspx</DependentUpon>
-
+    </Compile>
     <Compile Include="UserManagement\UserLogs.aspx.cs">
       <DependentUpon>UserLogs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
