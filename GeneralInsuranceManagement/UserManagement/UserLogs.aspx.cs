@@ -1,8 +1,10 @@
 ﻿using GeneralInsuranceBusinessLogic;
+using GeneralInsuranceManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -42,8 +44,8 @@ namespace GeneralInsuranceManagement.UserManagement
         {
             try
             {
-                Users users = new Users("cn", 1);
-                DataSet ds = users.getSavedUsers();
+                Logs logs = new Logs("cn", 1);
+                DataSet ds = logs.getAllLogs();
                 if (ds != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
                 {
                     grdLogs.DataSource = ds;

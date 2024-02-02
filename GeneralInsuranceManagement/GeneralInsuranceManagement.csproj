@@ -1094,12 +1094,9 @@
     <Content Include="Site.Master" />
     <Content Include="UserManagement\ApprovedUsers.aspx" />
     <Content Include="UserManagement\UserEnquiries.aspx" />
-
     <Content Include="UserManagement\userlogin.aspx" />
     <Content Include="UserManagement\user_Register.aspx" />
-
     <Content Include="UserManagement\UserLogs.aspx" />
-
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -1247,6 +1244,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Logs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schemes\SchemeCreation.aspx.cs">
       <DependentUpon>SchemeCreation.aspx</DependentUpon>
@@ -1298,7 +1296,6 @@
     <Compile Include="UserManagement\UserEnquiries.aspx.designer.cs">
       <DependentUpon>UserEnquiries.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="UserManagement\userlogin.aspx.cs">
       <DependentUpon>userlogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1319,7 +1316,6 @@
     </Compile>
     <Compile Include="UserManagement\UserLogs.aspx.designer.cs">
       <DependentUpon>UserLogs.aspx</DependentUpon>
-
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

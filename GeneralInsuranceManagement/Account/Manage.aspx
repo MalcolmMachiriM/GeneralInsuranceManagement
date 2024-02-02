@@ -1,8 +1,8 @@
-﻿<%@ Page Title="Manage Account" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="GeneralInsuranceManagement.Account.Manage" %>
+﻿<%@ Page Title="Manage Account" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="Manage.aspx.cs" Inherits="GeneralInsuranceManagement.Account.Manage" %>
 
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
-<asp:Content ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <main aria-labelledby="title">
         <h2 id="title"><%: Title %>.</h2>
 
@@ -51,12 +51,12 @@
                     <% } %>
                     --%>
 
-                    <dt>Two-Factor Authentication:</dt>
+                   <%-- <dt>Two-Factor Authentication:</dt>
                     <dd>
                         <p>
                             There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
                             for details on setting up this ASP.NET application to support two-factor authentication.
-                        </p>
+                        </p>--%>
                         <% if (TwoFactorEnabled)
                             { %> 
                         <%--
@@ -71,7 +71,7 @@
                         <asp:LinkButton Text="[Enable]" CommandArgument="true" OnClick="TwoFactorEnable_Click" runat="server" />
                         --%>
                         <% } %>
-                    </dd>
+                    <%--</dd>--%>
                 </dl>
             </div>
         </div>

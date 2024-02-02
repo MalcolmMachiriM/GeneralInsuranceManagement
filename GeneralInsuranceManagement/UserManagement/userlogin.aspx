@@ -16,7 +16,7 @@
     <link href="../assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
     <!-- loader-->
     <link href="../assets/css/pace.min.css" rel="stylesheet" />
-    <script src="../assets/js/pace.min.js"></script>
+    <%--<script src="../assets/js/pace.min.js"></script>--%>
     <!-- Bootstrap CSS -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="../assets/css/bootstrap-extended.css" rel="stylesheet">
@@ -65,7 +65,7 @@
                                             <div class="col-12">
                                                 <asp:Label runat="server" for="Password" CssClass="form-label border-end-0">Password</asp:Label>
                                                 <div class="input-group" id="show_hide_password">
-                                                    <asp:TextBox runat="server" ID="Password" CssClass="form-control" TextMode="SingleLine" />
+                                                    <asp:TextBox runat="server" ID="Password" CssClass="form-control" TextMode="Password" />
                                                     <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
                                                     <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="inputUsername"--%>
                                                     <%--CssClass="text-danger " ErrorMessage="The Username field is required." />--%>
@@ -115,6 +115,7 @@
         <%: Scripts.Render("~/assets/js/jquery.min.js") %>
 
         <%: Scripts.Render("https://unpkg.com/feather-icons") %>
+        <%: Scripts.Render("~/assets/js/app.js") %>
 
     </asp:PlaceHolder>
 
@@ -141,7 +142,5 @@
             });
         });
     </script>
-    <!--app JS-->
-    <script src="assets/js/app.js"></script>
 </body>
 </html>
