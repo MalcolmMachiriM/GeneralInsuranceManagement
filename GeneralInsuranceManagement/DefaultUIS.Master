@@ -634,7 +634,7 @@
                                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                                         <AnonymousTemplate>
 
-                                            <p class="user-name mb-0"><a runat="server" href="~/Account/Login">Log in</a></p>
+                                            <p class="user-name mb-0"><a runat="server" href="~/UserManagement/userlogin">Log in</a></p>
 
                                         </AnonymousTemplate>
                                         <LoggedInTemplate>
