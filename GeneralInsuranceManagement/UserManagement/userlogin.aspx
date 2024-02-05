@@ -23,7 +23,84 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
     <link href="../assets/css/app.css" rel="stylesheet">
     <link href="../assets/css/icons.css" rel="stylesheet">
-    <title>Login</title>
+    <title>Login - General Insurance Management</title>
+
+     <%-- swal --%>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+ <%-- Alerts --%>
+ <script type="text/javascript">
+
+     function success(msg) {
+
+         toastr.option = {
+
+             "debug": false,
+
+             "positionClass": "toast-top-center",
+
+             "Onclick": null
+
+         }
+
+         toastr.success(msg, "Success");
+
+         return false;
+
+     }
+
+
+     function error(msg) {
+
+         toastr.option = {
+
+             "debug": false,
+
+             "positionClass": "toast-top-center",
+
+             "Onclick": null
+
+         }
+
+         toastr.error(msg, "Error");
+
+         return false;
+
+     }
+
+     function warning(msg) {
+
+         toastr.option = {
+
+             "debug": false,
+
+             "positionClass": "toast-top-center",
+
+             "Onclick": null
+
+         }
+
+         toastr.warning(msg, "Warning");
+
+         return false;
+
+     }
+
+
+ </script>
+ <%-- Alerts --%>
+
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+ <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+
+ <link media="screen" rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" />
+
+
+ <%-- end swal --%>
 </head>
 <body>
     <!--wrapper-->
@@ -51,7 +128,7 @@
                                             Style="width: 20%;" />
                                     </div>
                                     <div class="text-center mb-4">
-                                        <h5 class="">Active Insurance Admin</h5>
+                                        <h5 class="">General Insurance Management</h5>
                                         <p class="mb-0">Please log in to your account</p>
                                     </div>
                                     <div class="form-body">
@@ -59,17 +136,17 @@
                                             <div class="col-12">
                                                 <asp:Label runat="server" for="inputEmailAddress" AssociatedControlID="Email" CssClass="form-label">Email</asp:Label>
                                                 <asp:TextBox runat="server" ID="Email" CssClass="form-control"  placeholder="admin@user.com" />
-                                                <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="inputUsername"--%>
-                                                <%--CssClass="text-danger " ErrorMessage="The Username field is required." />--%>
+                                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
+                                                CssClass="text-danger " ErrorMessage="The Username field is required." />
                                             </div>
                                             <div class="col-12">
                                                 <asp:Label runat="server" for="Password" CssClass="form-label border-end-0">Password</asp:Label>
                                                 <div class="input-group" id="show_hide_password">
                                                     <asp:TextBox runat="server" ID="Password" CssClass="form-control" TextMode="Password" />
                                                     <a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
-                                                    <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="inputUsername"--%>
-                                                    <%--CssClass="text-danger " ErrorMessage="The Username field is required." />--%>
                                                 </div>
+                                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Password"
+                                                    CssClass="text-danger " ErrorMessage="The Password field is required." />
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-check form-switch">

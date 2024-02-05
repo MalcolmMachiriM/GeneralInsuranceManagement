@@ -177,22 +177,12 @@
                     <div class="row">
                         <label class="col-sm-3 col-form-label"></label>
                         <div class="col-sm-9">
-                            <asp:Button runat="server"  ID="btnRegister" Text="Register" CssClass="btn btn-primary px-4 " />
+                            <asp:Button runat="server"  ID="btnUpdate" Text="Update" CssClass="btn btn-primary px-4 " />&nbsp
                             <asp:Button runat="server"  ID="btnReset" Text="Reset" CssClass="btn btn-light px-4 " />
                         </div>
                     </div>
                 </asp:Panel>
                 <!-- row -->
-                <asp:Panel ID="pnlApprove" runat="server">
-                    <div class="row">
-                        <label class="col-sm-3 col-form-label"></label>
-                        <div class="col-sm-9">
-                            <asp:Button runat="server"  ID="btnApprove" Text="Approve" CssClass="btn btn-success px-4 " />
-                            <asp:Button runat="server"  ID="btnReject" Text="Reject" CssClass="btn btn-danger px-4 " />
-                        </div>
-                    </div>
-                </asp:Panel>
-
 
                 <!-- form-layout-footer -->
             </div>

@@ -109,6 +109,7 @@
 
     </script>
     <%-- Alerts --%>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
@@ -116,8 +117,31 @@
     <link media="screen" rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" />
 
 
-
     <%-- end swal --%>
+
+    <%-- Session stuff --%>
+    <script type="text/javascript">
+        var inactivityTimeout;
+
+        function resetInactivityTimeout() {
+            clearTimeout(inactivityTimeout);
+            // Set the timeout to 5 minutes (300,000 milliseconds)
+            inactivityTimeout = setTimeout(logout, 300000);
+        }
+
+        function logout() {
+            // Redirect to the logout or login page
+            window.location.href = '~/UserManagement/userlogin';
+        }
+
+        // Add event listeners for user activity (e.g., mousemove, keydown, etc.)
+        document.addEventListener('mousemove', resetInactivityTimeout);
+        document.addEventListener('keydown', resetInactivityTimeout);
+
+        // Initialize the timeout on page load
+        resetInactivityTimeout();
+    </script>
+    <%-- Session stuff --%>
     <%--<asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>--%>
 </head>
