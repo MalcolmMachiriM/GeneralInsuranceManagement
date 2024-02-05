@@ -652,7 +652,7 @@
                                 </li>
                                 <li>
                                     <p class="dropdown-item d-flex align-items-center"><i class="bx bx-log-out-circle"></i>
-                                        <asp:LoginStatus runat="server" CssClass="nav-link" LogoutAction="Redirect" LogoutText="Logout" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                        <asp:LoginStatus runat="server" CssClass="nav-link" LogoutAction="Redirect" LogoutText="Logout" LogoutPageUrl="~/UserManagement/userlogin" OnLoggingOut="Unnamed_LoggingOut" />
                                     </p>
                                 </li>
                             </ul>
