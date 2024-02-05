@@ -1001,7 +1001,9 @@
     <Content Include="lib\font-awesome\sprites\brands.svg" />
     <Content Include="lib\font-awesome\sprites\regular.svg" />
     <Content Include="lib\font-awesome\sprites\solid.svg" />
+    <Content Include="Products\CoverTypes\CoverTypeCreation.aspx" />
     <Content Include="Products\ProductCreation.aspx" />
+    <Content Include="Products\ProductEnquiries.aspx" />
     <Content Include="Schemes\SchemeCreation.aspx" />
     <Content Include="Schemes\SchemeEnquiries.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -1246,12 +1248,26 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Logs.cs" />
+    <Compile Include="Products\CoverTypes\CoverTypeCreation.aspx.cs">
+      <DependentUpon>CoverTypeCreation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products\CoverTypes\CoverTypeCreation.aspx.designer.cs">
+      <DependentUpon>CoverTypeCreation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Products\ProductCreation.aspx.cs">
       <DependentUpon>ProductCreation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Products\ProductCreation.aspx.designer.cs">
       <DependentUpon>ProductCreation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Products\ProductEnquiries.aspx.cs">
+      <DependentUpon>ProductEnquiries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products\ProductEnquiries.aspx.designer.cs">
+      <DependentUpon>ProductEnquiries.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schemes\SchemeCreation.aspx.cs">

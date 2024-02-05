@@ -217,7 +217,7 @@
                         <ul>
                             <li><a runat="server" href="~/Products/ProductCreation"><i class='bx bx-radio-circle'></i>Creation</a>
                             </li>
-                            <li><a href="component-accordions.html"><i class='bx bx-radio-circle'></i>Enquiries</a>
+                            <li><a runat="server" href="~/Products/ProductEnquiries"><i class='bx bx-radio-circle'></i>Enquiries</a>
                             </li>
                         </ul>
                     </li>
@@ -229,7 +229,7 @@
                             <div class="menu-title">Cover Types</div>
                         </a>
                         <ul>
-                            <li><a href="content-grid-system.html"><i class='bx bx-radio-circle'></i>Creation</a>
+                            <li><a runat="server" href="~/Products/CoverTypes/CoverTypeCreation"><i class='bx bx-radio-circle'></i>Creation</a>
                             </li>
                             <li><a href="content-typography.html"><i class='bx bx-radio-circle'></i>Enquiries</a>
                             </li>
