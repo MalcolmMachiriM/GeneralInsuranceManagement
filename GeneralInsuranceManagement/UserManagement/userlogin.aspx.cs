@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNet.Identity.Owin;
+﻿using GeneralInsuranceBusinessLogic;
+using GeneralInsuranceManagement.Models;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -20,6 +23,19 @@ namespace GeneralInsuranceManagement.UserManagement
         {
             if (IsValid)
             {
+                //Users user = new Users("cn",1);
+                Logs user = new Logs("cn", 1);
+                string query = $"Select ID from Users where username ='{Email.Text}'";
+                DataSet ds = user.GetUsers(query);
+                string userId = ds.Tables[0].Rows[0]["ID"].ToString();
+
+                if (ds != null && ds.Tables[0] != null && ds.Tables[0].Rows.Count != 0)
+                {
+                    Session["UserID"] = userId;
+                    //Session["Username"] = user.Username;
+                }
+
+
                 // Validate the user password
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
@@ -27,6 +43,8 @@ namespace GeneralInsuranceManagement.UserManagement
                 // This doen't count login failures towards account lockout
                 // To enable password failures to trigger lockout, change to shouldLockout: true
                 var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
+
+                
 
                 switch (result)
                 {

@@ -190,8 +190,8 @@ namespace GeneralInsuranceManagement.Account
                 U.UserRoleID = int.Parse(UserRoleID.SelectedValue);
                 U.ContactNumber = PhoneNumber.Text;
                 U.Password = "pass@123";
-                U.AllowPasswordReuse = AllowPasswordReuse.Checked ? true : false;
-                U.PasswordExpires = PasswordExpires.Checked ? true : false;
+                U.AllowPasswordReuse = AllowPasswordReuse.Checked;
+                U.PasswordExpires = PasswordExpires.Checked;
 
                 if (U.Save() == true)
                 {
@@ -238,9 +238,9 @@ namespace GeneralInsuranceManagement.Account
         protected void Approve_Click(object sender, EventArgs e)
         {
             Users user = new Users("cn", 1);
-            if (user.ActionUserAccountStatusRequest(int.Parse(UserId.Value),2,2,1))
+            if (user.ActionUserAccountStatusRequest(int.Parse(UserId.Value),1,1,0))
             {
-                SuccessAlert("Approved");
+                SuccessAlert("user Approved");
             }
         }
 
@@ -252,9 +252,9 @@ namespace GeneralInsuranceManagement.Account
         protected void btnReject_Click(object sender, EventArgs e)
         {
             Users user = new Users("cn", 1);
-            if (user.ActionUserAccountStatusRequest(int.Parse(UserId.Value), 2, 2, 1))
+            if (user.ActionUserAccountStatusRequest(int.Parse(UserId.Value), 2, 2, 0))
             {
-                SuccessAlert("Approved");
+                SuccessAlert("User Rejected");
             }
         }
     }
