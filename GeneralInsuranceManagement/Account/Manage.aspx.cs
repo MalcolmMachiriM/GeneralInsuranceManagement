@@ -10,6 +10,9 @@ using Microsoft.Owin.Security;
 using Owin;
 using GeneralInsuranceManagement.Models;
 using GeneralInsuranceBusinessLogic;
+using System.Data;
+using System.Web.UI.WebControls;
+using System.Web.UI;
 
 namespace GeneralInsuranceManagement.Account
 {
@@ -63,6 +66,9 @@ namespace GeneralInsuranceManagement.Account
                     CreatePassword.Visible = true;
                     ChangePassword.Visible = false;
                 }
+
+                getDepartments();
+                getRoles();
 
                 // Render success message
                 var message = Request.QueryString["m"];
@@ -145,5 +151,112 @@ namespace GeneralInsuranceManagement.Account
                 PasswordExpires.Checked = user.PasswordExpires;
             }
         }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+            Users user = new Users("cn", 1)
+            {
+                ID = long.Parse(TxtUserId.Value),
+                Firstnames = FirstName.Text,
+                Surname = Lastname.Text,
+                Username = Username.Text,
+                EmailAddress = Email.Text,
+                ContactNumber = PhoneNumber.Text,
+                UserRoleID = long.Parse(UserRoleID.SelectedValue),
+                DepartmentID = long.Parse(DepartmentId.SelectedValue),
+                AllowPasswordReuse = AllowPasswordReuse.Checked,
+                PasswordExpires = PasswordExpires.Checked,
+            };
+            if (user.Save())
+            {
+                SuccessAlert($"{FirstName.Text} {Lastname.Text} Updated Successfully");
+            }
+            else
+            {
+                RedAlert("Failed to update");
+            }
+
+        }
+        private void getRoles()
+        {
+
+            try
+            {
+                Users agm = new Users("cn", 1);
+                DataSet ds = agm.getUserRoles();
+                if (ds != null)
+                {
+                    ListItem listItem = new ListItem("Select Role", "0");
+                    UserRoleID.DataSource = ds;
+                    UserRoleID.DataValueField = "ID";
+                    UserRoleID.DataTextField = "Description";
+                    UserRoleID.DataBind();
+                    UserRoleID.Items.Insert(0, listItem);
+                }
+                else
+                {
+                    ListItem li = new ListItem("No role found", "0");
+                    UserRoleID.Items.Clear();
+                    UserRoleID.DataSource = null;
+                    UserRoleID.DataBind();
+                    UserRoleID.Items.Insert(0, li);
+                }
+            }
+            catch (Exception a)
+            {
+
+                RedAlert(a.Message);
+            }
+        }
+        private void getDepartments()
+        {
+
+            try
+            {
+                Users agm = new Users("cn", 1);
+                DataSet ds = agm.getDepartments();
+                if (ds != null)
+                {
+                    ListItem listItem = new ListItem("Select department", "0");
+                    DepartmentId.DataSource = ds;
+                    DepartmentId.DataValueField = "ID";
+                    DepartmentId.DataTextField = "DepartmentName";
+                    DepartmentId.DataBind();
+                    DepartmentId.Items.Insert(0, listItem);
+                }
+                else
+                {
+                    ListItem li = new ListItem("No departments found", "0");
+                    DepartmentId.Items.Clear();
+                    DepartmentId.DataSource = null;
+                    DepartmentId.DataBind();
+                    DepartmentId.Items.Insert(0, li);
+                }
+            }
+            catch (Exception a)
+            {
+
+                RedAlert(a.Message);
+            }
+        }
+        #region alerts
+        protected void RedAlert(string MsgFlg)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Error!', '" + MsgFlg + "', 'error');", true);
+
+        }
+
+        protected void WarningAlert(string MsgFlg)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Warning!', '" + MsgFlg + "', 'warning');", true);
+
+        }
+
+        protected void SuccessAlert(string MsgFlg)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
     }
 }
