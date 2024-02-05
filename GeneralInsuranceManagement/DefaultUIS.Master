@@ -231,7 +231,7 @@
                         <ul>
                             <li><a runat="server" href="~/Products/CoverTypes/CoverTypeCreation"><i class='bx bx-radio-circle'></i>Creation</a>
                             </li>
-                            <li><a href="content-typography.html"><i class='bx bx-radio-circle'></i>Enquiries</a>
+                            <li><a runat="server" href="~/Products/CoverTypes/CoverTypeEnquiries"><i class='bx bx-radio-circle'></i>Enquiries</a>
                             </li>
                         </ul>
                     </li>

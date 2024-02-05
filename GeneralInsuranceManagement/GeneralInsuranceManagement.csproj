@@ -1002,6 +1002,7 @@
     <Content Include="lib\font-awesome\sprites\regular.svg" />
     <Content Include="lib\font-awesome\sprites\solid.svg" />
     <Content Include="Products\CoverTypes\CoverTypeCreation.aspx" />
+    <Content Include="Products\CoverTypes\CoverTypeEnquiries.aspx" />
     <Content Include="Products\ProductCreation.aspx" />
     <Content Include="Products\ProductEnquiries.aspx" />
     <Content Include="Schemes\SchemeCreation.aspx" />
@@ -1254,6 +1255,13 @@
     </Compile>
     <Compile Include="Products\CoverTypes\CoverTypeCreation.aspx.designer.cs">
       <DependentUpon>CoverTypeCreation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Products\CoverTypes\CoverTypeEnquiries.aspx.cs">
+      <DependentUpon>CoverTypeEnquiries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Products\CoverTypes\CoverTypeEnquiries.aspx.designer.cs">
+      <DependentUpon>CoverTypeEnquiries.aspx</DependentUpon>
     </Compile>
     <Compile Include="Products\ProductCreation.aspx.cs">
       <DependentUpon>ProductCreation.aspx</DependentUpon>
