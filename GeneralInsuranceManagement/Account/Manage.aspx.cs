@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using GeneralInsuranceManagement.Models;
+using GeneralInsuranceBusinessLogic;
 
 namespace GeneralInsuranceManagement.Account
 {
@@ -50,6 +51,8 @@ namespace GeneralInsuranceManagement.Account
 
             if (!IsPostBack)
             {
+                TxtUserId.Value = Session["UserID"].ToString();
+                getUserDetails(long.Parse(TxtUserId.Value));
                 // Determine the sections to render
                 if (HasPassword(manager))
                 {
@@ -123,6 +126,24 @@ namespace GeneralInsuranceManagement.Account
             manager.SetTwoFactorEnabled(User.Identity.GetUserId(), true);
 
             Response.Redirect("/Account/Manage");
+        }
+
+        public void getUserDetails(long UserId)
+        {
+            Users user = new Users("cn",1);
+            if (user.Retrieve(UserId))
+            {
+                FirstName.Text = user.Firstnames;
+                Lastname.Text = user.Surname;
+                Username.Text = user.Username;
+                Email.Text = user.EmailAddress;
+                PhoneNumber.Text = user.ContactNumber;
+                PasswordLifeSpan.Text = user.PasswordLifeSpan.ToString();
+                UserRoleID.Text = user.UserRoleID.ToString();
+                DepartmentId.Text = user.DepartmentID.ToString();
+                AllowPasswordReuse.Checked = user.AllowPasswordReuse;
+                PasswordExpires.Checked = user.PasswordExpires;
+            }
         }
     }
 }

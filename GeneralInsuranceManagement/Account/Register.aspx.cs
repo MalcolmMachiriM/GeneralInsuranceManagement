@@ -190,8 +190,8 @@ namespace GeneralInsuranceManagement.Account
                 U.UserRoleID = int.Parse(UserRoleID.SelectedValue);
                 U.ContactNumber = PhoneNumber.Text;
                 U.Password = "pass@123";
-                U.AllowPasswordReuse = AllowPasswordReuse.Checked ? true : false;
-                U.PasswordExpires = PasswordExpires.Checked ? true : false;
+                U.AllowPasswordReuse = AllowPasswordReuse.Checked;
+                U.PasswordExpires = PasswordExpires.Checked;
 
                 if (U.Save() == true)
                 {

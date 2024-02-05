@@ -102,5 +102,12 @@ namespace GeneralInsuranceManagement.Models
         {
             mMsgflg = str;
         }
+
+
+        //must be in users
+        public virtual DataSet GetUsers(string sql)
+        {
+            return db.ExecuteDataSet(CommandType.Text, sql);
+        }
     }
 }
