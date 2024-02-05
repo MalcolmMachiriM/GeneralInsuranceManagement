@@ -132,6 +132,15 @@ namespace GeneralInsuranceManagement.Account
         protected global::System.Web.UI.WebControls.DropDownList DepartmentId;
 
         /// <summary>
+        /// ChangePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink ChangePassword;
+
+        /// <summary>
         /// AllowPasswordReuse control.
         /// </summary>
         /// <remarks>
@@ -166,24 +175,6 @@ namespace GeneralInsuranceManagement.Account
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpdate;
-
-        /// <summary>
-        /// btnReset control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReset;
-
-        /// <summary>
-        /// ChangePassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ChangePassword;
 
         /// <summary>
         /// CreatePassword control.
