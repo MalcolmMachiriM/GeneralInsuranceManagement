@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GeneralInsuranceBusinessLogic;
+using GeneralInsuranceManagement.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +14,11 @@ namespace GeneralInsuranceManagement.Schemes
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnCreate_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
