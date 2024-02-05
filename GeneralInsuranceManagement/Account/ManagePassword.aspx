@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <main aria-labelledby="title">
-        <h2 id="title"><%: Title %>.</h2>
+        <h2 id="title"><%: Title %></h2>
         <div class="row">
             <section id="passwordForm">
                 <asp:PlaceHolder runat="server" ID="setPassword" Visible="false">
@@ -49,7 +49,7 @@
 
                 <asp:PlaceHolder runat="server" ID="changePasswordHolder" Visible="false">
                     <div>
-                        <h4>Change Password Form</h4>
+                        <%--<h4>Change Password Form</h4>--%>
                         <hr />
                         <asp:ValidationSummary runat="server" ShowModelStateErrors="true" CssClass="text-danger" />
                         <div class="row">
@@ -82,6 +82,7 @@
                                     ValidationGroup="ChangePassword" />
                             </div>
                         </div>
+                        <br />
                         <div class="row">
                             <div class="offset-md-2 col-md-10">
                                 <asp:Button runat="server" Text="Change Password" ValidationGroup="ChangePassword" OnClick="ChangePassword_Click" CssClass="btn btn-outline-dark" />

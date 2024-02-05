@@ -156,6 +156,15 @@
                 </div>
                 <!-- row -->
                 <div class="row">
+                    <asp:Label runat="server" AssociatedControlID="ChangePassword" class="col-sm-3 col-form-label">Password </asp:Label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Change]" Visible="false" ID="ChangePassword" runat="server" />
+                        </div>
+                    </div>
+                </div>
+                <!-- row -->
+                <div class="row">
                     <asp:Label runat="server" AssociatedControlID="AllowPasswordReuse" class="col-sm-3 col-form-label">Allow Password Reuse? </asp:Label>
                     <div class="col-sm-9">
                         <div class="form-check">
@@ -178,7 +187,6 @@
                         <label class="col-sm-3 col-form-label"></label>
                         <div class="col-sm-9">
                             <asp:Button runat="server" OnClick="btnUpdate_Click" ID="btnUpdate" Text="Update" CssClass="btn btn-primary px-4 " />&nbsp
-                            <asp:Button runat="server"  ID="btnReset" Text="Reset" CssClass="btn btn-light px-4 " />
                         </div>
                     </div>
                 </asp:Panel>
@@ -194,10 +202,10 @@
         <div class="col-md-12">
             <div class="row">
                 <hr />
-                <dl class="dl-horizontal">
-                    <dt>Password:</dt>
+                <dl class="dl-vertical">
+                    <%--<dt>Password:</dt>--%>
                     <dd>
-                        <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Change]" Visible="false" ID="ChangePassword" runat="server" />
+                        <%--<asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Change]" Visible="false" ID="ChangePassword" runat="server" />--%>
                         <asp:HyperLink NavigateUrl="/Account/ManagePassword" Text="[Create]" Visible="false" ID="CreatePassword" runat="server" />
                     </dd>
                     <dt>External Logins:</dt>
