@@ -1001,6 +1001,7 @@
     <Content Include="lib\font-awesome\sprites\brands.svg" />
     <Content Include="lib\font-awesome\sprites\regular.svg" />
     <Content Include="lib\font-awesome\sprites\solid.svg" />
+    <Content Include="Policies\PolicyCreation.aspx" />
     <Content Include="Products\CoverTypes\CoverTypeCreation.aspx" />
     <Content Include="Products\CoverTypes\CoverTypeEnquiries.aspx" />
     <Content Include="Products\ProductCreation.aspx" />
@@ -1249,6 +1250,13 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Logs.cs" />
+    <Compile Include="Policies\PolicyCreation.aspx.cs">
+      <DependentUpon>PolicyCreation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Policies\PolicyCreation.aspx.designer.cs">
+      <DependentUpon>PolicyCreation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Products\CoverTypes\CoverTypeCreation.aspx.cs">
       <DependentUpon>CoverTypeCreation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
