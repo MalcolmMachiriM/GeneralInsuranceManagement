@@ -123,51 +123,6 @@ namespace GeneralInsuranceManagement.Policies
         protected global::System.Web.UI.WebControls.TextBox BenefitTerm;
 
         /// <summary>
-        /// MaxPremiumTerm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MaxPremiumTerm;
-
-        /// <summary>
-        /// MinimumSumAssured control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MinimumSumAssured;
-
-        /// <summary>
-        /// MaximumSumAssured control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MaximumSumAssured;
-
-        /// <summary>
-        /// Description control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Description;
-
-        /// <summary>
-        /// CanItBeCeded control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CanItBeCeded;
-
-        /// <summary>
         /// pnlSave control.
         /// </summary>
         /// <remarks>

@@ -112,46 +112,6 @@
                              CssClass="text-danger" ErrorMessage="The Benefit zTerm field is required." />
                      </div>
                      <!-- row -->
-                     <div class="col-md-6">
-                         <asp:Label runat="server" AssociatedControlID="MaxPremiumTerm" class="form-label">Max Premium Term</asp:Label>
-                         <asp:TextBox runat="server" ID="MaxPremiumTerm" CssClass="form-control" placeholder="Enter Max Premium Term " />
-                         <asp:RequiredFieldValidator runat="server" ControlToValidate="MaxPremiumTerm"
-                             CssClass="text-danger" ErrorMessage="The Max Premium Term field is required." />
-                     </div>
-                     <!-- row -->
-                     <div class="col-md-6">
-                         <asp:Label runat="server" AssociatedControlID="MinimumSumAssured" class="form-label">Minimum Sum Assured</asp:Label>
-                         <asp:TextBox runat="server" ID="MinimumSumAssured" CssClass="form-control" placeholder="Enter Minimum Sum Assured " />
-                         <asp:RequiredFieldValidator runat="server" ControlToValidate="MinimumSumAssured"
-                             CssClass="text-danger" ErrorMessage="The Minimum Sum Assured field is required." />
-                     </div>
-                     <!-- row -->
-                     <div class="col-md-6">
-                         <asp:Label runat="server" AssociatedControlID="MaximumSumAssured" class="form-label">Maximum Sum Assured</asp:Label>
-                         <asp:TextBox runat="server" ID="MaximumSumAssured" CssClass="form-control" placeholder="Enter Maximum Sum Assured " />
-                         <asp:RequiredFieldValidator runat="server" ControlToValidate="MaximumSumAssured"
-                             CssClass="text-danger" ErrorMessage="The Minimum Sum Assured field is required." />
-                     </div>
-                     <!-- row -->
-                     <div class="col-md-6">
-                         <asp:Label runat="server" AssociatedControlID="Description" class="form-label">Description</asp:Label>
-                         <asp:TextBox runat="server" ID="Description" CssClass="form-control"  placeholder="Enter Description " />
-                         <asp:RequiredFieldValidator runat="server" ControlToValidate="Description"
-                             CssClass="text-danger" ErrorMessage="The Description field is required." />
-                     </div>
-                     <!-- row -->
-                     <div class="col-md-6">
-                         <div class="row">
-                             <asp:Label runat="server" AssociatedControlID="CanItBeCeded" class="col-sm-4 col-form-label">Can It Be Ceded? </asp:Label>
-                             <div class="col-sm-8">
-                                 <div class="form-check mt-2">
-                                     <asp:CheckBox ID="CanItBeCeded" CssClass="form-check" runat="server" />
-                                 </div>
-                             </div>
-                         </div>
-
-                     </div>
-                     <!-- row -->
                      <asp:Panel ID="pnlSave" runat="server">
                          <div class="row">
                              <label class="col-sm-3 col-form-label"></label>
