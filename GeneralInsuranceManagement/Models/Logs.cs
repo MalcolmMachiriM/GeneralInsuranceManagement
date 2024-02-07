@@ -6,19 +6,26 @@ namespace GeneralInsuranceManagement.Models
 {
     public class Logs
     {
+        enum Activity
+        {
+            CREATE = 1,
+            UPDATE = 2,
+            DELETE = 3,
+        }
         protected Database db;
         protected string mConnectionName;
         protected long mObjectUserID;
-        protected long mID;
-        protected long mActionedByID;
-        protected string mDescription;
+        protected int mID;
+        protected long mUserID;
+        protected long mActionID;
+        protected long mCreatedBy;
         protected string mDateOfAction;
         protected string mMsgflg;
 
         public string MsgFlg { get { return mMsgflg; } set { mMsgflg = value; } }
-        public long ID { get { return mID; } set { mID = value; } }
-        public long ActionedByID { get { return mID; } set { mID = value; } }
-        public string Description { get { return mDescription; } set { mDescription = value; } }
+        public int ID { get { return mID; } set { mID = value; } }
+        public long ActionedByID { get { return mCreatedBy; } set { mCreatedBy = value; } }
+        public long ActionID { get { return mActionID; } set { mActionID = value; } }
         public string DateOfAction { get { return mDateOfAction; } set { mDateOfAction = value; } }
 
         public Database Database => db;
@@ -94,7 +101,7 @@ namespace GeneralInsuranceManagement.Models
         protected internal virtual void LoadDataRecord(DataRow rw)
         {
             mID = ((rw["ID"] != DBNull.Value) ? int.Parse(rw["ID"].ToString()) : 0);
-            mActionedByID = ((rw["ActionedBy"] != DBNull.Value) ? int.Parse(rw["ActionedBy"].ToString()) : 0);
+            mCreatedBy = ((rw["CreatedBy"] != DBNull.Value) ? int.Parse(rw["CreatedBy"].ToString()) : 0);
             mDateOfAction = ((rw["DateOfAction"] == DBNull.Value) ? string.Empty : rw["DateOfAction"].ToString());
             mDescription = ((rw["Description"] == DBNull.Value) ? string.Empty : rw["Description"].ToString());
         }
