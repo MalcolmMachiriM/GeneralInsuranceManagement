@@ -1,13 +1,16 @@
-﻿using GeneralInsuranceBusinessLogic;
+﻿using Antlr.Runtime.Misc;
+using GeneralInsuranceBusinessLogic;
 using GeneralInsuranceManagement.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Data;
+using System.EnterpriseServices;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static GeneralInsuranceManagement.Models.Logs;
 
 namespace GeneralInsuranceManagement.Account
 {
@@ -23,7 +26,6 @@ namespace GeneralInsuranceManagement.Account
                     pagetitle.Text = "Approve User";
                     UserId.Value = Request.QueryString["UserId"].ToString();
                     GetUserDetails(long.Parse(UserId.Value));
-
                 }
                 else
                 {
@@ -180,6 +182,8 @@ namespace GeneralInsuranceManagement.Account
             try
             {
                 Users U = new Users("cn", 1);
+                long loggedID = long.Parse(Session["UserId"].ToString());
+                DateTime date = DateTime.Now;
                 U.ID = long.Parse(UserId.Value);
                 U.Username = Username.Text;
                 U.Firstnames = FirstName.Text;
@@ -195,6 +199,22 @@ namespace GeneralInsuranceManagement.Account
 
                 if (U.Save() == true)
                 {
+                    Logs log = new Logs("cn", 1)
+                    {
+                        UserID = U.ID,
+                        ActionID = (int)Actions.CREATE,
+                        ActionedByID = loggedID,
+                        DateOfAction = date,
+                    };
+                    try
+                    {
+                        log.Save();
+                    }
+                    catch (Exception ex)
+                    {
+                        WarningAlert(ex.Message);
+                    }
+
                     SuccessAlert($"{U.Firstnames} Saved Successfully");
                     UserId.Value = U.ID.ToString();
                     ClearForm();

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static GeneralInsuranceManagement.Models.Logs;
 
 namespace GeneralInsuranceManagement.UserManagement
 {
@@ -33,6 +34,24 @@ namespace GeneralInsuranceManagement.UserManagement
                 {
                     Session["UserID"] = userId;
                     //Session["Username"] = user.Username;
+                }
+
+                long loggedID = long.Parse(Session["UserId"].ToString());
+                DateTime date = DateTime.Now;
+                Logs log = new Logs("cn", 1)
+                {
+                    UserID = 0,
+                    ActionID = (int)Actions.LOGIN,
+                    ActionedByID = loggedID,
+                    DateOfAction = date,
+                };
+                try
+                {
+                    log.Save();
+                }
+                catch (Exception ex)
+                {
+                    WarningAlert(ex.Message);
                 }
 
 

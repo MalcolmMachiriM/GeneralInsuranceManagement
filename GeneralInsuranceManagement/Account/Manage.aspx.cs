@@ -13,6 +13,7 @@ using GeneralInsuranceBusinessLogic;
 using System.Data;
 using System.Web.UI.WebControls;
 using System.Web.UI;
+using static GeneralInsuranceManagement.Models.Logs;
 
 namespace GeneralInsuranceManagement.Account
 {
@@ -154,6 +155,9 @@ namespace GeneralInsuranceManagement.Account
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
+
+            long loggedID = long.Parse(Session["UserId"].ToString());
+            DateTime date = DateTime.Now;
             Users user = new Users("cn", 1)
             {
                 ID = long.Parse(TxtUserId.Value),
@@ -170,6 +174,17 @@ namespace GeneralInsuranceManagement.Account
             if (user.Save())
             {
                 SuccessAlert($"{FirstName.Text} {Lastname.Text} Updated Successfully");
+                Logs log = new Logs("cn", 1)
+                {
+                    UserID = user.ID,
+                    ActionID = (int)Actions.UPDATE,
+                    ActionedByID = loggedID,
+                    DateOfAction = date,
+                };
+                if (!log.Save())
+                {
+                    WarningAlert("FAiled to log");
+                }
             }
             else
             {
