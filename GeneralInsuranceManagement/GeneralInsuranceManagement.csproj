@@ -964,6 +964,34 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="GlobalParameters\AccountTypes\AccountTypesCreate.aspx" />
+    <Content Include="GlobalParameters\AddressTypes\AddressTypesCreate.aspx" />
+    <Content Include="GlobalParameters\Banks\BanksCreate.aspx" />
+    <Content Include="GlobalParameters\BusinessDecisions\BusinessDecisionsCreate.aspx" />
+    <Content Include="GlobalParameters\Cities\CitiesCreate.aspx" />
+    <Content Include="GlobalParameters\Countries\Countries.aspx" />
+    <Content Include="GlobalParameters\Currencies\CurrenciesCreate.aspx" />
+    <Content Include="GlobalParameters\HabitsAndInterests\HabitsAndInterestsCreate.aspx" />
+    <Content Include="GlobalParameters\HumanDemographicGroups\HumanDemographicGroupsCreate.aspx" />
+    <Content Include="GlobalParameters\IdentificationTypes\IdentificationTypesCreate.aspx" />
+    <Content Include="GlobalParameters\IncomeTypes\IncomeTypesCreate.aspx" />
+    <Content Include="GlobalParameters\InstitutionTypes\InstitutionTypesCreate.aspx" />
+    <Content Include="GlobalParameters\InterestRateFrequencies\InterestRateFrequenciesCreate.aspx" />
+    <Content Include="GlobalParameters\InterestRateTypes\InterestRateTypesCreate.aspx" />
+    <Content Include="GlobalParameters\Languages\LanguagesCreate.aspx" />
+    <Content Include="GlobalParameters\MaritalStatus\MaritalStatusCreate.aspx" />
+    <Content Include="GlobalParameters\MedicalRequirements\MedicalRequirementsCreate.aspx" />
+    <Content Include="GlobalParameters\Occupations\OccupationsCreate.aspx" />
+    <Content Include="GlobalParameters\PaymentMethods\PaymentMethodsCreate.aspx" />
+    <Content Include="GlobalParameters\PremiumPaymentFrequencies\PremiumPaymentFrequenciesCreate.aspx" />
+    <Content Include="GlobalParameters\Qualifications\QualificationsCreate.aspx" />
+    <Content Include="GlobalParameters\RelationshipTypes\RelationshipTypesCreate.aspx" />
+    <Content Include="GlobalParameters\Religions\ReligionsCreate.aspx" />
+    <Content Include="GlobalParameters\RequirementsTypes\RequirementsTypesCreate.aspx" />
+    <Content Include="GlobalParameters\StopOrdersNames\StopOrderNamesCreate.aspx" />
+    <Content Include="GlobalParameters\Timegroups\TimegroupsCreate.aspx" />
+    <Content Include="GlobalParameters\Titles\TitlesCreate.aspx" />
+    <Content Include="GlobalParameters\UnderwritingQuestions\UnderwritingQuestionsCreate.aspx" />
     <Content Include="lib\bootstrap\bootstrap.js" />
     <Content Include="lib\font-awesome\css\all.css" />
     <Content Include="lib\font-awesome\css\all.min.css" />
@@ -1247,6 +1275,202 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\AccountTypes\AccountTypesCreate.aspx.cs">
+      <DependentUpon>AccountTypesCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\AccountTypes\AccountTypesCreate.aspx.designer.cs">
+      <DependentUpon>AccountTypesCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\AddressTypes\AddressTypesCreate.aspx.cs">
+      <DependentUpon>AddressTypesCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\AddressTypes\AddressTypesCreate.aspx.designer.cs">
+      <DependentUpon>AddressTypesCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\Banks\BanksCreate.aspx.cs">
+      <DependentUpon>BanksCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\Banks\BanksCreate.aspx.designer.cs">
+      <DependentUpon>BanksCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\BusinessDecisions\BusinessDecisionsCreate.aspx.cs">
+      <DependentUpon>BusinessDecisionsCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\BusinessDecisions\BusinessDecisionsCreate.aspx.designer.cs">
+      <DependentUpon>BusinessDecisionsCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\Cities\CitiesCreate.aspx.cs">
+      <DependentUpon>CitiesCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\Cities\CitiesCreate.aspx.designer.cs">
+      <DependentUpon>CitiesCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\Countries\Countries.aspx.cs">
+      <DependentUpon>Countries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\Countries\Countries.aspx.designer.cs">
+      <DependentUpon>Countries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\Currencies\CurrenciesCreate.aspx.cs">
+      <DependentUpon>CurrenciesCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\Currencies\CurrenciesCreate.aspx.designer.cs">
+      <DependentUpon>CurrenciesCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\HabitsAndInterests\HabitsAndInterestsCreate.aspx.cs">
+      <DependentUpon>HabitsAndInterestsCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\HabitsAndInterests\HabitsAndInterestsCreate.aspx.designer.cs">
+      <DependentUpon>HabitsAndInterestsCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\HumanDemographicGroups\HumanDemographicGroupsCreate.aspx.cs">
+      <DependentUpon>HumanDemographicGroupsCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\HumanDemographicGroups\HumanDemographicGroupsCreate.aspx.designer.cs">
+      <DependentUpon>HumanDemographicGroupsCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\IdentificationTypes\IdentificationTypesCreate.aspx.cs">
+      <DependentUpon>IdentificationTypesCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\IdentificationTypes\IdentificationTypesCreate.aspx.designer.cs">
+      <DependentUpon>IdentificationTypesCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\IncomeTypes\IncomeTypesCreate.aspx.cs">
+      <DependentUpon>IncomeTypesCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\IncomeTypes\IncomeTypesCreate.aspx.designer.cs">
+      <DependentUpon>IncomeTypesCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\InstitutionTypes\InstitutionTypesCreate.aspx.cs">
+      <DependentUpon>InstitutionTypesCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\InstitutionTypes\InstitutionTypesCreate.aspx.designer.cs">
+      <DependentUpon>InstitutionTypesCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\InterestRateFrequencies\InterestRateFrequenciesCreate.aspx.cs">
+      <DependentUpon>InterestRateFrequenciesCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\InterestRateFrequencies\InterestRateFrequenciesCreate.aspx.designer.cs">
+      <DependentUpon>InterestRateFrequenciesCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\InterestRateTypes\InterestRateTypesCreate.aspx.cs">
+      <DependentUpon>InterestRateTypesCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\InterestRateTypes\InterestRateTypesCreate.aspx.designer.cs">
+      <DependentUpon>InterestRateTypesCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\Languages\LanguagesCreate.aspx.cs">
+      <DependentUpon>LanguagesCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\Languages\LanguagesCreate.aspx.designer.cs">
+      <DependentUpon>LanguagesCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\MaritalStatus\MaritalStatusCreate.aspx.cs">
+      <DependentUpon>MaritalStatusCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\MaritalStatus\MaritalStatusCreate.aspx.designer.cs">
+      <DependentUpon>MaritalStatusCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\MedicalRequirements\MedicalRequirementsCreate.aspx.cs">
+      <DependentUpon>MedicalRequirementsCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\MedicalRequirements\MedicalRequirementsCreate.aspx.designer.cs">
+      <DependentUpon>MedicalRequirementsCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\Occupations\OccupationsCreate.aspx.cs">
+      <DependentUpon>OccupationsCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\Occupations\OccupationsCreate.aspx.designer.cs">
+      <DependentUpon>OccupationsCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\PaymentMethods\PaymentMethodsCreate.aspx.cs">
+      <DependentUpon>PaymentMethodsCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\PaymentMethods\PaymentMethodsCreate.aspx.designer.cs">
+      <DependentUpon>PaymentMethodsCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\PremiumPaymentFrequencies\PremiumPaymentFrequenciesCreate.aspx.cs">
+      <DependentUpon>PremiumPaymentFrequenciesCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\PremiumPaymentFrequencies\PremiumPaymentFrequenciesCreate.aspx.designer.cs">
+      <DependentUpon>PremiumPaymentFrequenciesCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\Qualifications\QualificationsCreate.aspx.cs">
+      <DependentUpon>QualificationsCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\Qualifications\QualificationsCreate.aspx.designer.cs">
+      <DependentUpon>QualificationsCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\RelationshipTypes\RelationshipTypesCreate.aspx.cs">
+      <DependentUpon>RelationshipTypesCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\RelationshipTypes\RelationshipTypesCreate.aspx.designer.cs">
+      <DependentUpon>RelationshipTypesCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\Religions\ReligionsCreate.aspx.cs">
+      <DependentUpon>ReligionsCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\Religions\ReligionsCreate.aspx.designer.cs">
+      <DependentUpon>ReligionsCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\RequirementsTypes\RequirementsTypesCreate.aspx.cs">
+      <DependentUpon>RequirementsTypesCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\RequirementsTypes\RequirementsTypesCreate.aspx.designer.cs">
+      <DependentUpon>RequirementsTypesCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\StopOrdersNames\StopOrderNamesCreate.aspx.cs">
+      <DependentUpon>StopOrderNamesCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\StopOrdersNames\StopOrderNamesCreate.aspx.designer.cs">
+      <DependentUpon>StopOrderNamesCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\Timegroups\TimegroupsCreate.aspx.cs">
+      <DependentUpon>TimegroupsCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\Timegroups\TimegroupsCreate.aspx.designer.cs">
+      <DependentUpon>TimegroupsCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\Titles\TitlesCreate.aspx.cs">
+      <DependentUpon>TitlesCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\Titles\TitlesCreate.aspx.designer.cs">
+      <DependentUpon>TitlesCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalParameters\UnderwritingQuestions\UnderwritingQuestionsCreate.aspx.cs">
+      <DependentUpon>UnderwritingQuestionsCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GlobalParameters\UnderwritingQuestions\UnderwritingQuestionsCreate.aspx.designer.cs">
+      <DependentUpon>UnderwritingQuestionsCreate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Logs.cs" />
