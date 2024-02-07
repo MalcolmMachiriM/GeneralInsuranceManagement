@@ -434,17 +434,30 @@
                             <div class="parent-icon">
                                 <i class="bx bx-menu"></i>
                             </div>
-                            <div class="menu-title">Menu Levels</div>
+                            <div class="menu-title">System Settings</div>
                         </a>
                         <ul>
-                            <li><a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>Level One</a>
+                            <li><a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>Global Parameters</a>
                                 <ul>
-                                    <li><a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>Level Two</a>
-                                        <ul>
-                                            <li><a href="javascript:;"><i class='bx bx-radio-circle'></i>Level Three</a>
-                                            </li>
-                                        </ul>
-                                    </li>
+                                    <li><a runat="server" href="GlobalParameters/Timegroups/TimegroupsCreate.aspx"><i class='bx bx-time'></i>Time Groups</a></li>
+                                    <li><a runat="server" href="GlobalParameters/InstitutionTypes/InstitutionTypesCreate.aspx"><i class='bx bx-arch'></i>Institution Types</a></li>
+                                    <li><a runat="server" href="GlobalParameters/HumanDemographicGroups/HumanDemographicGroupsCreate.aspx"><i class='bx bx-user'></i>Human Demographic Group</a></li>
+                                    <li><a runat="server" href="GlobalParameters/PremiumPaymentFrequency/PremiumPaymentFrequencyCreate.aspx"><i class='bx bx-crown'></i>Premium Payment Frequency</a></li>
+                                    <li><a runat="server" href="GlobalParameters/BusinessDecision/BusinessDecisionCreate.aspx"><i class='bx bx-crown'></i>Business Decision</a></li>
+                                    <li><a runat="server" href="GlobalParameters/RelationshipTypes/RelationshipTypesCreate.aspx"><i class='bx bx-crown'></i>Relationship Types</a></li>
+                                    <li><a runat="server" href="GlobalParameters/RequirementsTypes/RequirementsTypesCreate.aspx"><i class='bx bx-crown'></i>Requirements Types</a></li>
+                                    <li><a runat="server" href="GlobalParameters/PaymentMethods/PaymentMethodsCreate.aspx"><i class='bx bx-crown'></i>Payment Methods</a></li>
+                                    <li><a runat="server" href="GlobalParameters/InterestRateTypes/InterestRateTypesCreate.aspx"><i class='bx bx-crown'></i>Interest Rate Types</a></li>
+                                    <li><a runat="server" href="GlobalParameters/InterestRateFrequencies/InterestRateFrequenciesCreate.aspx"><i class='bx bx-crown'></i>Interest Rate Frequencies</a></li>
+                                    <li><a runat="server" href="GlobalParameters/Banks/BanksCreate.aspx"><i class='bx bx-crown'></i>Banks</a></li>
+                                    <li><a runat="server" href="GlobalParameters/StopOrderNames/StopOrderNamesCreate.aspx"><i class='bx bx-crown'></i>Stop Order Names</a></li>
+                                    <li><a runat="server" href="GlobalParameters/Countries/CountriesCreate.aspx"><i class='bx bx-crown'></i>Countries</a></li>
+                                    <li><a runat="server" href="GlobalParameters/Cities/CitiesCreate.aspx"><i class='bx bx-crown'></i>Cities</a></li>
+                                    <li><a runat="server" href="GlobalParameters/IdentificationTypes/IdentificationTypesCreate.aspx"><i class='bx bx-crown'></i>Identification Types</a></li>
+                                    <li><a runat="server" href="GlobalParameters/Languages/LanguagesCreate.aspx"><i class='bx bx-crown'></i>Languages</a></li>
+                                    <li><a runat="server" href="GlobalParameters/MedicalRequirements/MedicalRequirementsCreate.aspx"><i class='bx bx-crown'></i>Medical Requirements</a></li>
+                                    <li><a runat="server" href="GlobalParameters/HabitsAndInterests/HabitsAndInterestsCreate.aspx"><i class='bx bx-crown'></i>Habits And Interests</a></li>
+                                    <li><a runat="server" href="GlobalParameters/Currencies/CurrenciesCreate.aspx"><i class='bx bx-crown'></i>Currencies</a></li>
                                 </ul>
                             </li>
                         </ul>
