@@ -33,22 +33,13 @@ namespace GeneralInsuranceManagement.GlobalParameters.UnderwritingQuestions
         protected global::System.Web.UI.WebControls.Literal ErrorMessage;
 
         /// <summary>
-        /// Currency control.
+        /// QuestionTypes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Currency;
-
-        /// <summary>
-        /// QuestionType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox QuestionType;
+        protected global::System.Web.UI.WebControls.TextBox QuestionTypes;
 
         /// <summary>
         /// QuestionDescription control.

@@ -969,7 +969,7 @@
     <Content Include="GlobalParameters\Banks\BanksCreate.aspx" />
     <Content Include="GlobalParameters\BusinessDecisions\BusinessDecisionsCreate.aspx" />
     <Content Include="GlobalParameters\Cities\CitiesCreate.aspx" />
-    <Content Include="GlobalParameters\Countries\Countries.aspx" />
+    <Content Include="GlobalParameters\Countries\CountriesCreate.aspx" />
     <Content Include="GlobalParameters\Currencies\CurrenciesCreate.aspx" />
     <Content Include="GlobalParameters\HabitsAndInterests\HabitsAndInterestsCreate.aspx" />
     <Content Include="GlobalParameters\HumanDemographicGroups\HumanDemographicGroupsCreate.aspx" />
@@ -1312,12 +1312,12 @@
     <Compile Include="GlobalParameters\Cities\CitiesCreate.aspx.designer.cs">
       <DependentUpon>CitiesCreate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GlobalParameters\Countries\Countries.aspx.cs">
-      <DependentUpon>Countries.aspx</DependentUpon>
+    <Compile Include="GlobalParameters\Countries\CountriesCreate.aspx.cs">
+      <DependentUpon>CountriesCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GlobalParameters\Countries\Countries.aspx.designer.cs">
-      <DependentUpon>Countries.aspx</DependentUpon>
+    <Compile Include="GlobalParameters\Countries\CountriesCreate.aspx.designer.cs">
+      <DependentUpon>CountriesCreate.aspx</DependentUpon>
     </Compile>
     <Compile Include="GlobalParameters\Currencies\CurrenciesCreate.aspx.cs">
       <DependentUpon>CurrenciesCreate.aspx</DependentUpon>

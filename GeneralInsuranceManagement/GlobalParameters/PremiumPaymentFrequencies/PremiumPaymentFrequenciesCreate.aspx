@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Time Groups Management</div>
+        <div class="breadcrumb-title pe-3">Premium Payment frequencies Management</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -38,35 +38,37 @@
             <div class="card ">
                 <div class="card-body p-4">
                     <h5 class="mb-4">
-                        <span><i data-feather="clock"></i></span>
-                        Requirements Types
+                        <span><i class="bx bx-crown" style="font-size: larger"></i></span>
+                        Premium Payment frequencies
                     </h5>
                     <p class="text-danger">
                         <asp:Literal runat="server" ID="ErrorMessage" />
                     </p>
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
-                    <div class="row g-3">
-                        <%--AssociatedControlID="Description"--%>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Description </asp:Label>
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="PaymentFrequency" class="col-sm-3 col-form-label">Description </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-time' style="color: blue; font-size: larger"></i></span>
-                                <asp:TextBox runat="server" ID="PaymentFrequency" CssClass="form-control" placeholder="Enter Payment Frequency" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="PaymentFrequency"
-                                    CssClass="text-danger" ErrorMessage="The Premium Payment Frequency is required." />
+                                <span class="input-group-text"><i class="bx bx-user" style="color: blue"></i></span>
+                                <asp:TextBox runat="server" ID="PaymentFrequency" CssClass="form-control" placeholder="Enter Premium Payment Frequency" />
                             </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="PaymentFrequency"
+                                CssClass="text-danger" ErrorMessage="The Description field is required." />
                         </div>
-                        <!-- row -->
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Code </asp:Label>
+                    </div>
+
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="FrequencyCode" class="col-sm-3 col-form-label">Code </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-time' style="color: blue; font-size: larger"></i></span>
+                                <span class="input-group-text"><i class="bx bx-barcode" style="color: blue"></i></span>
                                 <asp:TextBox runat="server" ID="FrequencyCode" CssClass="form-control" placeholder="Enter Frequency Code" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="FrequencyCode"
-                                    CssClass="text-danger" ErrorMessage="The Frequency Code is required." />
                             </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="FrequencyCode"
+                                CssClass="text-danger" ErrorMessage="The Frequency Code field is required." />
                         </div>
+                    </div>
                         <!-- row -->
                         <asp:Panel ID="pnlSave" runat="server">
                             <div class="row">
@@ -84,5 +86,4 @@
                 <!-- card -->
             </div>
         </div>
-    </div>
 </asp:Content>

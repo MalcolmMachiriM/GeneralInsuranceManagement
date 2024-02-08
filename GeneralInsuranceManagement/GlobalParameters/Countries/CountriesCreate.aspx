@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="Countries.aspx.cs" Inherits="GeneralInsuranceManagement.GlobalParameters.Countries.Countries" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="CountriesCreate.aspx.cs" Inherits="GeneralInsuranceManagement.GlobalParameters.Countries.Countries" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Institution Types Management</div>
+        <div class="breadcrumb-title pe-3">Countries Management</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -38,48 +38,47 @@
             <div class="card ">
                 <div class="card-body p-4">
                     <h5 class="mb-4">
-                        <span><i class='bx bx-crown' style="font-size: x-large"></i></span>
-                        Payment Method
+                        <span><i class='bx bx-flag' style="font-size: x-large"></i></span>
+                        Countries
                     </h5>
                     <p class="text-danger">
                         <asp:Literal runat="server" ID="ErrorMessage" />
                     </p>
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
-                    <div class="row g-3">
-                        <%--AssociatedControlID="Description"--%>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Name </asp:Label>
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="CountryName" class="col-sm-3 col-form-label">Country Name </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-crown' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="CountriesName" CssClass="form-control" placeholder="Enter Country Name" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="CountriesName"
-                                    CssClass="text-danger" ErrorMessage="The Name field is required." />
+                                <span class="input-group-text"><i class="bx bx-flag" style="color: blue"></i></span>
+                                <asp:TextBox runat="server" ID="CountryName" CssClass="form-control" placeholder="Enter Country Name" />
+                            </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="CountryName"
+                                CssClass="text-danger" ErrorMessage="The Country Name field is required." />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="CountryCode" class="col-sm-3 col-form-label">Code </asp:Label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bx bx-barcode" style="color: blue"></i></span>
+                                <asp:TextBox runat="server" ID="CountryCode" CssClass="form-control" placeholder="Enter Country Code" />
+                            </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="CountryCode"
+                                CssClass="text-danger" ErrorMessage="The Country Code field is required." />
+                        </div>
+                    </div>
+                    <asp:Panel ID="pnlSave" runat="server">
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
                             </div>
                         </div>
-                        <!-- row -->
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Country Code </asp:Label>
-                        <div class="col-sm-6">
-                            <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="CountryCode" CssClass="form-control" placeholder="Enter Employee Name" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="CountryCode"
-                                    CssClass="text-danger" ErrorMessage="The Country Code field is required." />
-                            </div>
-                        </div>                        
-                        <asp:Panel ID="pnlSave" runat="server">
-                            <div class="row">
-                                <label class="col-sm-3 col-form-label"></label>
-                                <div class="col-sm-9">
-                                    <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
-                                </div>
-                            </div>
-                        </asp:Panel>
-                        <!-- row -->
-                    </div>
-                    <!-- form-layout-footer -->
-
+                    </asp:Panel>
+                    <!-- row -->
                 </div>
+                <!-- form-layout-footer -->
                 <!-- card -->
             </div>
         </div>

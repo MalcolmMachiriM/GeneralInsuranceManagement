@@ -442,22 +442,31 @@
                                     <li><a runat="server" href="GlobalParameters/Timegroups/TimegroupsCreate.aspx"><i class='bx bx-time'></i>Time Groups</a></li>
                                     <li><a runat="server" href="GlobalParameters/InstitutionTypes/InstitutionTypesCreate.aspx"><i class='bx bx-arch'></i>Institution Types</a></li>
                                     <li><a runat="server" href="GlobalParameters/HumanDemographicGroups/HumanDemographicGroupsCreate.aspx"><i class='bx bx-user'></i>Human Demographic Group</a></li>
-                                    <li><a runat="server" href="GlobalParameters/PremiumPaymentFrequency/PremiumPaymentFrequencyCreate.aspx"><i class='bx bx-crown'></i>Premium Payment Frequency</a></li>
-                                    <li><a runat="server" href="GlobalParameters/BusinessDecision/BusinessDecisionCreate.aspx"><i class='bx bx-crown'></i>Business Decision</a></li>
-                                    <li><a runat="server" href="GlobalParameters/RelationshipTypes/RelationshipTypesCreate.aspx"><i class='bx bx-crown'></i>Relationship Types</a></li>
-                                    <li><a runat="server" href="GlobalParameters/RequirementsTypes/RequirementsTypesCreate.aspx"><i class='bx bx-crown'></i>Requirements Types</a></li>
-                                    <li><a runat="server" href="GlobalParameters/PaymentMethods/PaymentMethodsCreate.aspx"><i class='bx bx-crown'></i>Payment Methods</a></li>
-                                    <li><a runat="server" href="GlobalParameters/InterestRateTypes/InterestRateTypesCreate.aspx"><i class='bx bx-crown'></i>Interest Rate Types</a></li>
-                                    <li><a runat="server" href="GlobalParameters/InterestRateFrequencies/InterestRateFrequenciesCreate.aspx"><i class='bx bx-crown'></i>Interest Rate Frequencies</a></li>
-                                    <li><a runat="server" href="GlobalParameters/Banks/BanksCreate.aspx"><i class='bx bx-crown'></i>Banks</a></li>
-                                    <li><a runat="server" href="GlobalParameters/StopOrderNames/StopOrderNamesCreate.aspx"><i class='bx bx-crown'></i>Stop Order Names</a></li>
-                                    <li><a runat="server" href="GlobalParameters/Countries/CountriesCreate.aspx"><i class='bx bx-crown'></i>Countries</a></li>
-                                    <li><a runat="server" href="GlobalParameters/Cities/CitiesCreate.aspx"><i class='bx bx-crown'></i>Cities</a></li>
-                                    <li><a runat="server" href="GlobalParameters/IdentificationTypes/IdentificationTypesCreate.aspx"><i class='bx bx-crown'></i>Identification Types</a></li>
-                                    <li><a runat="server" href="GlobalParameters/Languages/LanguagesCreate.aspx"><i class='bx bx-crown'></i>Languages</a></li>
-                                    <li><a runat="server" href="GlobalParameters/MedicalRequirements/MedicalRequirementsCreate.aspx"><i class='bx bx-crown'></i>Medical Requirements</a></li>
-                                    <li><a runat="server" href="GlobalParameters/HabitsAndInterests/HabitsAndInterestsCreate.aspx"><i class='bx bx-crown'></i>Habits And Interests</a></li>
-                                    <li><a runat="server" href="GlobalParameters/Currencies/CurrenciesCreate.aspx"><i class='bx bx-crown'></i>Currencies</a></li>
+                                    <li><a runat="server" href="GlobalParameters/PremiumPaymentFrequencies/PremiumPaymentFrequenciesCreate.aspx"><i class='bx bx-crown'></i>Premium Payment Frequency</a></li>
+                                    <li><a runat="server" href="GlobalParameters/BusinessDecisions/BusinessDecisionsCreate.aspx"><i class='bx bx-briefcase'></i>Business Decision</a></li>
+                                    <li><a runat="server" href="GlobalParameters/RelationshipTypes/RelationshipTypesCreate.aspx"><i class='bx bx-group'></i>Relationship Types</a></li>
+                                    <li><a runat="server" href="GlobalParameters/RequirementsTypes/RequirementsTypesCreate.aspx"><i class='bx bx-detail'></i>Requirements Types</a></li>
+                                    <li><a runat="server" href="GlobalParameters/PaymentMethods/PaymentMethodsCreate.aspx"><i class='bx bx-credit-card'></i>Payment Methods</a></li>
+                                    <li><a runat="server" href="GlobalParameters/InterestRateTypes/InterestRateTypesCreate.aspx"><i class='bx bx-credit-card-alt'></i>Interest Rate Types</a></li>
+                                    <li><a runat="server" href="GlobalParameters/InterestRateFrequencies/InterestRateFrequenciesCreate.aspx"><i class='bx bx-timer'></i>Interest Rate Frequencies</a></li>
+                                    <li><a runat="server" href="GlobalParameters/Banks/BanksCreate.aspx"><i class='bx bx-buildings'></i>Banks</a></li>
+                                    <li><a runat="server" href="GlobalParameters/StopOrdersNames/StopOrderNamesCreate.aspx"><i class='bx bx-building-house'></i>Stop Order Names</a></li>
+                                    <li><a runat="server" href="GlobalParameters/Countries/CountriesCreate.aspx"><i class='bx bx-flag'></i>Countries</a></li>
+                                    <li><a runat="server" href="GlobalParameters/Cities/CitiesCreate.aspx"><i class='bx bx-flag'></i>Cities</a></li>
+                                    <li><a runat="server" href="GlobalParameters/IdentificationTypes/IdentificationTypesCreate.aspx"><i class='bx bx-id-card'></i>Identification Types</a></li>
+                                    <li><a runat="server" href="GlobalParameters/Languages/LanguagesCreate.aspx"><i class='bx bx-user-voice'></i>Languages</a></li>
+                                    <li><a runat="server" href="GlobalParameters/MedicalRequirements/MedicalRequirementsCreate.aspx"><i class='bx bx-plus-medical'></i>Medical Requirements</a></li>
+                                    <li><a runat="server" href="GlobalParameters/HabitsAndInterests/HabitsAndInterestsCreate.aspx"><i class='bx bx-cycling'></i>Habits And Interests</a></li>
+                                    <li><a runat="server" href="GlobalParameters/Currencies/CurrenciesCreate.aspx"><i class='bx bx-money'></i>Currencies</a></li>
+                                    <li><a runat="server" href="GlobalParameters/Occupations/OccupationsCreate.aspx"><i class='bx bx-briefcase-alt'></i>Occupations</a></li>
+                                    <li><a runat="server" href="GlobalParameters/AddressTypes/AddressTypesCreate.aspx"><i class='bx bx-current-location'></i>Address Types</a></li>
+                                    <li><a runat="server" href="GlobalParameters/MaritalStatus/MaritalStatusCreate.aspx"><i class='bx bx-user-plus'></i>Marital Status</a></li>
+                                    <li><a runat="server" href="GlobalParameters/Titles/TitlesCreate.aspx"><i class='bx bx-user-check'></i>Titles</a></li>
+                                    <li><a runat="server" href="GlobalParameters/IncomeTypes/IncomeTypesCreate.aspx"><i class='bx bx-credit-card-front'></i>IncomeTypes</a></li>
+                                    <li><a runat="server" href="GlobalParameters/Qualifications/QualificationsCreate.aspx"><i class='bx bx-detail'></i>Qualifications</a></li>
+                                    <li><a runat="server" href="GlobalParameters/Religions/ReligionsCreate.aspx"><i class='bx bx-church'></i>Religions</a></li>
+                                    <li><a runat="server" href="GlobalParameters/AccountTypes/AccountTypesCreate.aspx"><i class='bx bx-credit-card'></i>Account Types</a></li>
+                                    <li><a runat="server" href="GlobalParameters/UnderwritingQuestions/UnderwritingQuestionsCreate.aspx"><i class='bx bx-message-alt-detail'></i>Underwriting Questions</a></li>
                                 </ul>
                             </li>
                         </ul>

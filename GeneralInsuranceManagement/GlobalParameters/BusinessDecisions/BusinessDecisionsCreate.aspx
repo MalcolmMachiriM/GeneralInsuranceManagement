@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="BusinessDecisionsCreate.aspx.cs" Inherits="GeneralInsuranceManagement.GlobalParameters.BusinessDecisions.BusinessDecisionsCreate" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Institution Types Management</div>
+        <div class="breadcrumb-title pe-3">Business Decisions Management</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -37,7 +38,7 @@
             <div class="card ">
                 <div class="card-body p-4">
                     <h5 class="mb-4">
-                        <span><i class='bx bx-crown' style="font-size: x-large"></i></span>
+                        <span><i class='bx bx-briefcase' style="font-size: x-large"></i></span>
                         Business Decisions
                     </h5>
                     <p class="text-danger">
@@ -45,27 +46,29 @@
                     </p>
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
-                    <div class="row g-3">
-                        <%--AssociatedControlID="Description"--%>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Description </asp:Label>
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="BusinessDecision" class="col-sm-3 col-form-label">Description </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-crown' style="color: blue"></i></span>
+                                <span class="input-group-text"><i class="bx bx-briefcase" style="color: blue"></i></span>
                                 <asp:TextBox runat="server" ID="BusinessDecision" CssClass="form-control" placeholder="Enter Business Decision" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="BusinessDecision"
-                                    CssClass="text-danger" ErrorMessage="The Business Decision field is required." />
                             </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="BusinessDecision"
+                                CssClass="text-danger" ErrorMessage="The Description field is required." />
                         </div>
-                        <!-- row -->
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Code </asp:Label>
+                    </div>
+
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="BusinessDecision" class="col-sm-3 col-form-label">Code </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="" CssClass="form-control" placeholder="Enter Business Decision Code" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="BusinessDecision"
-                                    CssClass="text-danger" ErrorMessage="The Business Decision code is required." />
+                                <span class="input-group-text"><i class="bx bx-barcode" style="color: blue"></i></span>
+                                <asp:TextBox runat="server" ID="BusinessDecisionCode" CssClass="form-control" placeholder="Enter Business Decision Code" />
                             </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="BusinessDecisionCode"
+                                CssClass="text-danger" ErrorMessage="The Code field is required." />
                         </div>
+                    </div>
                         <asp:Panel ID="pnlSave" runat="server">
                             <div class="row">
                                 <label class="col-sm-3 col-form-label"></label>
@@ -82,5 +85,4 @@
                 <!-- card -->
             </div>
         </div>
-    </div>
 </asp:Content>

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Institution Types Management</div>
+        <div class="breadcrumb-title pe-3">Payment Methods Management</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -38,7 +38,7 @@
             <div class="card ">
                 <div class="card-body p-4">
                     <h5 class="mb-4">
-                        <span><i class='bx bx-crown' style="font-size: x-large"></i></span>
+                        <span><i class='bx bx-credit-card' style="font-size: x-large"></i></span>
                         Payment Method
                     </h5>
                     <p class="text-danger">
@@ -46,60 +46,62 @@
                     </p>
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
-                    <div class="row g-3">
-                        <%--AssociatedControlID="Description"--%>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Method </asp:Label>
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="PaymentMethod" class="col-sm-3 col-form-label">Payment Method </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-crown' style="color: blue"></i></span>
+                                <span class="input-group-text"><i class="bx bx-credit-card" style="color: blue"></i></span>
                                 <asp:TextBox runat="server" ID="PaymentMethod" CssClass="form-control" placeholder="Enter Payment Method" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="PaymentMethod"
-                                    CssClass="text-danger" ErrorMessage="The Payment Method field is required." />
                             </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="PaymentMethod"
+                                CssClass="text-danger" ErrorMessage="The Payment Method field is required." />
                         </div>
-                        <!-- row -->
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Code </asp:Label>
-                        <div class="col-sm-6">
-                            <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="PaymentMethodCode" CssClass="form-control" placeholder="Enter Payment Method Code" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="PaymentMethod"
-                                    CssClass="text-danger" ErrorMessage="The Payment Method code is required." />
-                            </div>
-                        </div>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Bank Details Required</asp:Label>
-                        <div class="col-sm-6">
-                            <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="BankDetails" CssClass="form-control" placeholder="Enter Bank Details Required" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Bank Details Required"
-                                    CssClass="text-danger" ErrorMessage="The Bank Details Required field is required." />
-                            </div>
-                        </div>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Code </asp:Label>
-                        <div class="col-sm-6">
-                            <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="TextBox2" CssClass="form-control" placeholder="Enter Payment Method Code" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="PaymentMethod"
-                                    CssClass="text-danger" ErrorMessage="The Payment Method code is required." />
-                            </div>
-                        </div>
-                        <asp:Panel ID="pnlSave" runat="server">
-                            <div class="row">
-                                <label class="col-sm-3 col-form-label"></label>
-                                <div class="col-sm-9">
-                                    <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
-                                </div>
-                            </div>
-                        </asp:Panel>
-                        <!-- row -->
                     </div>
-                    <!-- form-layout-footer -->
-
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="PaymentMethodCode" class="col-sm-3 col-form-label">Code </asp:Label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bx bx-barcode" style="color: blue"></i></span>
+                                <asp:TextBox runat="server" ID="PaymentMethodCode" CssClass="form-control" placeholder="Enter Payment Method Code" />
+                            </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="PaymentMethodCode"
+                                CssClass="text-danger" ErrorMessage="The Code field is required." />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <asp:Label runat="server" class="col-sm-3 col-form-label">Bank Details Required </asp:Label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <asp:CheckBox ID="DetailsBank" CssClass="form-check" runat="server" />
+                            </div>
+                            <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="BankDetails"
+                                CssClass="text-danger" ErrorMessage="The Bank Details Required field is required." />--%>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <asp:Label runat="server" class="col-sm-3 col-form-label">Mobile Number Required </asp:Label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <asp:CheckBox ID="NumberRequired" CssClass="form-check" runat="server" />
+                            </div>
+                            <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="MobileRequired"
+                                CssClass="text-danger" ErrorMessage="The Mobile Number Required field is required." />--%>
+                        </div>
+                    </div>
+                    <asp:Panel ID="pnlSave" runat="server">
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
+                            </div>
+                        </div>
+                    </asp:Panel>
+                    <!-- row -->
                 </div>
-                <!-- card -->
+                <!-- form-layout-footer -->
+
             </div>
+            <!-- card -->
         </div>
     </div>
 </asp:Content>

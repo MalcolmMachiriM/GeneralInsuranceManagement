@@ -33,13 +33,13 @@ namespace GeneralInsuranceManagement.GlobalParameters.InterestRateFrequencies
         protected global::System.Web.UI.WebControls.Literal ErrorMessage;
 
         /// <summary>
-        /// InterestFrequencies control.
+        /// InterestFrequency control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox InterestFrequencies;
+        protected global::System.Web.UI.WebControls.TextBox InterestFrequency;
 
         /// <summary>
         /// pnlSave control.

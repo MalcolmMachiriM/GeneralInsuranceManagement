@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Institution Types Management</div>
+        <div class="breadcrumb-title pe-3">Medical Requirements Management</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -38,7 +38,7 @@
             <div class="card ">
                 <div class="card-body p-4">
                     <h5 class="mb-4">
-                        <span><i class='bx bx-crown' style="font-size: x-large"></i></span>
+                        <span><i class='bx bx-plus-medical' style="font-size: x-large"></i></span>
                         Medical Requirements
                     </h5>
                     <p class="text-danger">
@@ -46,49 +46,50 @@
                     </p>
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
-                    <div class="row g-3">
-                        <%--AssociatedControlID="Description"--%>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Code </asp:Label>
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="MedicalRequirementsCode" class="col-sm-3 col-form-label">Code </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-crown' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="MedicalRequirementsCode" CssClass="form-control" placeholder="Enter Medical Requirements Code" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="MedicalRequirementsCode"
-                                    CssClass="text-danger" ErrorMessage="The Code field is required." />
+                                <span class="input-group-text"><i class="bx bx-barcode" style="color: blue"></i></span>
+                                <asp:TextBox runat="server" ID="MedicalRequirementsCode" CssClass="form-control" placeholder="Enter Medical Requirement Code" />
                             </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="MedicalRequirementsCode"
+                                CssClass="text-danger" ErrorMessage="The Medical Requirement Code is required." />
                         </div>
-                        <!-- row -->
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Description </asp:Label>
-                        <div class="col-sm-6">
-                            <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="MedicalRequirementsDescription" CssClass="form-control" placeholder="Enter Medical Requirements Description" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="MedicalRequirementsDescription"
-                                    CssClass="text-danger" ErrorMessage="The Description field is required." />
-                            </div>
-                        </div>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Tariff</asp:Label>
-                        <div class="col-sm-6">
-                            <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="Tariff" CssClass="form-control" placeholder="Enter Employee Number" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Tariff"
-                                    CssClass="text-danger" ErrorMessage="The Tariff field is required." />
-                            </div>
-                        </div>
-                        <asp:Panel ID="pnlSave" runat="server">
-                            <div class="row">
-                                <label class="col-sm-3 col-form-label"></label>
-                                <div class="col-sm-9">
-                                    <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
-                                </div>
-                            </div>
-                        </asp:Panel>
-                        <!-- row -->
                     </div>
-                    <!-- form-layout-footer -->
-
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="MedicalRequirements" class="col-sm-3 col-form-label">Medical Requirement </asp:Label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bx bx-plus-medical" style="color: blue"></i></span>
+                                <asp:TextBox runat="server" ID="MedicalRequirements" CssClass="form-control" placeholder="Enter Medical Requirement" />
+                            </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="MedicalRequirements"
+                                CssClass="text-danger" ErrorMessage="The Language field is required." />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="Tariff" class="col-sm-3 col-form-label">Tariff </asp:Label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bx bx-coin-stack" style="color: blue"></i></span>
+                                <asp:TextBox runat="server" ID="Tariff" CssClass="form-control" placeholder="Enter Tariff" />
+                            </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Tariff"
+                                CssClass="text-danger" ErrorMessage="The Tariff field is required." />
+                        </div>
+                    </div>
+                    <asp:Panel ID="pnlSave" runat="server">
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
+                            </div>
+                        </div>
+                    </asp:Panel>
+                    <!-- row -->
                 </div>
+                <!-- form-layout-footer -->
                 <!-- card -->
             </div>
         </div>
