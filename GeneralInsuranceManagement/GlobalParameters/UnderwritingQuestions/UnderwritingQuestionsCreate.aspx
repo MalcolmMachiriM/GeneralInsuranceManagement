@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Institution Types Management</div>
+        <div class="breadcrumb-title pe-3">Underwriting Questions Management</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -38,7 +38,7 @@
             <div class="card ">
                 <div class="card-body p-4">
                     <h5 class="mb-4">
-                        <span><i class='bx bx-crown' style="font-size: x-large"></i></span>
+                        <span><i class="bx bx-message-alt-detail" style="font-size: x-large"></i></span>
                         Underwriting Questions
                     </h5>
                     <p class="text-danger">
@@ -46,51 +46,42 @@
                     </p>
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
-                    <div class="row g-3">
-                        <%--AssociatedControlID="Description"--%>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Currency </asp:Label>
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="QuestionTypes" class="col-sm-3 col-form-label">Question Type </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-crown' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="Currency" CssClass="form-control" placeholder="Enter Currency" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Currency"
-                                    CssClass="text-danger" ErrorMessage="The Currency field is required." />
+                                <span class="input-group-text"><i class="bx bx-message-alt-edit" style="color: blue"></i></span>
+                                <asp:TextBox runat="server" ID="QuestionTypes" CssClass="form-control" placeholder="Enter Question Type" />
                             </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="QuestionTypes"
+                                CssClass="text-danger" ErrorMessage="The Question Type field is required." />
                         </div>
-                        <!-- row -->
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Question Type </asp:Label>
-                        <div class="col-sm-6">
-                            <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="QuestionType" CssClass="form-control" placeholder="Enter Question Type" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="QuestionType"
-                                    CssClass="text-danger" ErrorMessage="The Question Type field is required." />
-                            </div>
-                        </div>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Question Description</asp:Label>
-                        <div class="col-sm-6">
-                            <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="QuestionDescription" CssClass="form-control" placeholder="Enter Question Description" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="QuestionDescription"
-                                    CssClass="text-danger" ErrorMessage="The Question Description field is required." />
-                            </div>
-                        </div>
-                        <asp:Panel ID="pnlSave" runat="server">
-                            <div class="row">
-                                <label class="col-sm-3 col-form-label"></label>
-                                <div class="col-sm-9">
-                                    <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
-                                </div>
-                            </div>
-                        </asp:Panel>
-                        <!-- row -->
                     </div>
-                    <!-- form-layout-footer -->
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="QuestionDescription" class="col-sm-3 col-form-label">Question Description </asp:Label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bx bx-message-alt-detail" style="color: blue"></i></span>
+                                <asp:TextBox runat="server" ID="QuestionDescription" CssClass="form-control" placeholder="Enter Question Description" />
+                            </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="QuestionDescription"
+                                CssClass="text-danger" ErrorMessage="The Question Description field is required." />
+                        </div>
+                    </div>
+                    <asp:Panel ID="pnlSave" runat="server">
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
+                            </div>
+                        </div>
+                    </asp:Panel>
+                    <!-- row -->
+                </div>
+                <!-- form-layout-footer -->
 
                 </div>
                 <!-- card -->
             </div>
         </div>
-    </div>
 </asp:Content>

@@ -46,40 +46,41 @@
                     </p>
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
-                    <div class="row g-3">
-                        <%--AssociatedControlID="Description"--%>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Description </asp:Label>
+                    <div class="row">
+
+                        <asp:Label runat="server" AssociatedControlID="InstitutionTypes" class="col-sm-3 col-form-label">Description </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-arch' style="color: blue"></i></span>
                                 <asp:TextBox runat="server" ID="InstitutionTypes" CssClass="form-control" placeholder="Enter Institution Type" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="InstitutionTypes"
-                                    CssClass="text-danger" ErrorMessage="The Time Groups field is required." />
                             </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="InstitutionTypes"
+                                CssClass="text-danger" ErrorMessage="The Time Groups field is required." />
                         </div>
-                        <%-- <div class="col-md-6">
+                    </div>
+                    <%-- <div class="col-md-6">
                        
                         <asp:Label runat="server" class="form-label">Description</asp:Label>
                         <asp:TextBox runat="server" ID="RegNo" CssClass="form-control" placeholder="Enter Time Group Description" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="Description"
                             CssClass="text-danger" ErrorMessage="The Time Groups field is required." />
                     </div>--%>
-                        <!-- row -->
-                        <asp:Panel ID="pnlSave" runat="server">
-                            <div class="row">
-                                <label class="col-sm-3 col-form-label"></label>
-                                <div class="col-sm-9">
-                                    <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
-                                </div>
+                    <!-- row -->
+                    <asp:Panel ID="pnlSave" runat="server">
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
                             </div>
-                        </asp:Panel>
-                        <!-- row -->
-                    </div>
-                    <!-- form-layout-footer -->
-
+                        </div>
+                    </asp:Panel>
+                    <!-- row -->
                 </div>
-                <!-- card -->
+                <!-- form-layout-footer -->
+
             </div>
+            <!-- card -->
         </div>
+    </div>
     </div>
 </asp:Content>

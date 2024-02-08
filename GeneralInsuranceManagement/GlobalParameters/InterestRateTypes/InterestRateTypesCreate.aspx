@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Time Groups Management</div>
+        <div class="breadcrumb-title pe-3">Interest Rate Types Management</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -38,48 +38,47 @@
             <div class="card ">
                 <div class="card-body p-4">
                     <h5 class="mb-4">
-                        <span><i data-feather="clock"></i></span>
-                        Time Groups
+                        <span><i class="bx bx-credit-card-alt" style="font-size: larger"></i></span>
+                        Interest Rate Types
                     </h5>
                     <p class="text-danger">
                         <asp:Literal runat="server" ID="ErrorMessage" />
                     </p>
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
-                    <div class="row g-3">
-                        <%--AssociatedControlID="Description"--%>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Description </asp:Label>
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="InterestRateType" class="col-sm-3 col-form-label">Interest Rate Type </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-time' style="color: blue; font-size: larger"></i></span>
-                                <asp:TextBox runat="server" ID="InterestTypes" CssClass="form-control" placeholder="Enter Interest Rate Type" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="InterestTypes"
-                                    CssClass="text-danger" ErrorMessage="The Interest Rate Type field is required." />
+                                <span class="input-group-text"><i class="bx bx-credit-card-alt" style="color: blue"></i></span>
+                                <asp:TextBox runat="server" ID="InterestRateType" CssClass="form-control" placeholder="Enter Interest Rate Type" />
                             </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="InterestRateType"
+                                CssClass="text-danger" ErrorMessage="The Interest Rate Type field is required." />
                         </div>
-                        <%-- <div class="col-md-6">
+                    </div>
+                    <%-- <div class="col-md-6">
                        
                         <asp:Label runat="server" class="form-label">Description</asp:Label>
                         <asp:TextBox runat="server" ID="RegNo" CssClass="form-control" placeholder="Enter Time Group Description" />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="Description"
                             CssClass="text-danger" ErrorMessage="The Time Groups field is required." />
                     </div>--%>
-                        <!-- row -->
-                        <asp:Panel ID="pnlSave" runat="server">
-                            <div class="row">
-                                <label class="col-sm-3 col-form-label"></label>
-                                <div class="col-sm-9">
-                                    <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
-                                </div>
+                    <!-- row -->
+                    <asp:Panel ID="pnlSave" runat="server">
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
                             </div>
-                        </asp:Panel>
-                        <!-- row -->
-                    </div>
-                    <!-- form-layout-footer -->
+                        </div>
+                    </asp:Panel>
+                    <!-- row -->
+                </div>
+                <!-- form-layout-footer -->
 
                 </div>
                 <!-- card -->
             </div>
         </div>
-    </div>
 </asp:Content>

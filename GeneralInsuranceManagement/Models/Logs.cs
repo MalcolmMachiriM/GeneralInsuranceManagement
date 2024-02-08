@@ -103,7 +103,7 @@ namespace GeneralInsuranceManagement.Models
             mID = ((rw["ID"] != DBNull.Value) ? int.Parse(rw["ID"].ToString()) : 0);
             mCreatedBy = ((rw["CreatedBy"] != DBNull.Value) ? int.Parse(rw["CreatedBy"].ToString()) : 0);
             mDateOfAction = ((rw["DateOfAction"] == DBNull.Value) ? string.Empty : rw["DateOfAction"].ToString());
-            mDescription = ((rw["Description"] == DBNull.Value) ? string.Empty : rw["Description"].ToString());
+            //mDescription = ((rw["Description"] == DBNull.Value) ? string.Empty : rw["Description"].ToString());
         }
         protected void SetErrorDetails(string str)
         {

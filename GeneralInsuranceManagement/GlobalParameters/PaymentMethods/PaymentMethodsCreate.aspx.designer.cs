@@ -51,22 +51,22 @@ namespace GeneralInsuranceManagement.GlobalParameters.PaymentMethods
         protected global::System.Web.UI.WebControls.TextBox PaymentMethodCode;
 
         /// <summary>
-        /// BankDetails control.
+        /// DetailsBank control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox BankDetails;
+        protected global::System.Web.UI.WebControls.CheckBox DetailsBank;
 
         /// <summary>
-        /// TextBox2 control.
+        /// NumberRequired control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.CheckBox NumberRequired;
 
         /// <summary>
         /// pnlSave control.

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Institution Types Management</div>
+        <div class="breadcrumb-title pe-3">Stop Orders Management</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -38,57 +38,58 @@
             <div class="card ">
                 <div class="card-body p-4">
                     <h5 class="mb-4">
-                        <span><i class='bx bx-crown' style="font-size: x-large"></i></span>
-                        Payment Method
+                        <span><i class='bx bx-building-house' style="font-size: x-large"></i></span>
+                        Stop Orders
                     </h5>
                     <p class="text-danger">
                         <asp:Literal runat="server" ID="ErrorMessage" />
                     </p>
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
-                    <div class="row g-3">
-                        <%--AssociatedControlID="Description"--%>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Name </asp:Label>
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="StopOrderName" class="col-sm-3 col-form-label">Stop Order Name </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-crown' style="color: blue"></i></span>
+                                <span class="input-group-text"><i class="bx bx-building-house" style="color: blue"></i></span>
                                 <asp:TextBox runat="server" ID="StopOrderName" CssClass="form-control" placeholder="Enter Stop Order Name" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="StopOrderName"
-                                    CssClass="text-danger" ErrorMessage="The Stop Order Name field is required." />
                             </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="StopOrderName"
+                                CssClass="text-danger" ErrorMessage="The Stop Order Name field is required." />
                         </div>
-                        <!-- row -->
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Employee Name </asp:Label>
-                        <div class="col-sm-6">
-                            <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="EmployeeName" CssClass="form-control" placeholder="Enter Employee Name" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="EmployeeName"
-                                    CssClass="text-danger" ErrorMessage="The Employee Name field is required." />
-                            </div>
-                        </div>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Employee Number</asp:Label>
-                        <div class="col-sm-6">
-                            <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="EmployeeNumber" CssClass="form-control" placeholder="Enter Employee Number" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="EmployeeNumber"
-                                    CssClass="text-danger" ErrorMessage="The Employee Number field is required." />
-                            </div>
-                        </div>                        
-                        <asp:Panel ID="pnlSave" runat="server">
-                            <div class="row">
-                                <label class="col-sm-3 col-form-label"></label>
-                                <div class="col-sm-9">
-                                    <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
-                                </div>
-                            </div>
-                        </asp:Panel>
-                        <!-- row -->
                     </div>
-                    <!-- form-layout-footer -->
-
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="EmployerName" class="col-sm-3 col-form-label">Employer Name </asp:Label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bx bx-user" style="color: blue"></i></span>
+                                <asp:TextBox runat="server" ID="EmployerName" CssClass="form-control" placeholder="Enter Employer Name" />
+                            </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="EmployerName"
+                                CssClass="text-danger" ErrorMessage="The Employer Name field is required." />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="EmployeeNumber" class="col-sm-3 col-form-label">Employee Number </asp:Label>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bx bx-barcode" style="color: blue"></i></span>
+                                <asp:TextBox runat="server" ID="EmployeeNumber" CssClass="form-control" placeholder="Enter Employee Number" />
+                            </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="EmployeeNumber"
+                                CssClass="text-danger" ErrorMessage="The Employee Number field is required." />
+                        </div>
+                    </div>
+                    <asp:Panel ID="pnlSave" runat="server">
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
+                            </div>
+                        </div>
+                    </asp:Panel>
+                    <!-- row -->
                 </div>
+                <!-- form-layout-footer -->
                 <!-- card -->
             </div>
         </div>

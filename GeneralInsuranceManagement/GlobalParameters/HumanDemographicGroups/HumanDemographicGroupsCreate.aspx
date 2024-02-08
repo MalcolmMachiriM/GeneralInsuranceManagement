@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Institution Types Management</div>
+        <div class="breadcrumb-title pe-3">Human Demographic Groups Management</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -46,40 +46,32 @@
                     </p>
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
-                    <div class="row g-3">
-                        <%--AssociatedControlID="Description"--%>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Description </asp:Label>
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="HumanGroups" class="col-sm-3 col-form-label">Description </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-user' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="HumanDemographicGroup" CssClass="form-control" placeholder="Enter Human Demographic group" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="HumanDemographicGroup"
-                                    CssClass="text-danger" ErrorMessage="The Human Demographic Group field is required." />
+                                <span class="input-group-text"><i class="bx bx-user" style="color: blue"></i></span>
+                                <asp:TextBox runat="server" ID="HumanGroups" CssClass="form-control" placeholder="Enter Human Demographic Group" />
+                            </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="HumanGroups"
+                                CssClass="text-danger" ErrorMessage="The Description field is required." />
+                        </div>
+                    </div>
+                    <!-- row -->
+                    <asp:Panel ID="pnlSave" runat="server">
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
                             </div>
                         </div>
-                        <%-- <div class="col-md-6">
-                   
-                    <asp:Label runat="server" class="form-label">Description</asp:Label>
-                    <asp:TextBox runat="server" ID="RegNo" CssClass="form-control" placeholder="Enter Time Group Description" />
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Description"
-                        CssClass="text-danger" ErrorMessage="The Time Groups field is required." />
-                </div>--%>
-                        <!-- row -->
-                        <asp:Panel ID="pnlSave" runat="server">
-                            <div class="row">
-                                <label class="col-sm-3 col-form-label"></label>
-                                <div class="col-sm-9">
-                                    <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
-                                </div>
-                            </div>
-                        </asp:Panel>
-                        <!-- row -->
-                    </div>
-                    <!-- form-layout-footer -->
-
+                    </asp:Panel>
+                    <!-- row -->
                 </div>
-                <!-- card -->
+                <!-- form-layout-footer -->
+
             </div>
+            <!-- card -->
         </div>
     </div>
 </asp:Content>
