@@ -18,6 +18,7 @@ namespace GeneralInsuranceManagement.UserManagement
             Page.MaintainScrollPositionOnPostBack = true;
             if (!IsPostBack)
             {
+                userId.Value = Session["UserID"].ToString();
                 GetLogs();
             }
         }
@@ -45,7 +46,7 @@ namespace GeneralInsuranceManagement.UserManagement
             try
             {
                 Logs logs = new Logs("cn", 1);
-                DataSet ds = logs.getAllLogs();
+                DataSet ds = logs.getAllLogs(long.Parse(userId.Value));
                 if (ds != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
                 {
                     grdLogs.DataSource = ds;
@@ -55,7 +56,7 @@ namespace GeneralInsuranceManagement.UserManagement
                 {
                     grdLogs.DataSource = null;
                     grdLogs.DataBind();
-                    WarningAlert("No Companies Found");
+                    WarningAlert("No Logs Found");
                 }
             }
             catch (Exception ex)

@@ -36,23 +36,9 @@ namespace GeneralInsuranceManagement.UserManagement
                     //Session["Username"] = user.Username;
                 }
 
+
                 long loggedID = long.Parse(Session["UserId"].ToString());
                 DateTime date = DateTime.Now;
-                Logs log = new Logs("cn", 1)
-                {
-                    UserID = 0,
-                    ActionID = (int)Actions.LOGIN,
-                    ActionedByID = loggedID,
-                    DateOfAction = date,
-                };
-                try
-                {
-                    log.Save();
-                }
-                catch (Exception ex)
-                {
-                    WarningAlert(ex.Message);
-                }
 
 
                 // Validate the user password
@@ -68,6 +54,22 @@ namespace GeneralInsuranceManagement.UserManagement
                 switch (result)
                 {
                     case SignInStatus.Success:
+                        Logs log = new Logs("cn", 1)
+                        {
+                            UserID = 0,
+                            ActionID = (int)Actions.LOGIN,
+                            ActionedByID = loggedID,
+                            DateOfAction = date,
+                            Description = (int)Descriptions.Success,
+                        };
+                        try
+                        {
+                            log.Save();
+                        }
+                        catch (Exception ex)
+                        {
+                            WarningAlert(ex.Message);
+                        }
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.LockedOut:
@@ -81,7 +83,23 @@ namespace GeneralInsuranceManagement.UserManagement
                         break;
                     case SignInStatus.Failure:
                     default:
-                        RedAlert("Invalid login attempt") ;                        
+                        RedAlert("Invalid login attempt") ;
+                        Logs log1 = new Logs("cn", 1)
+                        {
+                            UserID = 0,
+                            ActionID = (int)Actions.LOGIN,
+                            ActionedByID = loggedID,
+                            DateOfAction = date,
+                            Description = (int)Descriptions.Fail,
+                        };
+                        try
+                        {
+                            log1.Save();
+                        }
+                        catch (Exception ex)
+                        {
+                            WarningAlert(ex.Message);
+                        }
                         break;
                 }
             }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.Data;
+﻿using GeneralInsuranceBusinessLogic;
+using Microsoft.Practices.EnterpriseLibrary.Data;
 using System;
 using System.Data;
 using System.Data.Common;
@@ -15,8 +16,14 @@ namespace GeneralInsuranceManagement.Models
             DELETE = 3,
             LOGIN = 4,
         };
+        public enum Descriptions
+        {
+            Success = 1,
+            Fail = 2,
+        };
         protected Database db;
         protected string mConnectionName;
+        protected int mDescription;
         protected long mObjectUserID;
         protected int mID;
         protected long mUserID;
@@ -26,6 +33,7 @@ namespace GeneralInsuranceManagement.Models
         protected string mMsgflg;
 
         public string MsgFlg { get { return mMsgflg; } set { mMsgflg = value; } }
+        public int Description { get { return mDescription; } set { mDescription = value; } }
         public int ID { get { return mID; } set { mID = value; } }
         public long UserID { get { return mUserID; } set { mUserID = value; } }
         public long ActionedByID { get { return mCreatedBy; } set { mCreatedBy = value; } }
@@ -44,11 +52,20 @@ namespace GeneralInsuranceManagement.Models
             db = new DatabaseProviderFactory().Create(ConnectionName);
         }
 
-        public DataSet getAllLogs()
+        public DataSet getAllLogs(long userId)
         {
-            string text = null;
-            text = ("SELECT * FROM Logs WHERE ID = " + mID);
-            return ReturnDs(text);
+            try
+            {
+                string str = "select ah.ID,format(DateOfAction,'yyyy-MM-dd') DateOfAction,aa.Action,ah.CreatedBy,Firstnames,Surname,ad.Description " +
+                    "from AuditHistory ah inner join AuditActions aa on ah.ActionId = aa.ID inner join Users u on ah.CreatedBy = u.ID inner join " +
+                    $"AuditDescription ad on ah.Description = ad.ID where ah.CreatedBy = {userId}";
+                return ReturnDs(str);
+            }
+            catch (Exception ex)
+            {
+                SetErrorDetails(ex.Message);
+                return null;
+            }
         }
         public virtual bool Retrieve()
         {
@@ -106,6 +123,7 @@ namespace GeneralInsuranceManagement.Models
             mID = ((rw["ID"] != DBNull.Value) ? int.Parse(rw["ID"].ToString()) : 0);
             mUserID = ((rw["UserId"] != DBNull.Value) ? int.Parse(rw["UserId"].ToString()) : 0);
             mCreatedBy = ((rw["CreatedBy"] != DBNull.Value) ? int.Parse(rw["CreatedBy"].ToString()) : 0);
+            mDescription = ((rw["Description"] != DBNull.Value) ? int.Parse(rw["Description"].ToString()) : 0);
             mDateOfAction = (rw["DateOfAction"] == DBNull.Value) ? DateTime.MinValue : Convert.ToDateTime(rw["DateOfAction"]);
             mActionID = ((rw["ActionId"] == DBNull.Value) ? int.Parse (rw["ActionId"].ToString()):0);
         }
@@ -138,10 +156,10 @@ namespace GeneralInsuranceManagement.Models
         {
             db.AddInParameter(cmd, "@UserId", DbType.Int64, mUserID);
             db.AddInParameter(cmd, "@ActionId", DbType.Int32, mActionID);
+            db.AddInParameter(cmd, "@Description", DbType.Int32, mDescription);
             db.AddInParameter(cmd, "@CreatedBy", DbType.Int32, mCreatedBy);
             db.AddInParameter(cmd, "@DateOfAction", DbType.String, mDateOfAction);
         }
-
         //must be in users
         public virtual DataSet GetUsers(string sql)
         {

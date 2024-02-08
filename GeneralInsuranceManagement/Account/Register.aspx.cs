@@ -205,6 +205,7 @@ namespace GeneralInsuranceManagement.Account
                         ActionID = (int)Actions.CREATE,
                         ActionedByID = loggedID,
                         DateOfAction = date,
+                        Description = (int)Descriptions.Success,
                     };
                     try
                     {
@@ -237,6 +238,23 @@ namespace GeneralInsuranceManagement.Account
             catch (Exception x)
             {
                 ErrorMessage.Text = x.Message;
+                DateTime date = DateTime.Now;
+                Logs log = new Logs("cn", 1)
+                {
+                    UserID = 0,
+                    ActionID = (int)Actions.CREATE,
+                    ActionedByID = long.Parse(Session["UserID"].ToString()),
+                    DateOfAction = date,
+                    Description = (int)Descriptions.Success,
+                };
+                try
+                {
+                    log.Save();
+                }
+                catch (Exception ex)
+                {
+                    WarningAlert(ex.Message);
+                }
             }
         }
         protected void ClearForm()
