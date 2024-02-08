@@ -58,7 +58,7 @@ namespace GeneralInsuranceManagement.Models
             {
                 string str = "select ah.ID,format(DateOfAction,'yyyy-MM-dd') DateOfAction,aa.Action,ah.CreatedBy,Firstnames,Surname,ad.Description " +
                     "from AuditHistory ah inner join AuditActions aa on ah.ActionId = aa.ID inner join Users u on ah.CreatedBy = u.ID inner join " +
-                    $"AuditDescription ad on ah.Description = ad.ID where ah.CreatedBy = {userId}";
+                    $"AuditDescription ad on ah.Description = ad.ID where ah.CreatedBy = {userId} order by DateOfAction desc";
                 return ReturnDs(str);
             }
             catch (Exception ex)

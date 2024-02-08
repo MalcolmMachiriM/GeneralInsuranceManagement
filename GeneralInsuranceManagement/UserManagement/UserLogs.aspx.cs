@@ -18,7 +18,15 @@ namespace GeneralInsuranceManagement.UserManagement
             Page.MaintainScrollPositionOnPostBack = true;
             if (!IsPostBack)
             {
-                userId.Value = Session["UserID"].ToString();
+                if (Request.QueryString["UserId"]!=null && Request.QueryString["UserId"].ToString() != "0")
+                {
+                    userId.Value = Request.QueryString["UserId"].ToString();
+                }
+                else
+                {
+                    userId.Value = Session["UserID"].ToString();
+                }
+                
                 GetLogs();
             }
         }

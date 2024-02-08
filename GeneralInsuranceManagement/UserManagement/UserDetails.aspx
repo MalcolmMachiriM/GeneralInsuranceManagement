@@ -19,8 +19,8 @@
                  <span class="visually-hidden">Toggle Dropdown</span>
              </button>
              <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">
-                 <%--<a class="dropdown-item" runat="server" href="~/UserManagement/UserLogs" >Logs</a>--%>
-                 <a class="dropdown-item" runat="server" data-userId="<%Context.Session["UserID"]%>" href="~/UserManagement/UserLogs?userID=">Logs</a>
+                 <p><asp:button class="dropdown-item" runat="server" text="Logs" OnClick="Unnamed_Click" ID="btnLogs"></asp:button></p>
+                 <%--<a class="dropdown-item" runat="server" data-userId="<%Context.Session["UserID"]%>" href="~/UserManagement/UserLogs?userID=">Logs</a>--%>
                  <a class="dropdown-item" href="javascript:;">Another action</a>
                  <a class="dropdown-item" href="javascript:;">Something else here</a>
                  <div class="dropdown-divider"></div>
