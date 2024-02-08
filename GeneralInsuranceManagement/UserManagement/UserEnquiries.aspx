@@ -50,7 +50,7 @@
                         <asp:BoundField DataField="Firstnames" HeaderText="First Name(s)"></asp:BoundField>
                         <asp:BoundField DataField="Surname" HeaderText="Surname"></asp:BoundField>
                         <asp:BoundField DataField="DepartmentName" HeaderText="Department"></asp:BoundField>
-                        <asp:BoundField DataField="UserRole" HeaderText="User Type"></asp:BoundField>
+                        <asp:BoundField DataField="Description" HeaderText="User Type"></asp:BoundField>
                         <asp:TemplateField HeaderText="Select">
                             <ItemTemplate>
                                 <asp:LinkButton ID="Edit" runat="server" ForeColor="blue" CssClass="bx bxs-edit" CommandArgument='<%#Eval("ID")%>'

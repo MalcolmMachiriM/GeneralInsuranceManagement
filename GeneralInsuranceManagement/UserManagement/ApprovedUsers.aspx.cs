@@ -1,4 +1,5 @@
 ﻿using GeneralInsuranceBusinessLogic;
+using GeneralInsuranceManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -42,9 +43,10 @@ namespace GeneralInsuranceManagement.UserManagement
         {
             try
             {
-                Users users = new Users("cn", 1);
-                //DataSet ds = users.getUserAccountsByStatus(1);
-                DataSet ds = users.getSavedUsers();
+                Logs users = new Logs("cn", 1);
+                string sql = "select u.ID,Firstnames,Surname,DepartmentName,ur.Description from users u" +
+                    " inner join Departments d on u.DepartmentID=d.ID inner join UserRoles ur on u.UserRoleID=ur.ID where u.StatusID=1";
+                DataSet ds = users.GetUsers(sql);
                 if (ds != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
                 {
                     grdUsers.DataSource = ds;
@@ -66,12 +68,12 @@ namespace GeneralInsuranceManagement.UserManagement
         }
 
 
-        protected void grdUsers_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
+        protected void grdUsers_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "selectRecord")
             {
                 long index = long.Parse(e.CommandArgument.ToString());
-                Response.Redirect(string.Format("~/Account/Register?UserId=" + index, index), false);
+                Response.Redirect(string.Format("~/UserManagement/UserDetails?UserId=" + index, index), false);
             }
         }
     }

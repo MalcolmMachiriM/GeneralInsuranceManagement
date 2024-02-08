@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static GeneralInsuranceManagement.Models.Logs;
 
 namespace GeneralInsuranceManagement.UserManagement
 {
@@ -36,6 +37,10 @@ namespace GeneralInsuranceManagement.UserManagement
                 }
 
 
+                long loggedID = long.Parse(Session["UserId"].ToString());
+                DateTime date = DateTime.Now;
+
+
                 // Validate the user password
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
@@ -49,6 +54,22 @@ namespace GeneralInsuranceManagement.UserManagement
                 switch (result)
                 {
                     case SignInStatus.Success:
+                        Logs log = new Logs("cn", 1)
+                        {
+                            UserID = 0,
+                            ActionID = (int)Actions.LOGIN,
+                            ActionedByID = loggedID,
+                            DateOfAction = date,
+                            Description = (int)Descriptions.Success,
+                        };
+                        try
+                        {
+                            log.Save();
+                        }
+                        catch (Exception ex)
+                        {
+                            WarningAlert(ex.Message);
+                        }
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.LockedOut:
@@ -62,7 +83,23 @@ namespace GeneralInsuranceManagement.UserManagement
                         break;
                     case SignInStatus.Failure:
                     default:
-                        RedAlert("Invalid login attempt") ;                        
+                        RedAlert("Invalid login attempt") ;
+                        Logs log1 = new Logs("cn", 1)
+                        {
+                            UserID = 0,
+                            ActionID = (int)Actions.LOGIN,
+                            ActionedByID = loggedID,
+                            DateOfAction = date,
+                            Description = (int)Descriptions.Fail,
+                        };
+                        try
+                        {
+                            log1.Save();
+                        }
+                        catch (Exception ex)
+                        {
+                            WarningAlert(ex.Message);
+                        }
                         break;
                 }
             }

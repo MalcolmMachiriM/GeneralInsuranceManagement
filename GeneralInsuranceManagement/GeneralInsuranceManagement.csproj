@@ -1126,6 +1126,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="UserManagement\ApprovedUsers.aspx" />
+    <Content Include="UserManagement\UserDetails.aspx" />
     <Content Include="UserManagement\UserEnquiries.aspx" />
     <Content Include="UserManagement\userlogin.aspx" />
     <Content Include="UserManagement\user_Register.aspx" />
@@ -1552,6 +1553,13 @@
     </Compile>
     <Compile Include="UserManagement\ApprovedUsers.aspx.designer.cs">
       <DependentUpon>ApprovedUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\UserDetails.aspx.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManagement\UserDetails.aspx.designer.cs">
+      <DependentUpon>UserDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\UserEnquiries.aspx.cs">
       <DependentUpon>UserEnquiries.aspx</DependentUpon>

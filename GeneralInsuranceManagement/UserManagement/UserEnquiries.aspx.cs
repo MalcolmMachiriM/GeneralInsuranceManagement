@@ -1,4 +1,5 @@
 ﻿using GeneralInsuranceBusinessLogic;
+using GeneralInsuranceManagement.Models;
 using System;
 using System.Data;
 using System.Web.UI;
@@ -38,8 +39,10 @@ namespace GeneralInsuranceManagement.UserManagement
         {
             try
             {
-                Users users = new Users("cn", 1);
-                DataSet ds = users.getSavedUsers();
+                Logs users = new Logs("cn", 1);
+                string sql = "select u.ID,Firstnames,Surname,DepartmentName,ur.Description from users u" +
+                    " inner join Departments d on u.DepartmentID=d.ID inner join UserRoles ur on u.UserRoleID=ur.ID where u.StatusID=0";
+                DataSet ds = users.GetUsers(sql);
                 if (ds != null && ds.Tables[0] != null && ds.Tables[0].Rows != null)
                 {
                     grdUsers.DataSource = ds;
