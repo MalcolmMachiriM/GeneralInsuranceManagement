@@ -1474,6 +1474,7 @@
       <DependentUpon>UnderwritingQuestionsCreate.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\GlobalParameters\PaymentMethod.cs" />
+    <Compile Include="Models\GlobalParameters\Titles.cs" />
     <Compile Include="Models\GlobalParameters\UnderwritingQuestions.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Logs.cs" />
