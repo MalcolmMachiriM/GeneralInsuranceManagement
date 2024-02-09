@@ -17,9 +17,22 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         protected long mObjectUserID;
         protected int mId;
         protected string mMsgflg;
+        protected string mMethod;
+        protected string mCode;
+        protected bool mBankDetailsRequired;
+        protected bool mMobileNumberRequired;
 
         public int Id { get { return mId; } set { mId = value; } }
         public string MsgFlg { get { return mMsgflg; } set { mMsgflg = value; } }
+        public string Method { get { return mMethod; } set { mMethod = value; } }
+        public string Code { get { return mCode; } set { mCode = value; } }
+        public bool BankDetailsRequired { get { return mBankDetailsRequired; } set { mBankDetailsRequired = value; } }
+        public bool MobileNumberRequired { get { return mMobileNumberRequired; } set { mMobileNumberRequired = value; } }
+        public Database Database => db;
+
+        public string OwnerType => GetType().Name;
+
+        public string ConnectionName => mConnectionName;
         public PaymentMethod(string ConnectionName, long ObjectUserID) 
         {
             mObjectUserID = ObjectUserID;
@@ -29,7 +42,7 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
 
         public virtual bool Save()
         {
-            DbCommand cmd = db.GetStoredProcCommand("sp_Save_Audit_History");
+            DbCommand cmd = db.GetStoredProcCommand("sp_Save_PaymentMethods");
             GenerateSaveParameters(ref db, ref cmd);
             try
             {
@@ -49,11 +62,11 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         }
         public virtual void GenerateSaveParameters(ref Database db, ref DbCommand cmd)
         {
-            db.AddInParameter(cmd, "@Id", DbType.Int64, mId);
-            //db.AddInParameter(cmd, "@ActionId", DbType.Int32, mActionID);
-            //db.AddInParameter(cmd, "@Description", DbType.Int32, mDescription);
-            //db.AddInParameter(cmd, "@CreatedBy", DbType.Int32, mCreatedBy);
-            //db.AddInParameter(cmd, "@DateOfAction", DbType.String, mDateOfAction);
+            db.AddInParameter(cmd, "@Id", DbType.Int32, mId);
+            db.AddInParameter(cmd, "@Method", DbType.String, mMethod);
+            db.AddInParameter(cmd, "@Code", DbType.String, mCode);
+            db.AddInParameter(cmd, "@BankDetailsRequired", DbType.Boolean, mBankDetailsRequired);
+            db.AddInParameter(cmd, "@MobileNumberRequired", DbType.Boolean, mMobileNumberRequired);
         }
         protected void SetErrorDetails(string str)
         {
