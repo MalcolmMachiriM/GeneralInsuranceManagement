@@ -1473,14 +1473,19 @@
     <Compile Include="GlobalParameters\UnderwritingQuestions\UnderwritingQuestionsCreate.aspx.designer.cs">
       <DependentUpon>UnderwritingQuestionsCreate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryPackages.cs" />
+    <Compile Include="Models\Departments.cs" />
     <Compile Include="Models\GlobalParameters\PaymentMethod.cs" />
     <Compile Include="Models\GlobalParameters\StopOrders.cs" />
     <Compile Include="Models\GlobalParameters\TImeGroups.cs" />
     <Compile Include="Models\GlobalParameters\Titles.cs" />
     <Compile Include="Models\GlobalParameters\UnderwritingQuestions.cs" />
+    <Compile Include="Models\HabitsAndInterests.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Logs.cs" />
+    <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\UserAccountAuthorizationLog.cs" />
+    <Compile Include="Models\UserRoles.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Policies\PolicyCreation.aspx.cs">
       <DependentUpon>PolicyCreation.aspx</DependentUpon>
