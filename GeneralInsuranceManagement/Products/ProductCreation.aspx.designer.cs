@@ -15,13 +15,13 @@ namespace GeneralInsuranceManagement.Products
     {
 
         /// <summary>
-        /// SchemeId control.
+        /// ProductId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField SchemeId;
+        protected global::System.Web.UI.WebControls.HiddenField ProductId;
 
         /// <summary>
         /// pagetitle control.
@@ -123,13 +123,13 @@ namespace GeneralInsuranceManagement.Products
         protected global::System.Web.UI.WebControls.Panel pnlSave;
 
         /// <summary>
-        /// btnRegister control.
+        /// btnCreate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegister;
+        protected global::System.Web.UI.WebControls.Button btnCreate;
 
         /// <summary>
         /// btnReset control.
