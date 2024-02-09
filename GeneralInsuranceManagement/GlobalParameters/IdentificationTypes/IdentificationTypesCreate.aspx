@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Institution Types Management</div>
+        <div class="breadcrumb-title pe-3">Identification Types Management</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -38,7 +38,7 @@
             <div class="card ">
                 <div class="card-body p-4">
                     <h5 class="mb-4">
-                        <span><i class='bx bx-crown' style="font-size: x-large"></i></span>
+                        <span><i class='bx bx-id-card' style="font-size: x-large"></i></span>
                         Identification Types
                     </h5>
                     <p class="text-danger">
@@ -46,60 +46,68 @@
                     </p>
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
-                    <div class="row g-3">
-                        <%--AssociatedControlID="Description"--%>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Identification Type Name </asp:Label>
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="IdentificationType" class="col-sm-3 col-form-label">Identification Type </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-crown' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="IdentificationTypes" CssClass="form-control" placeholder="Enter Identification Type" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="IdentificationTypes"
-                                    CssClass="text-danger" ErrorMessage="The Identification Type field is required." />
+                                <span class="input-group-text"><i class="bx bx-id-card" style="color: blue"></i></span>
+                                <asp:TextBox runat="server" ID="IdentificationType" CssClass="form-control" placeholder="Enter Identification Type" />
                             </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="IdentificationType"
+                                CssClass="text-danger" ErrorMessage="The Identification Type field is required." />
                         </div>
-                        <!-- row -->
+                    </div>
+                    <!-- row -->
+                    <div class="row">
                         <asp:Label runat="server" class="col-sm-3 col-form-label">Format </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
+                                <span class="input-group-text"><i class='bx bx-rename' style="color: blue"></i></span>
                                 <asp:TextBox runat="server" ID="IdentificationTypesFormat" CssClass="form-control" placeholder="Enter Identification Type Format" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="IdentificationTypesFormat"
-                                    CssClass="text-danger" ErrorMessage="The Format field is required." />
                             </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="IdentificationTypesFormat"
+                                CssClass="text-danger" ErrorMessage="The Format field is required." />
                         </div>
+                    </div>
+
+                    <div class="row">
                         <asp:Label runat="server" class="col-sm-3 col-form-label">Minimum Length Required</asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
+                                <span class="input-group-text"><i class='bx bx-list-minus' style="color: blue"></i></span>
                                 <asp:TextBox runat="server" ID="MinimumLength" CssClass="form-control" placeholder="Enter Number of Branches" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="MinimumLength"
-                                    CssClass="text-danger" ErrorMessage="The Minimum Length field is required." />
                             </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="MinimumLength"
+                                CssClass="text-danger" ErrorMessage="The Minimum Length field is required." />
                         </div>
+                    </div>
+
+                    <div class="row">
                         <asp:Label runat="server" class="col-sm-3 col-form-label">Maximum Length Required </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
+                                <span class="input-group-text"><i class="bx bx-list-plus" style="color: blue"></i></span>
                                 <asp:TextBox runat="server" ID="MaximumLength" CssClass="form-control" placeholder="Enter Account Number Length" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="MaximumLength"
-                                    CssClass="text-danger" ErrorMessage="The Maximum Length field is required." />
+                            </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="MaximumLength"
+                                CssClass="text-danger" ErrorMessage="The Maximum Length field is required." />
+                        </div>
+                    </div>
+                    <asp:Panel ID="pnlSave" runat="server">
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
                             </div>
                         </div>
-                        <asp:Panel ID="pnlSave" runat="server">
-                            <div class="row">
-                                <label class="col-sm-3 col-form-label"></label>
-                                <div class="col-sm-9">
-                                    <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
-                                </div>
-                            </div>
-                        </asp:Panel>
-                        <!-- row -->
-                    </div>
-                    <!-- form-layout-footer -->
-
+                    </asp:Panel>
+                    <!-- row -->
                 </div>
-                <!-- card -->
+                <!-- form-layout-footer -->
+
             </div>
+            <!-- card -->
         </div>
+    </div>
     </div>
 </asp:Content>

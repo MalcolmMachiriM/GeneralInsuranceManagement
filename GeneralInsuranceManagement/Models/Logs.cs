@@ -134,6 +134,7 @@ namespace GeneralInsuranceManagement.Models
             mDescription = ((rw["Description"] != DBNull.Value) ? int.Parse(rw["Description"].ToString()) : 0);
             mDateOfAction = (rw["DateOfAction"] == DBNull.Value) ? DateTime.MinValue : Convert.ToDateTime(rw["DateOfAction"]);
             mActionID = ((rw["ActionId"] == DBNull.Value) ? int.Parse (rw["ActionId"].ToString()):0);
+
         }
         protected void SetErrorDetails(string str)
         {

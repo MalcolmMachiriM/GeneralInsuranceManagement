@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Time Groups Management</div>
+        <div class="breadcrumb-title pe-3">Income Types Management</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -38,7 +38,7 @@
             <div class="card ">
                 <div class="card-body p-4">
                     <h5 class="mb-4">
-                        <span><i data-feather="clock"></i></span>
+                        <span><i class="bx bx-credit-card-front"></i></span>
                         Income Types
                     </h5>
                     <p class="text-danger">
@@ -46,24 +46,17 @@
                     </p>
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
-                    <div class="row g-3">
-                        <%--AssociatedControlID="Description"--%>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Income Type </asp:Label>
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="IncomeTypes" class="col-sm-3 col-form-label">Income Type </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class='bx bx-time' style="color: blue; font-size: larger"></i></span>
+                                <span class="input-group-text"><i class="bx bx-credit-card-front" style="color: blue"></i></span>
                                 <asp:TextBox runat="server" ID="IncomeTypes" CssClass="form-control" placeholder="Enter Income Type" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="IncomeTypes"
-                                    CssClass="text-danger" ErrorMessage="The Income Type field is required." />
                             </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="IncomeTypes"
+                                CssClass="text-danger" ErrorMessage="The Income Type field is required." />
                         </div>
-                        <%-- <div class="col-md-6">
-                       
-                        <asp:Label runat="server" class="form-label">Description</asp:Label>
-                        <asp:TextBox runat="server" ID="RegNo" CssClass="form-control" placeholder="Enter Time Group Description" />
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="Description"
-                            CssClass="text-danger" ErrorMessage="The Time Groups field is required." />
-                    </div>--%>
+                    </div>
                         <!-- row -->
                         <asp:Panel ID="pnlSave" runat="server">
                             <div class="row">
@@ -81,5 +74,4 @@
                 <!-- card -->
             </div>
         </div>
-    </div>
 </asp:Content>

@@ -38,7 +38,7 @@
             <div class="card ">
                 <div class="card-body p-4">
                     <h5 class="mb-4">
-                        <span><i data-feather="clock"></i></span>
+                        <span><i class="bx bx-time-five" style="font-size: larger"></i></span>
                         Time Groups
                     </h5>
                     <p class="text-danger">
@@ -46,18 +46,18 @@
                     </p>
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
-                    <div class="row g-3">
-                        <%--AssociatedControlID="Description"--%>
-                        <asp:Label runat="server" class="col-sm-3 col-form-label">Description </asp:Label>
+                    <div class="row">
+                        <asp:Label runat="server" AssociatedControlID="Timegroups" class="col-sm-3 col-form-label">Time Group </asp:Label>
                         <div class="col-sm-6">
-                            <div class="input-group">                                 
-                                <span class="input-group-text"><i class='bx bx-time' style="color: blue; font-size: larger"></i></span>
-                                <asp:TextBox runat="server" ID="Description" CssClass="form-control" placeholder="Enter Time Group Description" />
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Description"
-                                    CssClass="text-danger" ErrorMessage="The Time Groups field is required." />
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bx bx-time-five" style="color:blue"></i></span>
+                                <asp:TextBox runat="server" ID="Timegroups" CssClass="form-control" placeholder="Enter Time Group" />
                             </div>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Timegroups"
+                                CssClass="text-danger" ErrorMessage="The Time Group field is required." />
                         </div>
-                       <%-- <div class="col-md-6">
+                    </div>
+                        <%-- <div class="col-md-6">
                            
                             <asp:Label runat="server" class="form-label">Description</asp:Label>
                             <asp:TextBox runat="server" ID="RegNo" CssClass="form-control" placeholder="Enter Time Group Description" />

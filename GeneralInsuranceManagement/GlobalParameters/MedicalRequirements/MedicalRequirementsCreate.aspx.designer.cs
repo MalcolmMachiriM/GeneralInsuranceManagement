@@ -42,13 +42,13 @@ namespace GeneralInsuranceManagement.GlobalParameters.MedicalRequirements
         protected global::System.Web.UI.WebControls.TextBox MedicalRequirementsCode;
 
         /// <summary>
-        /// MedicalRequirementsDescription control.
+        /// MedicalRequirements control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MedicalRequirementsDescription;
+        protected global::System.Web.UI.WebControls.TextBox MedicalRequirements;
 
         /// <summary>
         /// Tariff control.
