@@ -9,6 +9,7 @@ namespace GeneralInsuranceManagement.Models
 {
     public class Logs
     {
+        #region enums
         public enum Actions
         {
             CREATE = 1,
@@ -21,6 +22,8 @@ namespace GeneralInsuranceManagement.Models
             Success = 1,
             Fail = 2,
         };
+        #endregion
+        #region variables
         protected Database db;
         protected string mConnectionName;
         protected int mDescription;
@@ -31,7 +34,8 @@ namespace GeneralInsuranceManagement.Models
         protected long mCreatedBy;
         protected DateTime mDateOfAction;
         protected string mMsgflg;
-
+        #endregion
+        #region properties
         public string MsgFlg { get { return mMsgflg; } set { mMsgflg = value; } }
         public int Description { get { return mDescription; } set { mDescription = value; } }
         public int ID { get { return mID; } set { mID = value; } }
@@ -45,13 +49,17 @@ namespace GeneralInsuranceManagement.Models
         public string OwnerType => GetType().Name;
 
         public string ConnectionName => mConnectionName;
+        #endregion
+        #region constructor
         public Logs(string ConnectionName, long ObjectUserID)
         {
             mObjectUserID = ObjectUserID;
             mConnectionName = ConnectionName;
             db = new DatabaseProviderFactory().Create(ConnectionName);
         }
+        #endregion
 
+        #region methods
         public DataSet getAllLogs(long userId)
         {
             try
@@ -160,6 +168,7 @@ namespace GeneralInsuranceManagement.Models
             db.AddInParameter(cmd, "@CreatedBy", DbType.Int32, mCreatedBy);
             db.AddInParameter(cmd, "@DateOfAction", DbType.String, mDateOfAction);
         }
+        #endregion
         //must be in users
         public virtual DataSet GetUsers(string sql)
         {

@@ -197,7 +197,7 @@ namespace GeneralInsuranceManagement.Account
                 U.AllowPasswordReuse = AllowPasswordReuse.Checked;
                 U.PasswordExpires = PasswordExpires.Checked;
 
-                if (U.Save() == true)
+                if (U.Save() )
                 {
                     Logs log = new Logs("cn", 1)
                     {
