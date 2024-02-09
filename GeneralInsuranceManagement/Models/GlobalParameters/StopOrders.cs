@@ -8,7 +8,7 @@ using System.Web;
 
 namespace GeneralInsuranceManagement.Models.GlobalParameters
 {
-    public class TImeGroups
+    public class StopOrders
     {
         #region variables
         protected Database db;
@@ -16,19 +16,23 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         protected long mObjectUserID;
         protected string mMsgflg;
         protected int mId;
-        protected string mDescription;
+        protected string mName;
+        protected string mEmployerName;
+        protected int mEmployeeNumber;
         #endregion
         #region properties
         public int Id { get { return mId; } set { mId = value; } }
         public string MsgFlg { get { return mMsgflg; } set { mMsgflg = value; } }
-        public string Description { get { return mDescription; } set { mDescription = value; } }
+        public string Name { get { return mName; } set { mName = value; } }
+        public string EmployerName { get { return mName; } set { mName = value; } }
+        public int EmployeeNumber { get { return mEmployeeNumber; } set { mEmployeeNumber = value; } }
         public Database Database => db;
 
         public string OwnerType => GetType().Name;
 
         public string ConnectionName => mConnectionName;
         #endregion
-        public TImeGroups(string ConnectionName, long ObjectUserID) 
+        public StopOrders(string ConnectionName, long ObjectUserID) 
         {
             mObjectUserID = ObjectUserID;
             mConnectionName = ConnectionName;
@@ -37,7 +41,7 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         #region methods
         public virtual bool Save()
         {
-            DbCommand cmd = db.GetStoredProcCommand("sp_Save_TimeGroups");
+            DbCommand cmd = db.GetStoredProcCommand("sp_Save_StopOrders");
             GenerateSaveParameters(ref db, ref cmd);
             try
             {
@@ -58,7 +62,9 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         public virtual void GenerateSaveParameters(ref Database db, ref DbCommand cmd)
         {
             db.AddInParameter(cmd, "@Id", DbType.Int32, mId);
-            db.AddInParameter(cmd, "@Description", DbType.String, mDescription);
+            db.AddInParameter(cmd, "@Name", DbType.String, mName);
+            db.AddInParameter(cmd, "@EmployerName", DbType.String, mEmployerName);
+            db.AddInParameter(cmd, "@EmployeeNumber", DbType.Int32, mEmployeeNumber);
         }
         protected void SetErrorDetails(string str)
         {
