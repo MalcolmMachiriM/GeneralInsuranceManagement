@@ -1480,6 +1480,8 @@
     <Compile Include="Models\GlobalParameters\UnderwritingQuestions.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Logs.cs" />
+    <Compile Include="Models\UserAccountAuthorizationLog.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="Policies\PolicyCreation.aspx.cs">
       <DependentUpon>PolicyCreation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

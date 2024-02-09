@@ -1,5 +1,5 @@
 ﻿using Antlr.Runtime.Misc;
-using GeneralInsuranceBusinessLogic;
+//using GeneralInsuranceBusinessLogic;
 using GeneralInsuranceManagement.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
