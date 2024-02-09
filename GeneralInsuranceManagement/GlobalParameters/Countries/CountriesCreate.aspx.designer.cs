@@ -11,7 +11,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.Countries
 {
 
 
-    public partial class Countries
+    public partial class CountriesCreate
     {
 
         /// <summary>
