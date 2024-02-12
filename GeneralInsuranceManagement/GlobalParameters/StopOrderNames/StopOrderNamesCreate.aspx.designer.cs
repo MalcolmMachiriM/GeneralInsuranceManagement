@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GeneralInsuranceManagement.GlobalParameters.IdentificationTypes
+namespace GeneralInsuranceManagement.GlobalParameters.StopOrdersNames
 {
 
 
-    public partial class IdentificationTypesCreate
+    public partial class StopOrderNamesCreate
     {
 
         /// <summary>
@@ -33,40 +33,31 @@ namespace GeneralInsuranceManagement.GlobalParameters.IdentificationTypes
         protected global::System.Web.UI.WebControls.Literal ErrorMessage;
 
         /// <summary>
-        /// IdentificationType control.
+        /// StopOrderName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox IdentificationType;
+        protected global::System.Web.UI.WebControls.TextBox StopOrderName;
 
         /// <summary>
-        /// Format control.
+        /// EmployerName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Format;
+        protected global::System.Web.UI.WebControls.TextBox EmployerName;
 
         /// <summary>
-        /// MinLengthRequired control.
+        /// EmployeeNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MinLengthRequired;
-
-        /// <summary>
-        /// MaxLengthRequired control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MaxLengthRequired;
+        protected global::System.Web.UI.WebControls.TextBox EmployeeNumber;
 
         /// <summary>
         /// pnlSave control.

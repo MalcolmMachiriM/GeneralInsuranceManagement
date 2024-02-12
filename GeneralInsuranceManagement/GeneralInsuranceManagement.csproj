@@ -988,7 +988,7 @@
     <Content Include="GlobalParameters\RelationshipTypes\RelationshipTypesCreate.aspx" />
     <Content Include="GlobalParameters\Religions\ReligionsCreate.aspx" />
     <Content Include="GlobalParameters\RequirementsTypes\RequirementsTypesCreate.aspx" />
-    <Content Include="GlobalParameters\StopOrdersNames\StopOrderNamesCreate.aspx" />
+    <Content Include="GlobalParameters\StopOrderNames\StopOrderNamesCreate.aspx" />
     <Content Include="GlobalParameters\Timegroups\TimegroupsCreate.aspx" />
     <Content Include="GlobalParameters\Titles\TitlesCreate.aspx" />
     <Content Include="GlobalParameters\UnderwritingQuestions\UnderwritingQuestionsCreate.aspx" />
@@ -1445,11 +1445,11 @@
     <Compile Include="GlobalParameters\RequirementsTypes\RequirementsTypesCreate.aspx.designer.cs">
       <DependentUpon>RequirementsTypesCreate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GlobalParameters\StopOrdersNames\StopOrderNamesCreate.aspx.cs">
+    <Compile Include="GlobalParameters\StopOrderNames\StopOrderNamesCreate.aspx.cs">
       <DependentUpon>StopOrderNamesCreate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GlobalParameters\StopOrdersNames\StopOrderNamesCreate.aspx.designer.cs">
+    <Compile Include="GlobalParameters\StopOrderNames\StopOrderNamesCreate.aspx.designer.cs">
       <DependentUpon>StopOrderNamesCreate.aspx</DependentUpon>
     </Compile>
     <Compile Include="GlobalParameters\Timegroups\TimegroupsCreate.aspx.cs">

@@ -33,22 +33,22 @@ namespace GeneralInsuranceManagement.GlobalParameters.PremiumPaymentFrequencies
         protected global::System.Web.UI.WebControls.Literal ErrorMessage;
 
         /// <summary>
-        /// PaymentFrequency control.
+        /// PremiumPaymentFrequencies control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PaymentFrequency;
+        protected global::System.Web.UI.WebControls.TextBox PremiumPaymentFrequencies;
 
         /// <summary>
-        /// FrequencyCode control.
+        /// PaymentFrequencyCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FrequencyCode;
+        protected global::System.Web.UI.WebControls.TextBox PaymentFrequencyCode;
 
         /// <summary>
         /// pnlSave control.

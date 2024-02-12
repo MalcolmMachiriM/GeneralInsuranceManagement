@@ -46,63 +46,59 @@
                     </p>
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
-                    <div class="row">
-                        <asp:Label runat="server" AssociatedControlID="BankCode" class="col-sm-3 col-form-label">Code </asp:Label>
+                    <div class="row g-3">
+                        <%--AssociatedControlID="Description"--%>
+                        <asp:Label runat="server" class="col-sm-3 col-form-label">Code </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class="bx bx-barcode" style="color: blue"></i></span>
+                                <span class="input-group-text"><i class='bx bx-crown' style="color: blue"></i></span>
                                 <asp:TextBox runat="server" ID="BankCode" CssClass="form-control" placeholder="Enter Bank Code" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="BankCode"
+                                    CssClass="text-danger" ErrorMessage="The Bank Code field is required." />
                             </div>
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="BankCode"
-                                CssClass="text-danger" ErrorMessage="The Bank Code field is required." />
                         </div>
-                    </div>
-                    <div class="row">
-                        <asp:Label runat="server" AssociatedControlID="BankName" class="col-sm-3 col-form-label">Bank Name </asp:Label>
+                        <!-- row -->
+                        <asp:Label runat="server" class="col-sm-3 col-form-label">Bank Name </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class="bx bx-buildings" style="color: blue"></i></span>
+                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
                                 <asp:TextBox runat="server" ID="BankName" CssClass="form-control" placeholder="Enter Bank Name" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="BankName"
+                                    CssClass="text-danger" ErrorMessage="The Bank Name field is required." />
                             </div>
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="BankName"
-                                CssClass="text-danger" ErrorMessage="The Bank Name field is required." />
                         </div>
-                    </div>
-                    <div class="row">
-                        <asp:Label runat="server" AssociatedControlID="BranchNumbers" class="col-sm-3 col-form-label">Number of Branches </asp:Label>
+                        <asp:Label runat="server" class="col-sm-3 col-form-label">Number of Branches</asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class="bx bx-credit-card" style="color: blue"></i></span>
+                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
                                 <asp:TextBox runat="server" ID="BranchNumbers" CssClass="form-control" placeholder="Enter Number of Branches" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="BranchNumbers"
+                                    CssClass="text-danger" ErrorMessage="The Number of Branches field is required." />
                             </div>
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="BranchNumbers"
-                                CssClass="text-danger" ErrorMessage="The Number of Branches field is required." />
                         </div>
-                    </div>
-                    <div class="row">
-                        <asp:Label runat="server" AssociatedControlID="NumberLength" class="col-sm-3 col-form-label">Account Number Length </asp:Label>
+                        <asp:Label runat="server" class="col-sm-3 col-form-label">Account Number Length </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
-                                <span class="input-group-text"><i class="bx bx-rename" style="color: blue"></i></span>
+                                <span class="input-group-text"><i class='bx bx-barcode' style="color: blue"></i></span>
                                 <asp:TextBox runat="server" ID="NumberLength" CssClass="form-control" placeholder="Enter Account Number Length" />
+                                <asp:RequiredFieldValidator runat="server" ControlToValidate="NumberLength"
+                                    CssClass="text-danger" ErrorMessage="The Account Number Length is required." />
                             </div>
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="NumberLength"
-                                CssClass="text-danger" ErrorMessage="The Account Number Length field is required." />
                         </div>
+                        <asp:Panel ID="pnlSave" runat="server">
+                            <div class="row">
+                                <label class="col-sm-3 col-form-label"></label>
+                                <div class="col-sm-9">
+                                    <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
+                                </div>
+                            </div>
+                        </asp:Panel>
+                        <!-- row -->
                     </div>
-                    <asp:Panel ID="pnlSave" runat="server">
-                        <div class="row">
-                            <label class="col-sm-3 col-form-label"></label>
-                            <div class="col-sm-9">
-                                <asp:Button runat="server" ID="btnCreate" OnClick="btnCreate_Click" Text="Create" CssClass="btn btn-primary px-4 " />
-                            </div>
-                        </div>
-                    </asp:Panel>
-                    <!-- row -->
+                    <!-- form-layout-footer -->
+
                 </div>
-                <!-- form-layout-footer -->
                 <!-- card -->
             </div>
         </div>
-    </div>
 </asp:Content>

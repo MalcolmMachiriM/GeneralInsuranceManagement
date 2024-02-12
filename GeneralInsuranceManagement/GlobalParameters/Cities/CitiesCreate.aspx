@@ -47,6 +47,7 @@
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
                     <div class="row">
+<<<<<<< Updated upstream
                         <asp:Label runat="server" AssociatedControlID="CountryName" class="col-sm-3 col-form-label">Country Name </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
@@ -65,9 +66,9 @@
                                 <asp:TextBox runat="server" ID="CityName" CssClass="form-control" placeholder="Enter City Name" />
                             </div>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="CityName"
-                                CssClass="text-danger" ErrorMessage="The City Name field is required." />
-                        </div>
-                    </div>
+===
+                    <!-- row -->
+                   
                     <asp:Panel ID="pnlSave" runat="server">
                         <div class="row">
                             <label class="col-sm-3 col-form-label"></label>
@@ -77,11 +78,9 @@
                         </div>
                     </asp:Panel>
                     <!-- row -->
-                </div>
-                <!-- form-layout-footer -->
-
             </div>
             <!-- card -->
+        </div>
         </div>
     </div>
 </asp:Content>

@@ -42,15 +42,6 @@ namespace GeneralInsuranceManagement.GlobalParameters.MaritalStatus
         protected global::System.Web.UI.WebControls.TextBox MaritalStatus;
 
         /// <summary>
-        /// MaritalStatusCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MaritalStatusCode;
-
-        /// <summary>
         /// pnlSave control.
         /// </summary>
         /// <remarks>

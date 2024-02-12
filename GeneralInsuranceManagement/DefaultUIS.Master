@@ -131,7 +131,7 @@
 
         function logout() {
             // Redirect to the logout or login page
-            window.location.href = '../UserManagement/userlogin';
+            window.location.href = '~/UserManagement/userlogin';
         }
 
         // Add event listeners for user activity (e.g., mousemove, keydown, etc.)
@@ -450,7 +450,7 @@
                                     <li><a runat="server" href="GlobalParameters/InterestRateTypes/InterestRateTypesCreate.aspx"><i class='bx bx-credit-card-alt'></i>Interest Rate Types</a></li>
                                     <li><a runat="server" href="GlobalParameters/InterestRateFrequencies/InterestRateFrequenciesCreate.aspx"><i class='bx bx-timer'></i>Interest Rate Frequencies</a></li>
                                     <li><a runat="server" href="GlobalParameters/Banks/BanksCreate.aspx"><i class='bx bx-buildings'></i>Banks</a></li>
-                                    <li><a runat="server" href="GlobalParameters/StopOrdersNames/StopOrderNamesCreate.aspx"><i class='bx bx-building-house'></i>Stop Order Names</a></li>
+                                    <li><a runat="server" href="GlobalParameters/StopOrderNames/StopOrderNamesCreate.aspx"><i class='bx bx-building-house'></i>Stop Order Names</a></li>
                                     <li><a runat="server" href="GlobalParameters/Countries/CountriesCreate.aspx"><i class='bx bx-flag'></i>Countries</a></li>
                                     <li><a runat="server" href="GlobalParameters/Cities/CitiesCreate.aspx"><i class='bx bx-flag'></i>Cities</a></li>
                                     <li><a runat="server" href="GlobalParameters/IdentificationTypes/IdentificationTypesCreate.aspx"><i class='bx bx-id-card'></i>Identification Types</a></li>
@@ -458,14 +458,14 @@
                                     <li><a runat="server" href="GlobalParameters/MedicalRequirements/MedicalRequirementsCreate.aspx"><i class='bx bx-plus-medical'></i>Medical Requirements</a></li>
                                     <li><a runat="server" href="GlobalParameters/HabitsAndInterests/HabitsAndInterestsCreate.aspx"><i class='bx bx-cycling'></i>Habits And Interests</a></li>
                                     <li><a runat="server" href="GlobalParameters/Currencies/CurrenciesCreate.aspx"><i class='bx bx-money'></i>Currencies</a></li>
-                                    <li><a runat="server" href="GlobalParameters/Occupations/OccupationsCreate.aspx"><i class='bx bx-briefcase-alt'></i>Occupations</a></li>
+                                    <li><a runat="server" href="GlobalParameters/Occupations/OccupationsCreate.aspx"><i class='bx bx-briefcase'></i>Occupations</a></li>
                                     <li><a runat="server" href="GlobalParameters/AddressTypes/AddressTypesCreate.aspx"><i class='bx bx-current-location'></i>Address Types</a></li>
                                     <li><a runat="server" href="GlobalParameters/MaritalStatus/MaritalStatusCreate.aspx"><i class='bx bx-user-plus'></i>Marital Status</a></li>
                                     <li><a runat="server" href="GlobalParameters/Titles/TitlesCreate.aspx"><i class='bx bx-user-check'></i>Titles</a></li>
-                                    <li><a runat="server" href="GlobalParameters/IncomeTypes/IncomeTypesCreate.aspx"><i class='bx bx-credit-card-front'></i>IncomeTypes</a></li>
+                                    <li><a runat="server" href="GlobalParameters/IncomeTypes/IncomeTypesCreate.aspx"><i class='bx bx-credit-card'></i>Income Types</a></li>
                                     <li><a runat="server" href="GlobalParameters/Qualifications/QualificationsCreate.aspx"><i class='bx bx-detail'></i>Qualifications</a></li>
                                     <li><a runat="server" href="GlobalParameters/Religions/ReligionsCreate.aspx"><i class='bx bx-church'></i>Religions</a></li>
-                                    <li><a runat="server" href="GlobalParameters/AccountTypes/AccountTypesCreate.aspx"><i class='bx bx-credit-card'></i>Account Types</a></li>
+                                    <li><a runat="server" href="GlobalParameters/AccountTypes/AccountTypesCreate.aspx"><i class='bx bx-credit-card-front'></i>Account Types</a></li>
                                     <li><a runat="server" href="GlobalParameters/UnderwritingQuestions/UnderwritingQuestionsCreate.aspx"><i class='bx bx-message-alt-detail'></i>Underwriting Questions</a></li>
                                 </ul>
                             </li>
