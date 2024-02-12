@@ -1473,7 +1473,6 @@
     <Compile Include="GlobalParameters\UnderwritingQuestions\UnderwritingQuestionsCreate.aspx.designer.cs">
       <DependentUpon>UnderwritingQuestionsCreate.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="Models\GlobalParameters\AccountTypes.cs" />
     <Compile Include="Models\GlobalParameters\AddressTypes.cs" />
     <Compile Include="Models\GlobalParameters\Banks.cs" />
@@ -1483,10 +1482,11 @@
     <Compile Include="Models\GlobalParameters\Currencies.cs" />
     <Compile Include="Models\GlobalParameters\HabitsAndInterests.cs" />
     <Compile Include="Models\GlobalParameters\HumanDemographicGroups.cs" />
-
     <Compile Include="Models\CategoryPackages.cs" />
     <Compile Include="Models\Departments.cs" />
-
+    <Compile Include="Models\GlobalParameters\IdentificationTypes.cs" />
+    <Compile Include="Models\GlobalParameters\IncomeTypes.cs" />
+    <Compile Include="Models\GlobalParameters\InstitutionTypes.cs" />
     <Compile Include="Models\GlobalParameters\PaymentMethod.cs" />
     <Compile Include="Models\GlobalParameters\StopOrders.cs" />
     <Compile Include="Models\GlobalParameters\TImeGroups.cs" />

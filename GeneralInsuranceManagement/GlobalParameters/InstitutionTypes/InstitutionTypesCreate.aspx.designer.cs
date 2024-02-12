@@ -33,13 +33,13 @@ namespace GeneralInsuranceManagement.GlobalParameters.InstitutionTypes
         protected global::System.Web.UI.WebControls.Literal ErrorMessage;
 
         /// <summary>
-        /// InstitutionTypes control.
+        /// InstitutionType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox InstitutionTypes;
+        protected global::System.Web.UI.WebControls.TextBox InstitutionType;
 
         /// <summary>
         /// pnlSave control.
