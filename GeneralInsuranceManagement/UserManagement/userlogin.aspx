@@ -166,7 +166,7 @@
                                             <div class="col-12">
                                                 <div class="text-center ">
                                                     <p class="mb-0">
-                                                        Don't have an account yet? <a href="auth-cover-signup.html" style="color: #00416a;">Sign up here</a>
+                                                        Don't have an account yet? <a runat="server" href="~/Account/Register" style="color: #00416a;">Register here</a>
                                                     </p>
                                                 </div>
                                             </div>
