@@ -48,13 +48,13 @@
 
                     <div class="row">
 
-                        <asp:Label runat="server" AssociatedControlID="InstitutionTypes" class="col-sm-3 col-form-label">Description </asp:Label>
+                        <asp:Label runat="server" AssociatedControlID="InstitutionType" class="col-sm-3 col-form-label">Description </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-arch' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="InstitutionTypes" CssClass="form-control" placeholder="Enter Institution Type" />
+                                <asp:TextBox runat="server" ID="InstitutionType" CssClass="form-control" placeholder="Enter Institution Type" />
                             </div>
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="InstitutionTypes"
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="InstitutionType"
                                 CssClass="text-danger" ErrorMessage="The Time Groups field is required." />
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         <div class="row">
                             <label class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
+                                <asp:Button runat="server" ID="btnCreate" OnClick="btnCreate_Click" Text="Create" CssClass="btn btn-primary px-4 " />
                             </div>
                         </div>
                     </asp:Panel>
@@ -81,6 +81,5 @@
             </div>
             <!-- card -->
         </div>
-    </div>
     </div>
 </asp:Content>

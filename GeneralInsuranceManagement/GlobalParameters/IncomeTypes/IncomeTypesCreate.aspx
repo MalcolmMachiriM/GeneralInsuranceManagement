@@ -47,13 +47,13 @@
                     <asp:ValidationSummary runat="server" CssClass="text-danger" />
 
                     <div class="row">
-                        <asp:Label runat="server" AssociatedControlID="IncomeTypes" class="col-sm-3 col-form-label">Income Type </asp:Label>
+                        <asp:Label runat="server" AssociatedControlID="IncomeType" class="col-sm-3 col-form-label">Income Type </asp:Label>
                         <div class="col-sm-6">
                             <div class="input-group">
                                 <span class="input-group-text"><i class="bx bx-credit-card-front" style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="IncomeTypes" CssClass="form-control" placeholder="Enter Income Type" />
+                                <asp:TextBox runat="server" ID="IncomeType" CssClass="form-control" placeholder="Enter Income Type" />
                             </div>
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="IncomeTypes"
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="IncomeType"
                                 CssClass="text-danger" ErrorMessage="The Income Type field is required." />
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                             <div class="row">
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
-                                    <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
+                                    <asp:Button runat="server" ID="btnCreate" OnClick="btnCreate_Click" Text="Create" CssClass="btn btn-primary px-4 " />
                                 </div>
                             </div>
                         </asp:Panel>
