@@ -19,6 +19,10 @@ namespace GeneralInsuranceManagement.Products.CoverTypes
                 {
                     CoverTypeId.Value = Request.QueryString["CoverTypeId"].ToString();
                 }
+                else
+                {
+                    CoverTypeId.Value = "0";
+                }
                 getProducts();
                 getSumAssuredBasis();
             }
@@ -102,18 +106,16 @@ namespace GeneralInsuranceManagement.Products.CoverTypes
                 Package = Package.Text,
                 Description = Description.Text,
             };
-            try
+            if (package.Save())
             {
-                if (package.Save())
-                {
-                    SuccessAlert("Package Saved");
-                }
+                SuccessAlert("Package saved");
             }
-            catch (Exception ex)
+            else
             {
-
-               RedAlert(ex.Message);
+                RedAlert("Failed to save package");
             }
+               
+            
         }
     }
 }

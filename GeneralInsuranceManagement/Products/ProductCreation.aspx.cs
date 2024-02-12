@@ -85,12 +85,19 @@ namespace GeneralInsuranceManagement.Products
             if (product.Save())
             {
                 SuccessAlert("Product created successfully");
+                Clear();
             }
             else
             {
                 WarningAlert("Failed to save the products");
             }
             
+        }
+
+        private void Clear()
+        {
+            Name.Text= string.Empty;
+            Description.Text= string.Empty;
         }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
