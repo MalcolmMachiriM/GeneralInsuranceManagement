@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="ProductCreation.aspx.cs" Inherits="GeneralInsuranceManagement.Products.ProductCreation" %>
+﻿<%@ Page Title="Product Creation" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="ProductCreation.aspx.cs" Inherits="GeneralInsuranceManagement.Products.ProductCreation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Scheme Management</div>
+        <div class="breadcrumb-title pe-3">Products Management</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -32,7 +32,7 @@
     </div>
     <!--end breadcrumb-->
 
-    <asp:HiddenField ID="SchemeId" runat="server" />
+    <asp:HiddenField ID="ProductId" runat="server" />
 
     <div class="row">
         <div class="col-xl-8 mx-auto">
@@ -109,7 +109,7 @@
                             <div class="row">
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
-                                    <asp:Button runat="server" ID="btnRegister" Text="Register" CssClass="btn btn-primary px-4 " />
+                                    <asp:Button runat="server" OnClick="btnCreate_Click" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
                                     <asp:Button runat="server" ID="btnReset" Text="Reset" CssClass="btn btn-light px-4 " />
                                 </div>
                             </div>

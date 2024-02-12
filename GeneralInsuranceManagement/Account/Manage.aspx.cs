@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
 using GeneralInsuranceManagement.Models;
-using GeneralInsuranceBusinessLogic;
+//using GeneralInsuranceBusinessLogic;
 using System.Data;
 using System.Web.UI.WebControls;
 using System.Web.UI;

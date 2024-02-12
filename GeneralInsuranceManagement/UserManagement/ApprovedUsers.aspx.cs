@@ -1,4 +1,4 @@
-﻿using GeneralInsuranceBusinessLogic;
+﻿//using GeneralInsuranceBusinessLogic;
 using GeneralInsuranceManagement.Models;
 using System;
 using System.Collections.Generic;
@@ -43,7 +43,7 @@ namespace GeneralInsuranceManagement.UserManagement
         {
             try
             {
-                Logs users = new Logs("cn", 1);
+                Users users = new Users("cn", 1);
                 string sql = "select u.ID,Firstnames,Surname,DepartmentName,ur.Description from users u" +
                     " inner join Departments d on u.DepartmentID=d.ID inner join UserRoles ur on u.UserRoleID=ur.ID where u.StatusID=1";
                 DataSet ds = users.GetUsers(sql);

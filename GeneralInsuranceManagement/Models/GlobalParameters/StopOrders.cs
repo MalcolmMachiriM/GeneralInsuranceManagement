@@ -4,40 +4,35 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Data;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Web;
 
 namespace GeneralInsuranceManagement.Models.GlobalParameters
 {
-    public class PaymentMethod
+    public class StopOrders
     {
         #region variables
         protected Database db;
         protected string mConnectionName;
-        protected int mDescription;
         protected long mObjectUserID;
-        protected int mId;
         protected string mMsgflg;
-        protected string mMethod;
-        protected string mCode;
-        protected bool mBankDetailsRequired;
-        protected bool mMobileNumberRequired;
+        protected int mId;
+        protected string mName;
+        protected string mEmployerName;
+        protected int mEmployeeNumber;
         #endregion
         #region properties
         public int Id { get { return mId; } set { mId = value; } }
         public string MsgFlg { get { return mMsgflg; } set { mMsgflg = value; } }
-        public string Method { get { return mMethod; } set { mMethod = value; } }
-        public string Code { get { return mCode; } set { mCode = value; } }
-        public bool BankDetailsRequired { get { return mBankDetailsRequired; } set { mBankDetailsRequired = value; } }
-        public bool MobileNumberRequired { get { return mMobileNumberRequired; } set { mMobileNumberRequired = value; } }
+        public string Name { get { return mName; } set { mName = value; } }
+        public string EmployerName { get { return mName; } set { mName = value; } }
+        public int EmployeeNumber { get { return mEmployeeNumber; } set { mEmployeeNumber = value; } }
         public Database Database => db;
 
         public string OwnerType => GetType().Name;
 
         public string ConnectionName => mConnectionName;
         #endregion
-
-        public PaymentMethod(string ConnectionName, long ObjectUserID) 
+        public StopOrders(string ConnectionName, long ObjectUserID) 
         {
             mObjectUserID = ObjectUserID;
             mConnectionName = ConnectionName;
@@ -46,7 +41,7 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         #region methods
         public virtual bool Save()
         {
-            DbCommand cmd = db.GetStoredProcCommand("sp_Save_PaymentMethods");
+            DbCommand cmd = db.GetStoredProcCommand("sp_Save_StopOrders");
             GenerateSaveParameters(ref db, ref cmd);
             try
             {
@@ -67,10 +62,9 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         public virtual void GenerateSaveParameters(ref Database db, ref DbCommand cmd)
         {
             db.AddInParameter(cmd, "@Id", DbType.Int32, mId);
-            db.AddInParameter(cmd, "@Method", DbType.String, mMethod);
-            db.AddInParameter(cmd, "@Code", DbType.String, mCode);
-            db.AddInParameter(cmd, "@BankDetailsRequired", DbType.Boolean, mBankDetailsRequired);
-            db.AddInParameter(cmd, "@MobileNumberRequired", DbType.Boolean, mMobileNumberRequired);
+            db.AddInParameter(cmd, "@Name", DbType.String, mName);
+            db.AddInParameter(cmd, "@EmployerName", DbType.String, mEmployerName);
+            db.AddInParameter(cmd, "@EmployeeNumber", DbType.Int32, mEmployeeNumber);
         }
         protected void SetErrorDetails(string str)
         {

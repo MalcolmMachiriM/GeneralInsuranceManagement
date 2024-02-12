@@ -170,10 +170,5 @@ namespace GeneralInsuranceManagement.Models
             db.AddInParameter(cmd, "@DateOfAction", DbType.String, mDateOfAction);
         }
         #endregion
-        //must be in users
-        public virtual DataSet GetUsers(string sql)
-        {
-            return db.ExecuteDataSet(CommandType.Text, sql);
-        }
     }
 }

@@ -1,13 +1,10 @@
-﻿using GeneralInsuranceBusinessLogic;
+﻿//using GeneralInsuranceBusinessLogic;
 using GeneralInsuranceManagement.Models;
 using Microsoft.AspNet.Identity.Owin;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using static GeneralInsuranceManagement.Models.Logs;
 
 namespace GeneralInsuranceManagement.UserManagement
@@ -24,8 +21,7 @@ namespace GeneralInsuranceManagement.UserManagement
         {
             if (IsValid)
             {
-                //Users user = new Users("cn",1);
-                Logs user = new Logs("cn", 1);
+                Users user = new Users("cn", 1);
                 string query = $"Select ID from Users where username ='{Email.Text}'";
                 DataSet ds = user.GetUsers(query);
                 string userId = ds.Tables[0].Rows[0]["ID"].ToString();
@@ -49,7 +45,7 @@ namespace GeneralInsuranceManagement.UserManagement
                 // To enable password failures to trigger lockout, change to shouldLockout: true
                 var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
 
-                
+
 
                 switch (result)
                 {
@@ -83,7 +79,7 @@ namespace GeneralInsuranceManagement.UserManagement
                         break;
                     case SignInStatus.Failure:
                     default:
-                        RedAlert("Invalid login attempt") ;
+                        RedAlert("Invalid login attempt");
                         Logs log1 = new Logs("cn", 1)
                         {
                             UserID = 0,
