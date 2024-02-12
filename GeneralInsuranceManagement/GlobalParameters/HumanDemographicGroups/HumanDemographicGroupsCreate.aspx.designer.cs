@@ -33,13 +33,13 @@ namespace GeneralInsuranceManagement.GlobalParameters
         protected global::System.Web.UI.WebControls.Literal ErrorMessage;
 
         /// <summary>
-        /// txtHumanGroups control.
+        /// HumanGroups control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHumanGroups;
+        protected global::System.Web.UI.WebControls.TextBox HumanGroups;
 
         /// <summary>
         /// pnlSave control.
