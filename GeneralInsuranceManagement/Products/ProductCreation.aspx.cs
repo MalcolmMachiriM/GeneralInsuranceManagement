@@ -16,6 +16,10 @@ namespace GeneralInsuranceManagement.Products
         {
             if (!IsPostBack)
             {
+                if (Request.QueryString["SchemeId"] != null)
+                {
+                    SchemeId.Value = Request.QueryString["SchemeId"];
+                }
                 if (Request.QueryString["ProductId"] !=null)
                 {
                     ProductId.Value = Request.QueryString["ProductId"].ToString();
@@ -27,7 +31,6 @@ namespace GeneralInsuranceManagement.Products
                     pagetitle.Text = "Create Product Category";
                     pnlApprove.Visible = false;
                 }
-                getInstitutions();
             }
         }
         #region alerts
@@ -49,37 +52,16 @@ namespace GeneralInsuranceManagement.Products
 
         }
         #endregion
-        private void getInstitutions()
-        {
-            Users users = new Users("cn",1);
-            DataSet ds = users.GetUsers();
-            if (ds!=null && ds.Tables["0"] !=null && ds.Tables["0"].Rows.Count<0)
-            {
-                ListItem li = new ListItem("Select Institution ", "0");
-                InstitutionalClientId.DataSource = ds;
-                InstitutionalClientId.DataValueField = "ID";
-                InstitutionalClientId.DataTextField = "Name";
-                InstitutionalClientId.DataBind();
-                InstitutionalClientId.Items.Insert(0, li);
-            }
-            else
-            {
-                ListItem li = new ListItem("No Institutions Found", "0");
-                InstitutionalClientId.Items.Clear();
-                InstitutionalClientId.DataSource = null;
-                InstitutionalClientId.DataBind();
-                InstitutionalClientId.Items.Insert(0,li);
-            }
-        }
+        
 
         protected void btnCreate_Click(object sender, EventArgs e)
         {
             ProductCategory product = new ProductCategory("cn", 1)
             {
                 ID = long.Parse(ProductId.Value),
-                Name = RegNo.Text,
-                SchemeID = long.Parse(ProductId.Value),
-                Description = ReassuranceNo.Text,
+                Name = Name.Text,
+                SchemeID = long.Parse(SchemeId.Value),
+                Description = Description.Text,
             };
             try
             {

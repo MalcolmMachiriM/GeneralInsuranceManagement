@@ -33,6 +33,8 @@
     <!--end breadcrumb-->
 
     <asp:HiddenField ID="ProductId" runat="server" />
+    <asp:HiddenField ID="SchemeId" runat="server" />
+
 
     <div class="row">
         <div class="col-xl-8 mx-auto">
@@ -49,60 +51,17 @@
 
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <asp:Label runat="server" AssociatedControlID="RegNo" class="form-label">Reg Number</asp:Label>
-                            <asp:TextBox runat="server" ID="RegNo" CssClass="form-control" placeholder="Enter Reg Number" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="RegNo"
-                                CssClass="text-danger" ErrorMessage="The Reg Number field is required." />
+                            <asp:Label runat="server" AssociatedControlID="Name" class="form-label">Name</asp:Label>
+                            <asp:TextBox runat="server" ID="Name" CssClass="form-control" placeholder="Enter Name" />
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Name"
+                                CssClass="text-danger" ErrorMessage="The Name field is required." />
                         </div>
                         <!-- row -->
                         <div class="col-md-6">
-                            <asp:Label runat="server" AssociatedControlID="TaxNo" class="form-label">Tax Number</asp:Label>
-                            <asp:TextBox runat="server" ID="TaxNo" CssClass="form-control" placeholder="Enter Tax Number" />
+                            <asp:Label runat="server" AssociatedControlID="Description" class="form-label">Description</asp:Label>
+                            <asp:TextBox runat="server" ID="Description" CssClass="form-control" placeholder="Enter Description" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="TaxNo"
-                                CssClass="text-danger" ErrorMessage="The Tax Number field is required." />
-                        </div>
-                        <!-- row -->
-                        <div class="col-md-6">
-                            <asp:Label runat="server" AssociatedControlID="ReassuranceNo" class="form-label">Reassurance Number</asp:Label>
-                            <asp:TextBox runat="server" ID="ReassuranceNo" CssClass="form-control" placeholder="Enter Reassurance Number" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="ReassuranceNo"
-                                CssClass="text-danger" ErrorMessage="The Reassurance Number field is required." />
-                        </div>
-                        <!-- row -->
-                        <div class="col-md-6">
-                            <asp:Label runat="server" AssociatedControlID="CommencementDate" class="form-label">Commencement Date</asp:Label>
-                            <asp:TextBox runat="server" ID="CommencementDate" CssClass="form-control" TextMode="Date" placeholder="Enter Commencement Date" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="CommencementDate"
-                                CssClass="text-danger" ErrorMessage="The Commencement Date field is required." />
-                        </div>
-                        <!-- row -->
-                        <div class="col-md-6">
-                            <asp:Label runat="server" AssociatedControlID="ConversionDate" class="form-label">Conversion Date</asp:Label>
-                            <asp:TextBox runat="server" ID="ConversionDate" CssClass="form-control" TextMode="Date" placeholder="Enter Conversion Date" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="ConversionDate"
-                                CssClass="text-danger" ErrorMessage="The Reg Name field is required." />
-                        </div>
-                        <!-- row -->
-                        <div class="col-md-6">
-                            <asp:Label runat="server" AssociatedControlID="RulesAmmendment" class="form-label">Rules Ammendment</asp:Label>
-                            <asp:TextBox runat="server" ID="RulesAmmendment" CssClass="form-control" placeholder="Enter Rules Ammendment" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="RulesAmmendment"
-                                CssClass="text-danger" ErrorMessage="The Rules Ammendment field is required." />
-                        </div>
-                        <!-- row -->
-                        <div class="col-md-6">
-                            <asp:Label runat="server" AssociatedControlID="RetentionLimit" class="form-label">Retention Limit</asp:Label>
-                            <asp:TextBox runat="server" ID="RetentionLimit" CssClass="form-control" placeholder="Enter Retention Limit" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="RetentionLimit"
-                                CssClass="text-danger" ErrorMessage="The Retention Limit field is required." />
-                        </div>
-                        <!-- row -->
-                        <div class="col-md-6">
-                            <asp:Label runat="server" AssociatedControlID="InstitutionalClientId" class="form-label">Institutional Client's Name </asp:Label>
-                            <asp:DropDownList ID="InstitutionalClientId" runat="server" CssClass="form-select">
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="InstitutionalClientId"
-                                CssClass="text-danger" ErrorMessage="The Institutional Client's Name field is required." />
+                                CssClass="text-danger" ErrorMessage="The Description field is required." />
                         </div>
                         <!-- row -->
                         <asp:Panel ID="pnlSave" runat="server">
