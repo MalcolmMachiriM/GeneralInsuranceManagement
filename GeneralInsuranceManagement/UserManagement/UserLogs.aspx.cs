@@ -24,7 +24,7 @@ namespace GeneralInsuranceManagement.UserManagement
                 }
                 else
                 {
-                    userId.Value = Session["UserID"].ToString();
+                    userId.Value = Session["UserId"].ToString();
                 }
                 
                 GetLogs();

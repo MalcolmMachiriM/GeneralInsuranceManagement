@@ -20,6 +20,10 @@ namespace GeneralInsuranceManagement.Products
                 {
                     SchemeId.Value = Request.QueryString["SchemeId"];
                 }
+                else
+                {
+                    SchemeId.Value = "0";
+                }
                 if (Request.QueryString["ProductId"] !=null)
                 {
                     ProductId.Value = Request.QueryString["ProductId"].ToString();
@@ -28,6 +32,7 @@ namespace GeneralInsuranceManagement.Products
                 }
                 else
                 {
+                    ProductId.Value = "0";
                     pagetitle.Text = "Create Product Category";
                     pnlApprove.Visible = false;
                 }
@@ -56,13 +61,13 @@ namespace GeneralInsuranceManagement.Products
 
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-            ProductCategory product = new ProductCategory("cn", 1)
-            {
-                ID = long.Parse(ProductId.Value),
-                Name = Name.Text,
-                SchemeID = long.Parse(SchemeId.Value),
-                Description = Description.Text,
-            };
+            ProductCategory product = new ProductCategory("cn", 1);
+
+            product.ID = long.Parse(ProductId.Value);
+            product.Name = Name.Text;
+            product.SchemeID = long.Parse(SchemeId.Value);
+            product.Description = Description.Text;
+           
             try
             {
                 if (product.Save())

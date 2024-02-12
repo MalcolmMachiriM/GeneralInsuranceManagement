@@ -22,13 +22,13 @@ namespace GeneralInsuranceManagement.UserManagement
             if (IsValid)
             {
                 Users user = new Users("cn", 1);
-                string query = $"Select ID from Users where username ='{Email.Text}'";
+                string query = $"Select ID from Users where Username ='{Email.Text}'";
                 DataSet ds = user.GetUsers(query);
                 string userId = ds.Tables[0].Rows[0]["ID"].ToString();
 
                 if (ds != null && ds.Tables[0] != null && ds.Tables[0].Rows.Count != 0)
                 {
-                    Session["UserID"] = userId;
+                    Session["UserId"] = userId;
                     //Session["Username"] = user.Username;
                 }
 

@@ -243,7 +243,7 @@ namespace GeneralInsuranceManagement.Account
                 {
                     UserID = 0,
                     ActionID = (int)Actions.CREATE,
-                    ActionedByID = long.Parse(Session["UserID"].ToString()),
+                    ActionedByID = long.Parse(UserId.Value),
                     DateOfAction = date,
                     Description = (int)Descriptions.Success,
                 };
