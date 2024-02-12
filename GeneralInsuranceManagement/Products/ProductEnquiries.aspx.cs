@@ -51,5 +51,14 @@ namespace GeneralInsuranceManagement.Products
 
         }
         #endregion
+
+        protected void grdProducts_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "selectRecord")
+            {
+                long index = long.Parse(e.CommandArgument.ToString());
+                Response.Redirect(string.Format("~/Products/ProductCreation?ProductId=" + index, index), false);
+            }
+        }
     }
 }

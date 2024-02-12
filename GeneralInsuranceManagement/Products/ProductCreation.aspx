@@ -78,8 +78,8 @@
                             <div class="row">
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
-                                    <asp:Button runat="server" ID="btnApprove" Text="Approve" CssClass="btn btn-success px-4 " />
-                                    <asp:Button runat="server" ID="btnReject" Text="Reject" CssClass="btn btn-danger px-4 " />
+                                    <asp:Button runat="server" OnClick="btnUpdate_Click" ID="btnUpdate" Text="Update" CssClass="btn btn-success px-4 " />
+                                    <asp:Button runat="server" ID="btnCancel" OnClick="btnCancel_Click" Text="Cancel" CssClass="btn btn-danger px-4 " />
                                 </div>
                             </div>
                         </asp:Panel>
