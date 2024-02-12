@@ -30,20 +30,11 @@ namespace GeneralInsuranceManagement.Models
             get { return mMsgFlg; }
             set { mMsgFlg = value; }
         }
-        public Database Database
-        {
-            get { return db; }
-        }
+        public Database Database => db;
 
-        public string OwnerType
-        {
-            get { return this.GetType().Name; }
-        }
+        public string OwnerType => GetType().Name;
 
-        public string ConnectionName
-        {
-            get { return mConnectionName; }
-        }
+        public string ConnectionName => mConnectionName;
 
         public long ID
         {
@@ -80,7 +71,7 @@ namespace GeneralInsuranceManagement.Models
         {
             mObjectUserID = ObjectUserID;
             mConnectionName = ConnectionName;
-            db = DatabaseFactory.CreateDatabase(ConnectionName);
+            db = new DatabaseProviderFactory().Create(ConnectionName);
 
         }
 
@@ -188,6 +179,12 @@ namespace GeneralInsuranceManagement.Models
         protected virtual DataSet GetProductCategory(string sql)
         {
 
+            return db.ExecuteDataSet(CommandType.Text, sql);
+
+        }
+        public virtual DataSet GetAllProductCategory()
+        {
+            string sql = "Select * from ProductCategory";
             return db.ExecuteDataSet(CommandType.Text, sql);
 
         }

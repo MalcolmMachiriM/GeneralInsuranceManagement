@@ -42,22 +42,22 @@ namespace GeneralInsuranceManagement.Products.CoverTypes
         protected global::System.Web.UI.WebControls.Literal ErrorMessage;
 
         /// <summary>
-        /// ProductId control.
+        /// drpProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ProductId;
+        protected global::System.Web.UI.WebControls.DropDownList drpProduct;
 
         /// <summary>
-        /// Name control.
+        /// Package control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Name;
+        protected global::System.Web.UI.WebControls.TextBox Package;
 
         /// <summary>
         /// ProcessTime control.
@@ -78,13 +78,13 @@ namespace GeneralInsuranceManagement.Products.CoverTypes
         protected global::System.Web.UI.WebControls.TextBox Retention;
 
         /// <summary>
-        /// SumAssureBasisId control.
+        /// drpSumAssureBasis control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList SumAssureBasisId;
+        protected global::System.Web.UI.WebControls.DropDownList drpSumAssureBasis;
 
         /// <summary>
         /// EffectiveDate control.

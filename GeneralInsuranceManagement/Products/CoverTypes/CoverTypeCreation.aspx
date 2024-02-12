@@ -48,18 +48,18 @@
 
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <asp:Label runat="server" AssociatedControlID="ProductId" class="form-label">Product</asp:Label>
-                            <asp:DropDownList ID="ProductId" runat="server" CssClass="form-select">
+                            <asp:Label runat="server" AssociatedControlID="drpProduct" class="form-label">Product</asp:Label>
+                            <asp:DropDownList ID="drpProduct" runat="server" CssClass="form-select">
                             </asp:DropDownList>
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="ProductId"
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="drpProduct"
                                 CssClass="text-danger" ErrorMessage="The Product field is required." />
                         </div>
                         <!-- row -->
                         <div class="col-md-6">
-                            <asp:Label runat="server" AssociatedControlID="Name" class="form-label">Name</asp:Label>
-                            <asp:TextBox runat="server" ID="Name" CssClass="form-control" placeholder="Enter Name here" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Name"
-                                CssClass="text-danger" ErrorMessage="The Name field is required." />
+                            <asp:Label runat="server" AssociatedControlID="Package" class="form-label">Package</asp:Label>
+                            <asp:TextBox runat="server" ID="Package" CssClass="form-control" placeholder="Enter Package here" />
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Package"
+                                CssClass="text-danger" ErrorMessage="The Package field is required." />
                         </div>
                         <!-- row -->
                         <div class="col-md-6">
@@ -77,9 +77,9 @@
                         </div>
                         <!-- row -->
                         <div class="col-md-6">
-                            <asp:Label runat="server" AssociatedControlID="SumAssureBasisId" class="form-label">Sum Assured Basis</asp:Label>
-                            <asp:DropDownList ID="SumAssureBasisId" runat="server" CssClass="form-select"></asp:DropDownList>
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="SumAssureBasisId"
+                            <asp:Label runat="server" AssociatedControlID="drpSumAssureBasis" class="form-label">Sum Assured Basis</asp:Label>
+                            <asp:DropDownList ID="drpSumAssureBasis" runat="server" CssClass="form-select"></asp:DropDownList>
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="drpSumAssureBasis"
                                 CssClass="text-danger" ErrorMessage="The Sum Assured Basis field is required." />
                         </div>
                         <!-- row -->
@@ -134,7 +134,7 @@
                             <div class="row">
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
-                                    <asp:Button runat="server" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />&nbsp
+                                    <asp:Button runat="server" ID="btnCreate" OnClick="btnCreate_Click" Text="Create" CssClass="btn btn-primary px-4 " />&nbsp
                                     <asp:Button runat="server" ID="btnReset" Text="Reset" CssClass="btn btn-light px-4 " />
                                 </div>
                             </div>

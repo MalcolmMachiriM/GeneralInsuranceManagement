@@ -31,14 +31,14 @@
 <!--end breadcrumb-->
 
     <asp:Panel runat="server" ID="usersCard">
-<h5 class="mb-0 text-uppercase">Products</h5>
+<h5 class="mb-0 text-uppercase">Category Packages</h5>
 <hr />
 
         <div class="card ">
             <div class="card-body">
                 <div class="table-responsive">
                     <%--<div class="col-sm-12 align-content-center">--%>
-                    <asp:GridView ID="grdProducts" Width="100%" runat="server"
+                    <asp:GridView ID="grdPackages" Width="100%" runat="server"
                         AutoGenerateColumns="False" AutoGenerateSelectButton="False"
                         DataKeyNames="ID" 
                         CssClass="table table-striped table-bordered example" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"

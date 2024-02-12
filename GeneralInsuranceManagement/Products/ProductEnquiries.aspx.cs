@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GeneralInsuranceManagement.Models;
+using System;
+using System.Data;
 using System.Web.UI;
 
 namespace GeneralInsuranceManagement.Products
@@ -10,7 +12,24 @@ namespace GeneralInsuranceManagement.Products
             MaintainScrollPositionOnPostBack = true;
             if (!IsPostBack)
             {
+                getProducts();
+            }
+        }
 
+        private void getProducts()
+        {
+            ProductCategory products = new ProductCategory("cn",1);
+            DataSet ds = products.GetAllProductCategory();
+            if (ds != null )
+            {
+                grdProducts.DataSource = ds ;
+                grdProducts.DataBind();
+            }
+            else
+            {
+                grdProducts.DataSource= null ;
+                grdProducts.DataBind();
+                WarningAlert("No Products Defined");
             }
         }
         #region alerts

@@ -60,7 +60,7 @@
                         <div class="col-md-6">
                             <asp:Label runat="server" AssociatedControlID="Description" class="form-label">Description</asp:Label>
                             <asp:TextBox runat="server" ID="Description" CssClass="form-control" placeholder="Enter Description" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="TaxNo"
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Description"
                                 CssClass="text-danger" ErrorMessage="The Description field is required." />
                         </div>
                         <!-- row -->

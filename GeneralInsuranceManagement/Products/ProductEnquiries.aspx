@@ -47,9 +47,9 @@
                         AllowPaging="True" AllowSorting="True" PageSize="10">
                         <Columns>
                             <asp:BoundField Visible="false" DataField="ID" HeaderText="ID"></asp:BoundField>
-                            <asp:BoundField DataField="Firstnames" HeaderText="First Name(s)"></asp:BoundField>
-                            <asp:BoundField DataField="Surname" HeaderText="Surname"></asp:BoundField>
-                            <asp:BoundField DataField="DepartmentName" HeaderText="Department"></asp:BoundField>
+                            <asp:BoundField DataField="Name" HeaderText="Product Name"></asp:BoundField>
+                            <asp:BoundField DataField="Description" HeaderText="Description"></asp:BoundField>
+                            <asp:BoundField DataField="SchemeID" HeaderText="Scheme ID"></asp:BoundField>
                             <asp:BoundField DataField="UserRole" HeaderText="User Type"></asp:BoundField>
                             <asp:BoundField DataField="StatusID" HeaderText="Status"></asp:BoundField>
                             <asp:TemplateField HeaderText="Select">

@@ -247,6 +247,12 @@ namespace GeneralInsuranceManagement.Models
             return db.ExecuteDataSet(CommandType.Text, sql);
 
         }
+        public virtual DataSet GetAllCategoryPackages()
+        {
+            string sql = "Select * from CategoryPackages";
+            return db.ExecuteDataSet(CommandType.Text, sql);
+
+        }
 
         #endregion
 
