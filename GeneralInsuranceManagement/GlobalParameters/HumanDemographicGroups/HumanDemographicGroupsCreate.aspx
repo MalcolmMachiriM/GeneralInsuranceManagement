@@ -51,7 +51,7 @@
                         <div class="col-sm-6">
                             <div class="input-group">
                                 <span class="input-group-text"><i class="bx bx-user" style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="txtHumanGroups" CssClass="form-control" placeholder="Enter Human Demographic Group" />
+                                <asp:TextBox runat="server" ID="HumanGroups" CssClass="form-control" placeholder="Enter Human Demographic Group" />
                             </div>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="HumanGroups"
                                 CssClass="text-danger" ErrorMessage="The Description field is required." />
