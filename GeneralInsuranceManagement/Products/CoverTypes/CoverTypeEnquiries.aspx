@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="CoverTypeEnquiries.aspx.cs" Inherits="GeneralInsuranceManagement.Products.CoverTypes.CoverTypeEnquiries" %>
+﻿<%@ Page Title="Packages" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="CoverTypeEnquiries.aspx.cs" Inherits="GeneralInsuranceManagement.Products.CoverTypes.CoverTypeEnquiries" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <!--breadcrumb-->
 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
@@ -46,8 +46,8 @@
                         AllowPaging="True" AllowSorting="True" PageSize="10">
                         <Columns>
                             <asp:BoundField Visible="false" DataField="ID" HeaderText="ID"></asp:BoundField>
-                            <asp:BoundField DataField="Product" HeaderText="Product"></asp:BoundField>
-                            <asp:BoundField DataField="CoverType" HeaderText="CoverType"></asp:BoundField>
+                            <asp:BoundField DataField="Package" HeaderText="Category Package"></asp:BoundField>
+                            <asp:BoundField DataField="Name" HeaderText="CoverType"></asp:BoundField>
                             <asp:BoundField DataField="ProcessTime" HeaderText="Process Time"></asp:BoundField>
                             <asp:BoundField DataField="Retention" HeaderText="Retention"></asp:BoundField>
                             <asp:BoundField DataField="EffectiveDate" HeaderText="Effective Date"></asp:BoundField>

@@ -108,6 +108,7 @@ namespace GeneralInsuranceManagement.Products.CoverTypes
             };
             if (package.Save())
             {
+                Clear();
                 SuccessAlert("Package saved");
             }
             else
@@ -116,6 +117,20 @@ namespace GeneralInsuranceManagement.Products.CoverTypes
             }
                
             
+        }
+        private void Clear()
+        {
+            drpProduct.SelectedIndex = 0;
+            Package.Text = string.Empty; 
+            ProcessTime.Text = string.Empty;
+            Retention.Text = string.Empty;
+            drpSumAssureBasis.SelectedIndex = 0;
+            EffectiveDate.Text = string.Empty;
+            MaxPremiumTerm.Text = string.Empty;
+            MinimumSumAssured.Text = string.Empty;
+            MaximumSumAssured.Text = string.Empty;
+            Description.Text = string.Empty;
+
         }
     }
 }

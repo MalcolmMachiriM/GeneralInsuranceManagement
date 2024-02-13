@@ -13,7 +13,7 @@ namespace GeneralInsuranceManagement.Products.CoverTypes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
+            if (!IsPostBack)
             {
                 getCategoryPackages();
             }

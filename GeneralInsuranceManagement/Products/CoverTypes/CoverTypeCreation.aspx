@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="CoverTypeCreation.aspx.cs" Inherits="GeneralInsuranceManagement.Products.CoverTypes.CoverTypeCreation" %>
+﻿<%@ Page Title="Cover Packages" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="CoverTypeCreation.aspx.cs" Inherits="GeneralInsuranceManagement.Products.CoverTypes.CoverTypeCreation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--breadcrumb-->

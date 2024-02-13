@@ -249,7 +249,8 @@ namespace GeneralInsuranceManagement.Models
         }
         public virtual DataSet GetAllCategoryPackages()
         {
-            string sql = "Select * from CategoryPackages";
+            string sql = "Select cp.ID,Package,ProcessTime,Retention,Name,format(EffectiveDate,'yyyy-MM-dd')EffectiveDate " +
+                "from CategoryPackages cp left join ProductCategory pc on cp.ProductID=pc.ID ";
             return db.ExecuteDataSet(CommandType.Text, sql);
 
         }
