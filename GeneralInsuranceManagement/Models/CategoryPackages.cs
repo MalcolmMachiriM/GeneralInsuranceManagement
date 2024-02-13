@@ -241,7 +241,7 @@ namespace GeneralInsuranceManagement.Models
 
         }
 
-        protected virtual DataSet GetCategoryPackages(string sql)
+        public virtual DataSet GetCategoryPackages(string sql)
         {
 
             return db.ExecuteDataSet(CommandType.Text, sql);

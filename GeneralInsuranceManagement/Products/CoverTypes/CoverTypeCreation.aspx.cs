@@ -15,16 +15,42 @@ namespace GeneralInsuranceManagement.Products.CoverTypes
         {
             if (!IsPostBack)
             {
-                if (Request.QueryString["CoverTypeId"]!=null)
+                if (Request.QueryString["PackageId"]!=null)
                 {
-                    CoverTypeId.Value = Request.QueryString["CoverTypeId"].ToString();
+                    CoverTypeId.Value = Request.QueryString["PackageId"].ToString();
+                    getPackage(long.Parse(CoverTypeId.Value));
                 }
                 else
                 {
+                    pagetitle.Text = "Category Package Creation";
                     CoverTypeId.Value = "0";
+                    pnlSave.Visible = true;
+                    pnlApprove.Visible = false;
                 }
                 getProducts();
                 getSumAssuredBasis();
+            }
+        }
+
+        private void getPackage(long v)
+        {
+            CategoryPackages packa = new CategoryPackages("cn",1);
+            if (packa.Retrieve(v))
+            {
+                pagetitle.Text = $"{packa.Package} Details";
+                pnlSave.Visible = false ;
+                pnlApprove.Visible = true ;
+
+                drpProduct.SelectedValue = packa.ProductID.ToString();
+                Package.Text = packa.Package.ToString();
+                ProcessTime.Text = packa.ProcessTime.ToString();
+                Retention.Text = packa.Retention.ToString();
+                drpSumAssureBasis.SelectedValue = packa.SumAssuredBasis.ToString();
+                EffectiveDate.Text = packa.EffectiveDate.ToString();
+                MaxPremiumTerm.Text = packa.MaxPremiumTerm.ToString();
+                MinimumSumAssured.Text = packa.MinSumAssured.ToString();
+                MaximumSumAssured.Text = packa.MaxSumAssured.ToString();
+                Description.Text = packa.Description.ToString();
             }
         }
         #region alerts
@@ -131,6 +157,11 @@ namespace GeneralInsuranceManagement.Products.CoverTypes
             MaximumSumAssured.Text = string.Empty;
             Description.Text = string.Empty;
 
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Products/CoverTypes/CoverTypeEnquiries");
         }
     }
 }

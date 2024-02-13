@@ -53,5 +53,14 @@ namespace GeneralInsuranceManagement.Products.CoverTypes
                 WarningAlert("No Category Packages Found");
             }
         }
+
+        protected void grdPackages_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "selectRecord")
+            {
+                var packageId = e.CommandArgument.ToString();
+                Response.Redirect(string.Format("~/Products/CoverTypes/CoverTypeCreation?PackageId="+ packageId,packageId),false);
+            }
+        }
     }
 }

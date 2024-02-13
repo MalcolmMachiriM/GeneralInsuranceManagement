@@ -132,15 +132,6 @@ namespace GeneralInsuranceManagement.Products.CoverTypes
         protected global::System.Web.UI.WebControls.TextBox Description;
 
         /// <summary>
-        /// CanItBeCeded control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CanItBeCeded;
-
-        /// <summary>
         /// pnlSave control.
         /// </summary>
         /// <remarks>
@@ -166,5 +157,23 @@ namespace GeneralInsuranceManagement.Products.CoverTypes
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnReset;
+
+        /// <summary>
+        /// pnlApprove control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlApprove;
+
+        /// <summary>
+        /// btnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBack;
     }
 }

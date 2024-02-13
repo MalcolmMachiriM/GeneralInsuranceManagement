@@ -118,7 +118,7 @@
                                 CssClass="text-danger" ErrorMessage="The Description field is required." />
                         </div>
                         <!-- row -->
-                        <div class="col-md-6">
+                       <%-- <div class="col-md-6">
                             <div class="row">
                                 <asp:Label runat="server" AssociatedControlID="CanItBeCeded" class="col-sm-4 col-form-label">Can It Be Ceded? </asp:Label>
                                 <div class="col-sm-8">
@@ -128,7 +128,7 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div>--%>
                         <!-- row -->
                         <asp:Panel ID="pnlSave" runat="server">
                             <div class="row">
@@ -140,15 +140,14 @@
                             </div>
                         </asp:Panel>
                         <!-- row -->
-                        <%--<asp:Panel ID="pnlApprove" runat="server">
+                        <asp:Panel ID="pnlApprove" runat="server">
                             <div class="row">
                                 <label class="col-sm-3 col-form-label"></label>
                                 <div class="col-sm-9">
-                                    <asp:Button runat="server" ID="btnApprove" Text="Approve" CssClass="btn btn-success px-4 " />
-                                    <asp:Button runat="server" ID="btnReject" Text="Reject" CssClass="btn btn-danger px-4 " />
+                                    <asp:Button runat="server" ID="btnBack" OnClick="btnBack_Click" Text="Back" CssClass="btn btn-dark px-4 " />
                                 </div>
                             </div>
-                        </asp:Panel>--%>
+                        </asp:Panel>
                     </div>
                     <!-- form-layout-footer -->
 

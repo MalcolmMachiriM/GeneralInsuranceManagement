@@ -120,7 +120,7 @@
     <%-- end swal --%>
 
     <%-- Session stuff --%>
-    <script type="text/javascript">
+   <%-- <script type="text/javascript">
         var inactivityTimeout;
 
         function resetInactivityTimeout() {
@@ -140,8 +140,10 @@
 
         // Initialize the timeout on page load
         resetInactivityTimeout();
-    </script>
+    </script>--%>
     <%-- Session stuff --%>
+
+
     <%--<asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>--%>
 </head>
