@@ -16,6 +16,19 @@
     <link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
     <link href="assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 
+    <!-- Include DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.min.css">
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Include DataTables JS -->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#grdAcctypes').DataTable();
+        });
+    </script>
+
 
     <!-- loader-->
     <link href="assets/css/pace.min.css" rel="stylesheet" />

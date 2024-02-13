@@ -70,5 +70,11 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         {
             mMSgflg = str;
         }
+        public virtual DataSet GetUsers(string sql)
+        {
+
+            return db.ExecuteDataSet(CommandType.Text, sql);
+
+        }
     }
 }
