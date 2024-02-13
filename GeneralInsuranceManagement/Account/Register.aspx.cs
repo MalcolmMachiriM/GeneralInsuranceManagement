@@ -40,6 +40,7 @@ namespace GeneralInsuranceManagement.Account
 
         protected void CreateUser_Click(object sender, EventArgs e)
         {
+            SaveUserAccount();
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
             var user = new ApplicationUser() { UserName = Username.Text, Email = Email.Text };
@@ -54,8 +55,9 @@ namespace GeneralInsuranceManagement.Account
 
                 //signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                SaveUserAccount();
-                
+
+                ClearForm();
+                Response.Redirect("~/UserManagement/userlogin");
             }
             else
             {
@@ -182,7 +184,7 @@ namespace GeneralInsuranceManagement.Account
             try
             {
                 Users U = new Users("cn", 1);
-                long loggedID = long.Parse(Session["UserId"].ToString());
+                long loggedID = long.Parse(UserId.Value);
                 DateTime date = DateTime.Now;
                 U.ID = long.Parse(UserId.Value);
                 U.Username = Username.Text;
@@ -218,7 +220,6 @@ namespace GeneralInsuranceManagement.Account
 
                     SuccessAlert($"{U.Firstnames} Saved Successfully");
                     UserId.Value = U.ID.ToString();
-                    ClearForm();
                     UserAccountAuthorizationLog ual = new UserAccountAuthorizationLog("cn", 1)
                     {
                         ID = 0,
