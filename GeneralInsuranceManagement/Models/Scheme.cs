@@ -7,15 +7,17 @@ using System.Web;
 
 namespace GeneralInsuranceManagement.Models
 {
-    public class ProductCategory
+    public class Scheme
     {
-         #region "Variables"
+        #region "Variables"
 
         protected long mID;
-        protected long mSchemeID;
+        protected long mContactPerson;
+        protected long mCreatedBy;
         protected string mName;
 
-        protected string mDescription;
+        protected DateTime mCommencementDate;
+        protected DateTime mConversionDate;
         protected Database db;
         protected string mConnectionName;
         protected long mObjectUserID;
@@ -41,11 +43,16 @@ namespace GeneralInsuranceManagement.Models
             get { return mID; }
             set { mID = value; }
         }
-
-        public long SchemeID
+        public long CreatedBy
         {
-            get { return mSchemeID; }
-            set { mSchemeID = value; }
+            get { return mCreatedBy; }
+            set { mCreatedBy = value; }
+        }
+
+        public long ContactPerson
+        {
+            get { return mContactPerson; }
+            set { mContactPerson = value; }
         }
 
         public string Name
@@ -54,10 +61,15 @@ namespace GeneralInsuranceManagement.Models
             set { mName = value; }
         }
 
-        public string Description
+        public DateTime CommencementDate
         {
-            get { return mDescription; }
-            set { mDescription = value; }
+            get { return mCommencementDate; }
+            set { mCommencementDate = value; }
+        }
+        public DateTime ConversionDate
+        {
+            get { return mConversionDate; }
+            set { mConversionDate = value; }
         }
 
         #endregion
@@ -65,25 +77,20 @@ namespace GeneralInsuranceManagement.Models
         #region "Methods"
 
         #region "Constructors"
-
-
-        public ProductCategory(string ConnectionName, long ObjectUserID)
+        public Scheme(string ConnectionName, long ObjectUserID)
         {
             mObjectUserID = ObjectUserID;
             mConnectionName = ConnectionName;
             db = new DatabaseProviderFactory().Create(ConnectionName);
-
         }
-
         #endregion
-
-
         public void Clear()
         {
             ID = 0;
-            mSchemeID = 0;
+            mCommencementDate = DateTime.MinValue;
+            mConversionDate = DateTime.MinValue;
             mName = "";
-            mDescription = "";
+            mContactPerson = 0;
 
         }
 
@@ -103,11 +110,11 @@ namespace GeneralInsuranceManagement.Models
 
             if (ID > 0)
             {
-                sql = "SELECT * FROM ProductCategory WHERE ID = " + ID;
+                sql = "SELECT * FROM Schemes WHERE ID = " + ID;
             }
             else
             {
-                sql = "SELECT * FROM ProductCategory WHERE ID = " + mID;
+                sql = "SELECT * FROM Schemes WHERE ID = " + mID;
             }
 
             return Retrieve(sql);
@@ -165,11 +172,11 @@ namespace GeneralInsuranceManagement.Models
 
             if (ID > 0)
             {
-                sql = "SELECT * FROM ProductCategory WHERE ID = " + ID;
+                sql = "SELECT * FROM Schemes WHERE ID = " + ID;
             }
             else
             {
-                sql = "SELECT * FROM ProductCategory WHERE ID = " + mID;
+                sql = "SELECT * FROM Schemes WHERE ID = " + mID;
             }
 
             return GetProductCategory(sql);
@@ -184,7 +191,7 @@ namespace GeneralInsuranceManagement.Models
         }
         public virtual DataSet GetAllProductCategory()
         {
-            string sql = "Select * from ProductCategory";
+            string sql = "Select * from Schemes";
             return db.ExecuteDataSet(CommandType.Text, sql);
 
         }
@@ -197,9 +204,11 @@ namespace GeneralInsuranceManagement.Models
 
 
             mID = ((rw["ID"] != DBNull.Value) ? int.Parse(rw["ID"].ToString()) : 0);
-            mSchemeID = ((rw["SchemeID"] != DBNull.Value) ? int.Parse(rw["SchemeID"].ToString()) : 0);
+            mContactPerson = ((rw["ContactPerson"] != DBNull.Value) ? int.Parse(rw["ContactPerson"].ToString()) : 0);
+            mCreatedBy = ((rw["CreatedBy"] != DBNull.Value) ? int.Parse(rw["CreatedBy"].ToString()) : 0);
             mName = ((rw["Name"] == DBNull.Value) ? string.Empty : rw["Name"].ToString());
-            mDescription = ((rw["Description"] == DBNull.Value) ? string.Empty : rw["Description"].ToString());
+            mCommencementDate = ((rw["CommencementDate"] == DBNull.Value) ? DateTime.MinValue : DateTime.Parse(rw["CommencementDate"].ToString()));
+            mConversionDate = ((rw["ConversionDate"] == DBNull.Value) ? DateTime.MinValue : DateTime.Parse(rw["ConversionDate"].ToString()));
 
 
         }
@@ -209,17 +218,19 @@ namespace GeneralInsuranceManagement.Models
 
         public virtual void GenerateSaveParameters(ref Database db, ref System.Data.Common.DbCommand cmd)
         {
-            db.AddInParameter(cmd, "@ID", DbType.Int32, mID);
-            db.AddInParameter(cmd, "@SchemeID", DbType.Int32, mSchemeID);
+            db.AddInParameter(cmd, "@ID", DbType.Int64, mID);
+            db.AddInParameter(cmd, "@ContactPerson", DbType.Int64, mContactPerson);
+            db.AddInParameter(cmd, "@CreatedBy", DbType.Int64, mCreatedBy);
             db.AddInParameter(cmd, "@Name", DbType.String, mName);
-            db.AddInParameter(cmd, "@Description", DbType.String, mDescription);
+            db.AddInParameter(cmd, "@CommencementDate", DbType.Date, mCommencementDate);
+            db.AddInParameter(cmd, "@ConversionDate", DbType.Date, mConversionDate);
 
         }
 
         public virtual bool Save()
         {
 
-            System.Data.Common.DbCommand cmd = db.GetStoredProcCommand("sp_Save_ProductCategory");
+            System.Data.Common.DbCommand cmd = db.GetStoredProcCommand("sp_Save_Scheme");
 
             GenerateSaveParameters(ref db, ref cmd);
 
@@ -256,7 +267,7 @@ namespace GeneralInsuranceManagement.Models
         {
 
             //Return Delete("UPDATE ProductCategory SET Deleted = 1 WHERE ID = " & mID) 
-            return Delete("DELETE FROM ProductCategory WHERE ID = " + mID);
+            return Delete("DELETE FROM Schemes WHERE ID = " + mID);
 
         }
 

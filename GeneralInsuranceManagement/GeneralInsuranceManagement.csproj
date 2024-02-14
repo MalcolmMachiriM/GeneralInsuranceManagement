@@ -1507,6 +1507,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Logs.cs" />
     <Compile Include="Models\ProductCategory.cs" />
+    <Compile Include="Models\Scheme.cs" />
     <Compile Include="Models\UserAccountAuthorizationLog.cs" />
     <Compile Include="Models\UserRoles.cs" />
     <Compile Include="Models\Users.cs" />

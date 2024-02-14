@@ -15,6 +15,15 @@ namespace GeneralInsuranceManagement.Schemes
     {
 
         /// <summary>
+        /// UserId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField UserId;
+
+        /// <summary>
         /// SchemeId control.
         /// </summary>
         /// <remarks>
@@ -42,31 +51,13 @@ namespace GeneralInsuranceManagement.Schemes
         protected global::System.Web.UI.WebControls.Literal ErrorMessage;
 
         /// <summary>
-        /// RegNo control.
+        /// Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RegNo;
-
-        /// <summary>
-        /// TaxNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TaxNo;
-
-        /// <summary>
-        /// ReassuranceNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ReassuranceNo;
+        protected global::System.Web.UI.WebControls.TextBox Name;
 
         /// <summary>
         /// CommencementDate control.
@@ -87,31 +78,13 @@ namespace GeneralInsuranceManagement.Schemes
         protected global::System.Web.UI.WebControls.TextBox ConversionDate;
 
         /// <summary>
-        /// RulesAmmendment control.
+        /// ContactPerson control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RulesAmmendment;
-
-        /// <summary>
-        /// RetentionLimit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox RetentionLimit;
-
-        /// <summary>
-        /// InstitutionalClientId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList InstitutionalClientId;
+        protected global::System.Web.UI.WebControls.DropDownList ContactPerson;
 
         /// <summary>
         /// pnlSave control.
