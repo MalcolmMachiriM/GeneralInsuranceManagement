@@ -247,7 +247,7 @@
                             <div class="menu-title">Policies</div>
                         </a>
                         <ul>
-                            <li><a href="icons-line-icons.html"><i class='bx bx-radio-circle'></i>Creation</a>
+                            <li><a runat="server" href="~/Policies/PolicyCreation"><i class='bx bx-radio-circle'></i>Creation</a>
                             </li>
                             <li><a href="icons-boxicons.html"><i class='bx bx-radio-circle'></i>Enquiries</a>
                             </li>

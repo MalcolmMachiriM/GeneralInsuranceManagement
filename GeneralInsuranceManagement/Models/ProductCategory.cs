@@ -182,9 +182,18 @@ namespace GeneralInsuranceManagement.Models
             return db.ExecuteDataSet(CommandType.Text, sql);
 
         }
-        public virtual DataSet GetAllProductCategory()
+        public virtual DataSet GetAllProductCategory(long schemeId =0)
         {
-            string sql = "Select * from ProductCategory";
+			string sql;
+			if (schemeId>0)
+            {
+				sql = $"Select * from ProductCategory WHERE SchemeID = {schemeId}";
+            }
+            else
+            {
+				sql = "Select * from ProductCategory";
+			}
+            
             return db.ExecuteDataSet(CommandType.Text, sql);
 
         }

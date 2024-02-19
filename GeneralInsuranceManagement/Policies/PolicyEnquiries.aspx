@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="ProductEnquiries.aspx.cs" Inherits="GeneralInsuranceManagement.Products.ProductEnquiries" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="PolicyEnquiries.aspx.cs" Inherits="GeneralInsuranceManagement.Policies.PolicyEnquiries" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
-    <!--breadcrumb-->
+        <!--breadcrumb-->
 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-    <div class="breadcrumb-title pe-3">Products</div>
+    <div class="breadcrumb-title pe-3">Policy</div>
     <div class="ps-3">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0 p-0">
@@ -39,18 +38,17 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <%--<div class="col-sm-12 align-content-center">--%>
-                    <asp:GridView ID="grdProducts" Width="100%" runat="server"
+                    <asp:GridView ID="grdPolicies" Width="100%" runat="server"
                         AutoGenerateColumns="False" AutoGenerateSelectButton="False"
-                        DataKeyNames="ID" 
+                        DataKeyNames="ID" OnRowCommand="grdProducts_RowCommand"
                         CssClass="table table-striped table-bordered example" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
                         Style="border-collapse: collapse !important; width=100%"
                         AllowPaging="True" AllowSorting="True" PageSize="10">
                         <Columns>
                             <asp:BoundField Visible="false" DataField="ID" HeaderText="ID"></asp:BoundField>
-                            <asp:BoundField DataField="Client" HeaderText="Client Name"></asp:BoundField>
-                            <asp:BoundField DataField="Product" HeaderText="Description"></asp:BoundField>
-                            <asp:BoundField DataField="CategoryPackage" HeaderText="Package"></asp:BoundField>
-                            <asp:BoundField DataField="SumAssured" HeaderText="Sum Assured"></asp:BoundField>
+                            <asp:BoundField DataField="Name" HeaderText="Product Name"></asp:BoundField>
+                            <asp:BoundField DataField="Description" HeaderText="Description"></asp:BoundField>
+                            <asp:BoundField DataField="SchemeID" HeaderText="Scheme ID"></asp:BoundField>
                             <asp:TemplateField HeaderText="Select">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="Edit" runat="server" ForeColor="blue" CssClass="bx bxs-edit" CommandArgument='<%#Eval("ID")%>'

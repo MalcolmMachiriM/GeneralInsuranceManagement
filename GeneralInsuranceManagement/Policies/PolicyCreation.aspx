@@ -31,6 +31,8 @@
  <!--end breadcrumb-->
 
  <asp:HiddenField ID="PolicyId" runat="server" />
+ <asp:HiddenField ID="SchemeId" runat="server" />
+ <asp:HiddenField ID="UserId" runat="server" />
 
  <div class="row">
      <div class="col-xl-10 mx-auto">
@@ -54,11 +56,11 @@
                      </div>
                      <!-- row -->
                      <div class="col-md-6">
-                         <asp:Label runat="server" AssociatedControlID="ProductId" class="form-label">Product</asp:Label>
-                         <asp:DropDownList ID="ProductId" runat="server" CssClass="form-select">
+                         <asp:Label runat="server" AssociatedControlID="drpProductId" class="form-label">Product</asp:Label>
+                         <asp:DropDownList ID="drpProductId" runat="server" CssClass="form-select">
                          </asp:DropDownList>
-                         <asp:RequiredFieldValidator runat="server" ControlToValidate="ProductId"
-                             CssClass="text-danger" ErrorMessage="The Product field is required." />
+                         <asp:RequiredFieldValidator runat="server" ControlToValidate="drpProductId"
+                             CssClass="text-danger" ErrorMessage="Select a product" />
                      </div>
                      <!-- row -->
                      <div class="col-md-6">
@@ -107,7 +109,7 @@
                      <!-- row -->
                      <div class="col-md-6">
                          <asp:Label runat="server" AssociatedControlID="BenefitTerm" class="form-label">Benefit Term(In Months)</asp:Label>
-                         <asp:TextBox runat="server" ID="BenefitTerm" CssClass="form-control" TextMode="Date" placeholder="Enter Benefit Term" />
+                         <asp:TextBox runat="server" ID="BenefitTerm" CssClass="form-control" placeholder="Enter Benefit Term" />
                          <asp:RequiredFieldValidator runat="server" ControlToValidate="BenefitTerm"
                              CssClass="text-danger" ErrorMessage="The Benefit zTerm field is required." />
                      </div>
