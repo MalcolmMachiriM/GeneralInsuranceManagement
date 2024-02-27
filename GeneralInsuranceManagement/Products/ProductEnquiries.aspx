@@ -47,10 +47,9 @@
                         AllowPaging="True" AllowSorting="True" PageSize="10">
                         <Columns>
                             <asp:BoundField Visible="false" DataField="ID" HeaderText="ID"></asp:BoundField>
-                            <asp:BoundField DataField="Client" HeaderText="Client Name"></asp:BoundField>
-                            <asp:BoundField DataField="Product" HeaderText="Description"></asp:BoundField>
-                            <asp:BoundField DataField="CategoryPackage" HeaderText="Package"></asp:BoundField>
-                            <asp:BoundField DataField="SumAssured" HeaderText="Sum Assured"></asp:BoundField>
+                            <asp:BoundField DataField="Name" HeaderText="Product Name"></asp:BoundField>
+                            <asp:BoundField DataField="Description" HeaderText="Description"></asp:BoundField>
+                            <asp:BoundField DataField="SchemeID" HeaderText="Scheme ID"></asp:BoundField>
                             <asp:TemplateField HeaderText="Select">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="Edit" runat="server" ForeColor="blue" CssClass="bx bxs-edit" CommandArgument='<%#Eval("ID")%>'
