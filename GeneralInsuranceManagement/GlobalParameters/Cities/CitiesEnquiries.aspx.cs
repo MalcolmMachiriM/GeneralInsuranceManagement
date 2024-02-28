@@ -18,6 +18,10 @@ namespace GeneralInsuranceManagement.GlobalParameters.Cities
                 {
                     txtuserid.Value = Session["UserId"].ToString();
                 }
+                else
+                {
+                    txtuserid.Value = "0";
+                }
                 getCities();
             }
         }
@@ -56,6 +60,39 @@ namespace GeneralInsuranceManagement.GlobalParameters.Cities
         protected void SuccessAlert(string MsgFlg)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
+        #region rowcommand
+        protected void grdAcctypes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var Id = e.CommandArgument.ToString();
+            if (e.CommandName == "selectRecord")
+            {
+                Response.Redirect(string.Format("~/GlobalParameters/Cities/CitiesCreate?CitiesId=" + Id, Id), false);
+            }
+            if (e.CommandName == "deleteRecord")
+            {
+                Models.GlobalParameters.Cities cities = new Models.GlobalParameters.Cities("cn", 1);
+                if (cities.Retrieve(long.Parse(Id)))
+                {
+                    if (cities.Delete())
+                    {
+                        SuccessAlert("Record Successfully Deleted");
+                        getCities();
+                    }
+                    else
+                    {
+                        WarningAlert("Failed to Delete Record");
+                    }
+                }
+                else
+                {
+                    WarningAlert("Record not Found");
+                }
+
+            }
+
 
         }
         #endregion

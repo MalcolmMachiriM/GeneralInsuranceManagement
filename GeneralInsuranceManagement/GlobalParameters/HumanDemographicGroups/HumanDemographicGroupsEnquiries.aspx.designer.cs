@@ -11,7 +11,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.HumanDemographicGroups
 {
 
 
-    public partial class HumanDemographicGroupEnquiries
+    public partial class HumanDemographicGroupsEnquiries
     {
 
         /// <summary>

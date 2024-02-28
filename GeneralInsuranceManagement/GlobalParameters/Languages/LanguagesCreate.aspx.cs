@@ -12,7 +12,28 @@ namespace GeneralInsuranceManagement.GlobalParameters.Languages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["LanguagesId"] != null)
+                {
+                    LanguagesId.Value = Request.QueryString["LanguagesId"].ToString();
+                    getdetails(LanguagesId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    LanguagesId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.Languages languages = new Models.GlobalParameters.Languages("cn", 1);
+            if (languages.Retrieve(long.Parse(value)))
+            {
+                Languages.Text = languages.Description;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,12 +65,14 @@ namespace GeneralInsuranceManagement.GlobalParameters.Languages
             {
                 Models.GlobalParameters.Languages interesttype = new Models.GlobalParameters.Languages("cn", 1)
                 {
+                    Id = int.Parse(LanguagesId.Value),
                     Description = Languages.Text,
 
                 };
                 if (interesttype.Save())
                 {
                     SuccessAlert($"{Languages.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/Languages/LanguagesEnquiries");
                 }
 
             }

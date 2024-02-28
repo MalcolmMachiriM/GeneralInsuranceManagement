@@ -20,12 +20,14 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         protected string mDescription;
         protected string mCode;
         protected string mRate;
+        protected DateTime mDateModified;
 
         public int Id { get { return mId; } set { mId = value; } }
         public string Msgflg { get { return mMSgflg; } set { mMSgflg = value; } }
         public string Description { get { return mDescription; } set { mDescription = value; } }
         public string Code { get { return mCode; } set { mCode = value; } }
         public string Rate { get { return mRate; } set { mRate = value; } }
+        public DateTime DateModified { get { return mDateModified; } set { mDateModified = value; } }
         public Database Database => db;
 
         public string OwnerType => GetType().Name;
@@ -73,5 +75,77 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
             return db.ExecuteDataSet(CommandType.Text, sql);
 
         }
+        protected internal virtual void LoadDataRecord(DataRow rw)
+        {
+            mId = ((rw["Id"] != DBNull.Value) ? int.Parse(rw["Id"].ToString()) : 0);
+            mDescription = ((rw["Description"] != DBNull.Value) ? (rw["Description"].ToString()) : "");
+            mCode = ((rw["Code"] != DBNull.Value) ? (rw["Code"].ToString()) : "");
+            mRate = ((rw["Rate"] != DBNull.Value) ? (rw["Rate"].ToString()) : "");
+            mDateModified = ((rw["DateModified"] != DBNull.Value) ? DateTime.Parse(rw["DateModified"].ToString()) : DateTime.MinValue);
+
+        }
+        public virtual bool Retrieve()
+        {
+            return Retrieve(mId);
+        }
+
+        public virtual bool Retrieve(long ID)
+        {
+            string text = ID <= 0 ? "SELECT * FROM Currencies WHERE ID = " + mId : "SELECT * FROM Currencies WHERE ID = " + ID;
+            return Retrieve(text);
+        }
+
+        protected virtual bool Retrieve(string sql)
+        {
+            try
+            {
+                DataSet dataSet = db.ExecuteDataSet(CommandType.Text, sql);
+                if (dataSet != null && dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
+                {
+                    LoadDataRecord(dataSet.Tables[0].Rows[0]);
+                    dataSet = null;
+                    return true;
+                }
+
+                SetErrorDetails("Currency not found.");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                SetErrorDetails(ex.Message);
+                return false;
+            }
+        }
+        #region "Delete"
+
+        public virtual bool Delete()
+        {
+
+            //Return Delete("UPDATE Users SET Deleted = 1 WHERE ID = " & mID) 
+            return Delete("DELETE FROM Currencies WHERE ID = " + mId);
+
+        }
+
+        protected virtual bool Delete(string DeleteSQL)
+        {
+
+
+            try
+            {
+                db.ExecuteNonQuery(CommandType.Text, DeleteSQL);
+                return true;
+
+
+            }
+            catch (Exception e)
+            {
+                SetErrorDetails(e.Message);
+                return false;
+
+            }
+
+        }
+
+        #endregion
     }
 }

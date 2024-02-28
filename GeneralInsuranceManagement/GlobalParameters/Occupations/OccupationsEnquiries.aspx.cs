@@ -18,11 +18,15 @@ namespace GeneralInsuranceManagement.GlobalParameters.Occupations
                 {
                     txtuserid.Value = Session["UserId"].ToString();
                 }
-                getHumanGroups();
+                else
+                {
+                    txtuserid.Value = "0";
+                }
+                getOccupations();
             }
         }
 
-        private void getHumanGroups()
+        private void getOccupations()
         {
             Models.GlobalParameters.Occupations occupations = new Models.GlobalParameters.Occupations("cn", long.Parse(txtuserid.Value));
             string sql = "select * from Occupations";
@@ -56,6 +60,39 @@ namespace GeneralInsuranceManagement.GlobalParameters.Occupations
         protected void SuccessAlert(string MsgFlg)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
+        #region rowcommand
+        protected void grdAcctypes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var Id = e.CommandArgument.ToString();
+            if (e.CommandName == "selectRecord")
+            {
+                Response.Redirect(string.Format("~/GlobalParameters/Occupations/OccupationsCreate?OccupationsId=" + Id, Id), false);
+            }
+            if (e.CommandName == "deleteRecord")
+            {
+                Models.GlobalParameters.Occupations occupations = new Models.GlobalParameters.Occupations("cn", 1);
+                if (occupations.Retrieve(long.Parse(Id)))
+                {
+                    if (occupations.Delete())
+                    {
+                        SuccessAlert("Record Successfully Deleted");
+                        getOccupations();
+                    }
+                    else
+                    {
+                        WarningAlert("Failed to Delete Record");
+                    }
+                }
+                else
+                {
+                    WarningAlert("Record not Found");
+                }
+
+            }
+
 
         }
         #endregion

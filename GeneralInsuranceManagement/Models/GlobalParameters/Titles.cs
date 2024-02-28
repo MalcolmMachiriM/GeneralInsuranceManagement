@@ -17,11 +17,13 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         protected string mMsgflg;
         protected int mId;
         protected string mName;
+        protected DateTime mDateModified;
         #endregion
         #region properties
         public int Id { get { return mId; } set { mId = value; } }
         public string MsgFlg { get { return mMsgflg; } set { mMsgflg = value; } }
         public string Name { get { return mName; } set { mName = value; } }
+        public DateTime DateModified { get { return mDateModified; } set { mDateModified = value; } }
         public Database Database => db;
 
         public string OwnerType => GetType().Name;
@@ -64,6 +66,82 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         {
             mMsgflg = str;
         }
+        #endregion
+        public virtual DataSet GetUsers(string sql)
+        {
+
+            return db.ExecuteDataSet(CommandType.Text, sql);
+
+        }
+        protected internal virtual void LoadDataRecord(DataRow rw)
+        {
+            mId = ((rw["Id"] != DBNull.Value) ? int.Parse(rw["Id"].ToString()) : 0);
+            mName = ((rw["Name"] != DBNull.Value) ? (rw["Name"].ToString()) : "");
+            mDateModified = ((rw["DateModified"] != DBNull.Value) ? DateTime.Parse(rw["DateModified"].ToString()) : DateTime.MinValue);
+
+        }
+        public virtual bool Retrieve()
+        {
+            return Retrieve(mId);
+        }
+
+        public virtual bool Retrieve(long ID)
+        {
+            string text = ID <= 0 ? "SELECT * FROM Titles WHERE ID = " + mId : "SELECT * FROM Titles WHERE ID = " + ID;
+            return Retrieve(text);
+        }
+
+        protected virtual bool Retrieve(string sql)
+        {
+            try
+            {
+                DataSet dataSet = db.ExecuteDataSet(CommandType.Text, sql);
+                if (dataSet != null && dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
+                {
+                    LoadDataRecord(dataSet.Tables[0].Rows[0]);
+                    dataSet = null;
+                    return true;
+                }
+
+                SetErrorDetails("Title not found.");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                SetErrorDetails(ex.Message);
+                return false;
+            }
+        }
+        #region "Delete"
+
+        public virtual bool Delete()
+        {
+
+            //Return Delete("UPDATE Users SET Deleted = 1 WHERE ID = " & mID) 
+            return Delete("DELETE FROM Titles WHERE ID = " + mId);
+
+        }
+
+        protected virtual bool Delete(string DeleteSQL)
+        {
+
+
+            try
+            {
+                db.ExecuteNonQuery(CommandType.Text, DeleteSQL);
+                return true;
+
+
+            }
+            catch (Exception e)
+            {
+                SetErrorDetails(e.Message);
+                return false;
+
+            }
+
+        }
+
         #endregion
     }
 }

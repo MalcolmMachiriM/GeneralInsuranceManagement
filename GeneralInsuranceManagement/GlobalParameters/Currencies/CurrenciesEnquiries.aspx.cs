@@ -18,6 +18,10 @@ namespace GeneralInsuranceManagement.GlobalParameters.Currencies
                 {
                     txtuserid.Value = Session["UserId"].ToString();
                 }
+                else
+                {
+                    txtuserid.Value = "0";
+                }
                 getCurrencies();
             }
         }
@@ -56,6 +60,39 @@ namespace GeneralInsuranceManagement.GlobalParameters.Currencies
         protected void SuccessAlert(string MsgFlg)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
+        #region rowcommand
+        protected void grdAcctypes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var Id = e.CommandArgument.ToString();
+            if (e.CommandName == "selectRecord")
+            {
+                Response.Redirect(string.Format("~/GlobalParameters/Currencies/CurrenciesCreate?CurrenciesId=" + Id, Id), false);
+            }
+            if (e.CommandName == "deleteRecord")
+            {
+                Models.GlobalParameters.Currencies currencies = new Models.GlobalParameters.Currencies("cn", 1);
+                if (currencies.Retrieve(long.Parse(Id)))
+                {
+                    if (currencies.Delete())
+                    {
+                        SuccessAlert("Record Successfully Deleted");
+                        getCurrencies();
+                    }
+                    else
+                    {
+                        WarningAlert("Failed to Delete Record");
+                    }
+                }
+                else
+                {
+                    WarningAlert("Record not Found");
+                }
+
+            }
+
 
         }
         #endregion

@@ -18,6 +18,10 @@ namespace GeneralInsuranceManagement.GlobalParameters.HabitsAndInterests
                 {
                     txtuserid.Value = Session["UserId"].ToString();
                 }
+                else
+                {
+                    txtuserid.Value = "0";
+                }
                 getHabits();
             }
         }
@@ -56,6 +60,39 @@ namespace GeneralInsuranceManagement.GlobalParameters.HabitsAndInterests
         protected void SuccessAlert(string MsgFlg)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
+        #region rowcommand
+        protected void grdAcctypes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var Id = e.CommandArgument.ToString();
+            if (e.CommandName == "selectRecord")
+            {
+                Response.Redirect(string.Format("~/GlobalParameters/HabitsAndInterests/HabitsAndInterestsCreate?HabitsAndInterestsId=" + Id, Id), false);
+            }
+            if (e.CommandName == "deleteRecord")
+            {
+                Models.GlobalParameters.HabitsAndInterests habitsAndInterests = new Models.GlobalParameters.HabitsAndInterests("cn", 1);
+                if (habitsAndInterests.Retrieve(long.Parse(Id)))
+                {
+                    if (habitsAndInterests.Delete())
+                    {
+                        SuccessAlert("Record Successfully Deleted");
+                        getHabits();
+                    }
+                    else
+                    {
+                        WarningAlert("Failed to Delete Record");
+                    }
+                }
+                else
+                {
+                    WarningAlert("Record not Found");
+                }
+
+            }
+
 
         }
         #endregion

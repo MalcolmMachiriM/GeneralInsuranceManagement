@@ -18,6 +18,10 @@ namespace GeneralInsuranceManagement.GlobalParameters.BusinessDecisions
                 {
                     txtuserid.Value = Session["UserId"].ToString();
                 }
+                else
+                {
+                    txtuserid.Value = "0";
+                }
                 getBusinessDecisions();
             }
         }
@@ -59,5 +63,39 @@ namespace GeneralInsuranceManagement.GlobalParameters.BusinessDecisions
 
         }
         #endregion
+        #region rowcommand
+        protected void grdAcctypes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var Id = e.CommandArgument.ToString();
+            if (e.CommandName == "selectRecord")
+            {
+                Response.Redirect(string.Format("~/GlobalParameters/BusinessDecisions/BusinessDecisionsCreate?BusinessDecisionId=" + Id, Id), false);
+            }
+            if (e.CommandName == "deleteRecord")
+            {
+                Models.GlobalParameters.BusinessDecisions businessDecisions = new Models.GlobalParameters.BusinessDecisions("cn", 1);
+                if (businessDecisions.Retrieve(long.Parse(Id)))
+                {
+                    if (businessDecisions.Delete())
+                    {
+                        SuccessAlert("Record Successfully Deleted");
+                        getBusinessDecisions();
+                    }
+                    else
+                    {
+                        WarningAlert("Failed to Delete Record");
+                    }
+                }
+                else
+                {
+                    WarningAlert("Record not Found");
+                }
+
+            }
+
+
+        }
+        #endregion
+
     }
 }

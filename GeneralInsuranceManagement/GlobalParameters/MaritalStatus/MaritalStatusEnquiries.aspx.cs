@@ -18,11 +18,15 @@ namespace GeneralInsuranceManagement.GlobalParameters.MaritalStatus
                 {
                     txtuserid.Value = Session["UserId"].ToString();
                 }
-                getHumanGroups();
+                else
+                {
+                    txtuserid.Value = "0";
+                }
+                getMaritalStatus();
             }
         }
 
-        private void getHumanGroups()
+        private void getMaritalStatus()
         {
             Models.GlobalParameters.MaritalStatus marital = new Models.GlobalParameters.MaritalStatus("cn", long.Parse(txtuserid.Value));
             string sql = "select * from MaritalStatuses";
@@ -56,6 +60,39 @@ namespace GeneralInsuranceManagement.GlobalParameters.MaritalStatus
         protected void SuccessAlert(string MsgFlg)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
+        #region rowcommand
+        protected void grdAcctypes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var Id = e.CommandArgument.ToString();
+            if (e.CommandName == "selectRecord")
+            {
+                Response.Redirect(string.Format("~/GlobalParameters/MaritaLStatus/MaritalStatusCreate?MaritalStatusId=" + Id, Id), false);
+            }
+            if (e.CommandName == "deleteRecord")
+            {
+                Models.GlobalParameters.MaritalStatus maritalStatus = new Models.GlobalParameters.MaritalStatus("cn", 1);
+                if (maritalStatus.Retrieve(long.Parse(Id)))
+                {
+                    if (maritalStatus.Delete())
+                    {
+                        SuccessAlert("Record Successfully Deleted");
+                        getMaritalStatus();
+                    }
+                    else
+                    {
+                        WarningAlert("Failed to Delete Record");
+                    }
+                }
+                else
+                {
+                    WarningAlert("Record not Found");
+                }
+
+            }
+
 
         }
         #endregion

@@ -12,7 +12,31 @@ namespace GeneralInsuranceManagement.GlobalParameters.Banks
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["BankId"] != null)
+                {
+                    BankId.Value = Request.QueryString["BankId"].ToString();
+                    getdetails(BankId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    BankId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.Banks banks = new Models.GlobalParameters.Banks("cn", 1);
+            if (banks.Retrieve(long.Parse(value)))
+            {
+                BankCode.Text = banks.Code;
+                BankName.Text = banks.BankName;
+                BranchNumbers.Text = banks.NumberOfBranches.ToString();
+                NumberLength.Text = banks.AccountNumberLength.ToString();
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,15 +68,17 @@ namespace GeneralInsuranceManagement.GlobalParameters.Banks
             {
                 Models.GlobalParameters.Banks bank = new Models.GlobalParameters.Banks("cn", 1)
                 {
+                    Id = int.Parse(BankId.Value),
                     Code = BankCode.Text,
                     BankName = BankName.Text,
-                    NumberOfBranches = BranchNumbers.Text,
-                    AccountNumberLength = NumberLength.Text
+                    NumberOfBranches = int.Parse(BranchNumbers.Text),
+                    AccountNumberLength = int.Parse(NumberLength.Text)
 
                 };
                 if (bank.Save())
                 {
                     SuccessAlert($"{BankName.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/Banks/BanksEnquiries");
                 }
 
             }

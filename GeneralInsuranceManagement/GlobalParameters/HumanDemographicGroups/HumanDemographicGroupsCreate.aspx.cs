@@ -1,18 +1,38 @@
-﻿using GeneralInsuranceManagement.Models.GlobalParameters;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace GeneralInsuranceManagement.GlobalParameters
+namespace GeneralInsuranceManagement.GlobalParameters.HumanDemographicGroups
 {
-    public partial class HumanDemographicGroups : System.Web.UI.Page
+    public partial class HumanDemographicGroupsCreate : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["HumanGroupsId"] != null)
+                {
+                    HumanGroupsId.Value = Request.QueryString["HumanGroupsId"].ToString();
+                    getdetails(HumanGroupsId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    HumanGroupsId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.HumanDemographicGroups humanGroups = new Models.GlobalParameters.HumanDemographicGroups("cn", 1);
+            if (humanGroups.Retrieve(long.Parse(value)))
+            {
+                HumanGroups.Text = humanGroups.Description;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -35,27 +55,28 @@ namespace GeneralInsuranceManagement.GlobalParameters
         #endregion
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-            Save();
+            SaveHumanGroups();
         }
 
-        private void Save()
+        private void SaveHumanGroups()
         {
+            Models.GlobalParameters.HumanDemographicGroups humanGroups = new Models.GlobalParameters.HumanDemographicGroups("cn", 1)
+            {
+                Id = int.Parse(HumanGroupsId.Value),
+                Description = HumanGroups.Text
+            };
             try
             {
-                Models.GlobalParameters.HumanDemographicGroups religion = new Models.GlobalParameters.HumanDemographicGroups("cn", 1)
+                if (humanGroups.Save())
                 {
-                    Description = HumanGroups.Text,
-
-                };
-                if (religion.Save())
-                {
-                    SuccessAlert($"{HumanGroups.Text} saved successfully!");
+                    SuccessAlert("Human Demographic group saved");
+                    Response.Redirect("~/GlobalParameters/HumanDemographicGroups/HumanDemographicGroupsEnquiries");
                 }
-
             }
             catch (Exception ex)
             {
-                WarningAlert(ex.Message);
+
+                RedAlert(ex.Message);
             }
 
         }

@@ -31,7 +31,7 @@
     </div>
     <!--end breadcrumb-->
 
-    <asp:HiddenField ID="SchemeId" runat="server" />
+    <asp:HiddenField ID="BankId" runat="server" />
 
     <div class="row">
         <div class="col-xl-8 mx-auto">
@@ -94,7 +94,7 @@
                         <div class="row">
                             <label class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <asp:Button runat="server" ID="btnCreate" OnClick="btnCreate_Click" Text="Create" CssClass="btn btn-primary px-4 " />
+                                <asp:Button runat="server" ID="btnCreate" OnClick="btnCreate_Click" CssClass="btn btn-primary px-4 " />
                             </div>
                         </div>
                     </asp:Panel>

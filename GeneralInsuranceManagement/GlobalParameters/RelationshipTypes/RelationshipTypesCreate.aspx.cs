@@ -12,7 +12,28 @@ namespace GeneralInsuranceManagement.GlobalParameters.RelationshipTypes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["RelationshipTypeId"] != null)
+                {
+                    RelationshipTypeId.Value = Request.QueryString["RelationshipTypeId"].ToString();
+                    getdetails(RelationshipTypeId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    RelationshipTypeId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.RelationshipTypes relationship = new Models.GlobalParameters.RelationshipTypes("cn", 1);
+            if (relationship.Retrieve(long.Parse(value)))
+            {
+                RelationshipTypes.Text = relationship.Description;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,12 +65,14 @@ namespace GeneralInsuranceManagement.GlobalParameters.RelationshipTypes
             {
                 Models.GlobalParameters.RelationshipTypes relationship = new Models.GlobalParameters.RelationshipTypes("cn", 1)
                 {
+                    Id = int.Parse(RelationshipTypeId.Value),
                     Description = RelationshipTypes.Text,
 
                 };
                 if (relationship.Save())
                 {
                     SuccessAlert($"{RelationshipTypes.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/RelationshipTypes/RelationshipTypesEnquiries");
                 }
 
             }

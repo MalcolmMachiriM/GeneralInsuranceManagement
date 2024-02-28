@@ -18,6 +18,10 @@ namespace GeneralInsuranceManagement.GlobalParameters.PremiumPaymentFrequencies
                 {
                     txtuserid.Value = Session["UserId"].ToString();
                 }
+                else
+                {
+                    txtuserid.Value = "0";
+                }
                 getpremfrq();
             }
         }
@@ -56,6 +60,39 @@ namespace GeneralInsuranceManagement.GlobalParameters.PremiumPaymentFrequencies
         protected void SuccessAlert(string MsgFlg)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
+        #region rowcommand
+        protected void grdAcctypes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var Id = e.CommandArgument.ToString();
+            if (e.CommandName == "selectRecord")
+            {
+                Response.Redirect(string.Format("~/GlobalParameters/PremiumPaymentFrequencies/PremiumPaymentFrequenciesCreate?PaymentfreqId=" + Id, Id), false);
+            }
+            if (e.CommandName == "deleteRecord")
+            {
+                Models.GlobalParameters.PremiumPaymentFrequencies premiumfreq = new Models.GlobalParameters.PremiumPaymentFrequencies("cn", 1);
+                if (premiumfreq.Retrieve(long.Parse(Id)))
+                {
+                    if (premiumfreq.Delete())
+                    {
+                        SuccessAlert("Record Successfully Deleted");
+                        getpremfrq();
+                    }
+                    else
+                    {
+                        WarningAlert("Failed to Delete Record");
+                    }
+                }
+                else
+                {
+                    WarningAlert("Record not Found");
+                }
+
+            }
+
 
         }
         #endregion

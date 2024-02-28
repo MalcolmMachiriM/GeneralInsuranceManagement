@@ -18,6 +18,10 @@ namespace GeneralInsuranceManagement.GlobalParameters.IdentificationTypes
                 {
                     txtuserid.Value = Session["UserId"].ToString();
                 }
+                else
+                {
+                    txtuserid.Value = "0";
+                }
                 getIdTypes();
             }
         }
@@ -56,6 +60,39 @@ namespace GeneralInsuranceManagement.GlobalParameters.IdentificationTypes
         protected void SuccessAlert(string MsgFlg)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
+        #region rowcommand
+        protected void grdAcctypes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var Id = e.CommandArgument.ToString();
+            if (e.CommandName == "selectRecord")
+            {
+                Response.Redirect(string.Format("~/GlobalParameters/IdentificationTypes/IdentificationTypesCreate?IdentificationTypesId=" + Id, Id), false);
+            }
+            if (e.CommandName == "deleteRecord")
+            {
+                Models.GlobalParameters.IdentificationTypes identificationTypes = new Models.GlobalParameters.IdentificationTypes("cn", 1);
+                if (identificationTypes.Retrieve(long.Parse(Id)))
+                {
+                    if (identificationTypes.Delete())
+                    {
+                        SuccessAlert("Record Successfully Deleted");
+                        getIdTypes();
+                    }
+                    else
+                    {
+                        WarningAlert("Failed to Delete Record");
+                    }
+                }
+                else
+                {
+                    WarningAlert("Record not Found");
+                }
+
+            }
+
 
         }
         #endregion

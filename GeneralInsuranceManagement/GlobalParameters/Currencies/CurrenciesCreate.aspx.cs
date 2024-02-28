@@ -12,7 +12,30 @@ namespace GeneralInsuranceManagement.GlobalParameters.Currencies
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["CurrenciesId"] != null)
+                {
+                    CurrenciesId.Value = Request.QueryString["CurrenciesId"].ToString();
+                    getdetails(CurrenciesId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    CurrenciesId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.Currencies currencies = new Models.GlobalParameters.Currencies("cn", 1);
+            if (currencies.Retrieve(long.Parse(value)))
+            {
+                Currency.Text = currencies.Description;
+                CurrencyCode.Text = currencies.Code;
+                CurrencyRate.Text = currencies.Rate;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,6 +67,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.Currencies
             {
                 Models.GlobalParameters.Currencies country = new Models.GlobalParameters.Currencies("cn", 1)
                 {
+                    Id = int.Parse(CurrenciesId.Value),
                     Description = Currency.Text,
                     Code = CurrencyCode.Text,
                     Rate = CurrencyRate.Text,
@@ -52,6 +76,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.Currencies
                 if (country.Save())
                 {
                     SuccessAlert($"{Currency.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/Currencies/CurrenciesEnquiries");
                 }
 
             }

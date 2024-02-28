@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace GeneralInsuranceManagement.GlobalParameters.HumanDemographicGroups
 {
-    public partial class HumanDemographicGroupEnquiries : System.Web.UI.Page
+    public partial class HumanDemographicGroupsEnquiries : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,15 +18,19 @@ namespace GeneralInsuranceManagement.GlobalParameters.HumanDemographicGroups
                 {
                     txtuserid.Value = Session["UserId"].ToString();
                 }
+                else
+                {
+                    txtuserid.Value = "0";
+                }
                 getHumanGroups();
             }
         }
 
         private void getHumanGroups()
         {
-            Models.GlobalParameters.HumanDemographicGroups humangroups = new Models.GlobalParameters.HumanDemographicGroups("cn", long.Parse(txtuserid.Value));
+            Models.GlobalParameters.HumanDemographicGroups humanGroups = new Models.GlobalParameters.HumanDemographicGroups("cn", long.Parse(txtuserid.Value));
             string sql = "select * from HumanDemographicGroups";
-            DataSet ds = humangroups.GetUsers(sql);
+            DataSet ds = humanGroups.GetUsers(sql);
             if (ds != null)
             {
                 grdAcctypes.DataSource = ds;
@@ -56,6 +60,40 @@ namespace GeneralInsuranceManagement.GlobalParameters.HumanDemographicGroups
         protected void SuccessAlert(string MsgFlg)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
+
+        #region rowcommand
+        protected void grdAcctypes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var Id = e.CommandArgument.ToString();
+            if (e.CommandName == "selectRecord")
+            {
+                Response.Redirect(string.Format("~/GlobalParameters/HumanDemographicGroups/HumanDemographicGroupsCreate?HumanGroupsId=" + Id, Id), false);
+            }
+            if (e.CommandName == "deleteRecord")
+            {
+                Models.GlobalParameters.HumanDemographicGroups humanGroups = new Models.GlobalParameters.HumanDemographicGroups("cn", 1);
+                if (humanGroups.Retrieve(long.Parse(Id)))
+                {
+                    if (humanGroups.Delete())
+                    {
+                        SuccessAlert("Record Successfully Deleted");
+                        getHumanGroups();
+                    }
+                    else
+                    {
+                        WarningAlert("Failed to Delete Record");
+                    }
+                }
+                else
+                {
+                    WarningAlert("Record not Found");
+                }
+
+            }
+
 
         }
         #endregion

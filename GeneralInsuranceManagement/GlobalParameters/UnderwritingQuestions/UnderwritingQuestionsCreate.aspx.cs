@@ -14,10 +14,26 @@ namespace GeneralInsuranceManagement.GlobalParameters.UnderwritingQuestions
         {
             if (!IsPostBack)
             {
-                if (Request.QueryString["underwritingQuestionId"] !=null )
+                if (Request.QueryString["UnderwritingQuestionId"] != null)
                 {
-                    underwritingQuestionId.Value = Request.QueryString["underwritingQuestionId"];
+                    UnderwritingQuestionId.Value = Request.QueryString["UnderwritingQuestionId"].ToString();
+                    getdetails(UnderwritingQuestionId.Value);
+                    btnCreate.Text = "Update";
                 }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    UnderwritingQuestionId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.UnderwritingQuestions underwritingQ = new Models.GlobalParameters.UnderwritingQuestions("cn", 1);
+            if (underwritingQ.Retrieve(long.Parse(value)))
+            {
+                QuestionTypes.Text = underwritingQ.QuestionType;
+                QuestionDescription.Text = underwritingQ.QuestionDescription;
             }
         }
         #region alerts
@@ -48,7 +64,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.UnderwritingQuestions
         {
             Models.GlobalParameters.UnderwritingQuestions qs = new Models.GlobalParameters.UnderwritingQuestions("cn", 1)
             {
-                Id = int.Parse(underwritingQuestionId.Value),
+                Id = int.Parse(UnderwritingQuestionId.Value),
                 QuestionType = QuestionTypes.Text,
                 QuestionDescription = QuestionDescription.Text
             };
@@ -56,7 +72,8 @@ namespace GeneralInsuranceManagement.GlobalParameters.UnderwritingQuestions
             {
                 if (qs.Save())
                 {
-                    SuccessAlert("Success");
+                    SuccessAlert("Questions saved successfully");
+                    Response.Redirect("~/GlobalParameters/UnderwritingQuestions/UnderwritingQuestionsEnquiries");
                 }
             }
             catch (Exception x)

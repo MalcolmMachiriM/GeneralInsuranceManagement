@@ -18,11 +18,15 @@ namespace GeneralInsuranceManagement.GlobalParameters.InstitutionTypes
                 {
                     txtuserid.Value = Session["UserId"].ToString();
                 }
-                getHumanGroups();
+                else
+                {
+                    txtuserid.Value = "0";
+                }
+                getInstitutionTypes();
             }
         }
 
-        private void getHumanGroups()
+        private void getInstitutionTypes()
         {
             Models.GlobalParameters.InstitutionTypes institutions = new Models.GlobalParameters.InstitutionTypes("cn", long.Parse(txtuserid.Value));
             string sql = "select * from InstitutionTypes";
@@ -56,6 +60,40 @@ namespace GeneralInsuranceManagement.GlobalParameters.InstitutionTypes
         protected void SuccessAlert(string MsgFlg)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
+
+        #region rowcommand
+        protected void grdAcctypes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var Id = e.CommandArgument.ToString();
+            if (e.CommandName == "selectRecord")
+            {
+                Response.Redirect(string.Format("~/GlobalParameters/InstitutionTypes/InstitutionTypesCreate?InstitutionTypesId=" + Id, Id), false);
+            }
+            if (e.CommandName == "deleteRecord")
+            {
+                Models.GlobalParameters.InstitutionTypes institutionTypes = new Models.GlobalParameters.InstitutionTypes("cn", 1);
+                if (institutionTypes.Retrieve(long.Parse(Id)))
+                {
+                    if (institutionTypes.Delete())
+                    {
+                        SuccessAlert("Record Successfully Deleted");
+                        getInstitutionTypes();
+                    }
+                    else
+                    {
+                        WarningAlert("Failed to Delete Record");
+                    }
+                }
+                else
+                {
+                    WarningAlert("Record not Found");
+                }
+
+            }
+
 
         }
         #endregion

@@ -12,7 +12,31 @@ namespace GeneralInsuranceManagement.GlobalParameters.PaymentMethods
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["PaymentMethodsId"] != null)
+                {
+                    PaymentMethodsId.Value = Request.QueryString["PaymentMethodsId"].ToString();
+                    getdetails(PaymentMethodsId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    PaymentMethodsId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.PaymentMethod paymentMethod = new Models.GlobalParameters.PaymentMethod("cn", 1);
+            if (paymentMethod.Retrieve(long.Parse(value)))
+            {
+                PaymentMethod.Text = paymentMethod.Method;
+                PaymentMethodCode.Text = paymentMethod.Code;
+                DetailsBank.Checked = paymentMethod.BankDetailsRequired;
+                NumberRequired.Checked = paymentMethod.MobileNumberRequired;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,6 +68,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.PaymentMethods
             {
                 PaymentMethod payment = new PaymentMethod("cn", 1)
                 {
+                    Id = int.Parse(PaymentMethodsId.Value),
                     Method = PaymentMethod.Text,
                     Code = PaymentMethodCode.Text,
                     BankDetailsRequired = DetailsBank.Checked,
@@ -53,6 +78,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.PaymentMethods
                 if (payment.Save())
                 {
                     SuccessAlert($"{PaymentMethod.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/PaymentMethods/PaymentMethodsEnquiries");
                 }
 
             }

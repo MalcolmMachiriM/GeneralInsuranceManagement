@@ -12,7 +12,29 @@ namespace GeneralInsuranceManagement.GlobalParameters.BusinessDecisions
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["BusinessDecisionId"] != null)
+                {
+                    BusinessDecisionId.Value = Request.QueryString["BusinessDecisionId"].ToString();
+                    getdetails(BusinessDecisionId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    BusinessDecisionId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.BusinessDecisions businessDecisions = new Models.GlobalParameters.BusinessDecisions("cn", 1);
+            if (businessDecisions.Retrieve(long.Parse(value)))
+            {
+                BusinessDecisionCode.Text = businessDecisions.Code;
+                BusinessDecision.Text = businessDecisions.Description;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,6 +66,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.BusinessDecisions
             {
                 Models.GlobalParameters.BusinessDecisions bdecision = new Models.GlobalParameters.BusinessDecisions("cn", 1)
                 {
+                    Id = int.Parse(BusinessDecisionId.Value),
                     Code = BusinessDecisionCode.Text,
                     Description = BusinessDecision.Text,
 
@@ -51,6 +74,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.BusinessDecisions
                 if (bdecision.Save())
                 {
                     SuccessAlert($"{BusinessDecision.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/BusinessDecisions/BusinessDecisionsEnquiries");
                 }
 
             }

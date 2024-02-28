@@ -31,7 +31,7 @@
     </div>
     <!--end breadcrumb-->
 
-    <asp:HiddenField ID="SchemeId" runat="server" />
+    <asp:HiddenField ID="IdentificationTypesId" runat="server" />
 
     <div class="row">
         <div class="col-xl-8 mx-auto">
@@ -75,7 +75,7 @@
                         <div class="col-sm-6">
                             <div class="input-group">
                                 <span class="input-group-text"><i class='bx bx-list-minus' style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="MinimumLength" CssClass="form-control" placeholder="Enter Number of Branches" />
+                                <asp:TextBox runat="server" ID="MinimumLength" CssClass="form-control" placeholder="Enter Min Length Required" />
                             </div>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="MinimumLength"
                                 CssClass="text-danger" ErrorMessage="The Minimum Length field is required." />
@@ -87,7 +87,7 @@
                         <div class="col-sm-6">
                             <div class="input-group">
                                 <span class="input-group-text"><i class="bx bx-list-plus" style="color: blue"></i></span>
-                                <asp:TextBox runat="server" ID="MaximumLength" CssClass="form-control" placeholder="Enter Account Number Length" />
+                                <asp:TextBox runat="server" ID="MaximumLength" CssClass="form-control" placeholder="Enter Max Length Required" />
                             </div>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="MaximumLength"
                                 CssClass="text-danger" ErrorMessage="The Maximum Length field is required." />
@@ -97,7 +97,7 @@
                         <div class="row">
                             <label class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <asp:Button runat="server" ID="btnCreate" OnClick="btnCreate_Click" Text="Create" CssClass="btn btn-primary px-4 " />
+                                <asp:Button runat="server" ID="btnCreate" OnClick="btnCreate_Click" CssClass="btn btn-primary px-4 " />
                             </div>
                         </div>
                     </asp:Panel>

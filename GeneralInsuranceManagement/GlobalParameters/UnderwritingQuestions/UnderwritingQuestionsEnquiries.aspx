@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="HumanDemographicGroupEnquiries.aspx.cs" Inherits="GeneralInsuranceManagement.GlobalParameters.HumanDemographicGroups.HumanDemographicGroupEnquiries" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="UnderwritingQuestionsEnquiries.aspx.cs" Inherits="GeneralInsuranceManagement.GlobalParameters.UnderwritingQuestions.UnderwritingQuestionsEnquiries" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Human Demographic Groups</div>
+        <div class="breadcrumb-title pe-3">Underwriting Questions</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -33,28 +33,36 @@
 
     <asp:Panel runat="server" ID="usersCard">
         <h5 class="mb-0 text-uppercase">
-            <span><i class="bx bx-user" style="font-size: larger"></i></span>
-            Human Demgographic Groups
+            <span><i class="bx bx-message-alt-detail" style="font-size: larger"></i></span>
+            Underwriting Questions
         </h5>
         <hr />
+        <div class="row; col-sm-3">
+            <a runat="server" href="~/GlobalParameters/UnderwritingQuestions/UnderwritingQuestionsCreate" class="btn btn-primary">Create
+            </a>
+        </div>
+        <br />
 
         <div class="card ">
             <div class="card-body">
                 <div class="table-responsive">
                     <%--<div class="col-sm-12 align-content-center">--%>
                     <asp:GridView ID="grdAcctypes" ClientIDMode="Static" Width="100%" runat="server"
-                        AutoGenerateColumns="False" AutoGenerateSelectButton="False"
+                        AutoGenerateColumns="False" OnRowCommand="grdAcctypes_RowCommand" AutoGenerateSelectButton="False"
                         DataKeyNames="ID"
                         CssClass="table table-striped table-bordered example" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
                         Style="border-collapse: collapse !important; width=100%"
                         AllowPaging="True" AllowSorting="True" PageSize="10">
                         <Columns>
                             <asp:BoundField Visible="false" DataField="ID" HeaderText="ID"></asp:BoundField>
-                            <asp:BoundField DataField="Description" HeaderText="Human Demographic Groups"></asp:BoundField>
+                            <asp:BoundField DataField="QuestionType" HeaderText="Question Type"></asp:BoundField>
+                            <asp:BoundField DataField="QuestionDescription" HeaderText="Question Description"></asp:BoundField>
                             <asp:TemplateField HeaderText="Select">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="Edit" runat="server" ForeColor="blue" CssClass="bx bxs-edit" CommandArgument='<%#Eval("ID")%>'
                                         CommandName="selectRecord"></asp:LinkButton>
+                                    <asp:LinkButton ID="delete" runat="server" ForeColor="red" CssClass="bx bxs-trash" CommandArgument='<%#Eval("ID")%>'
+                                        CommandName="deleteRecord"></asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

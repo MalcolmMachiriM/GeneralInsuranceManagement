@@ -12,7 +12,28 @@ namespace GeneralInsuranceManagement.GlobalParameters.InstitutionTypes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["InstitutionTypesId"] != null)
+                {
+                    InstitutionTypesId.Value = Request.QueryString["InstitutionTypesId"].ToString();
+                    getdetails(InstitutionTypesId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    InstitutionTypesId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.InstitutionTypes institution = new Models.GlobalParameters.InstitutionTypes("cn", 1);
+            if (institution.Retrieve(long.Parse(value)))
+            {
+                InstitutionType.Text = institution.Description;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -42,14 +63,16 @@ namespace GeneralInsuranceManagement.GlobalParameters.InstitutionTypes
         {
             try
             {
-                Models.GlobalParameters.InstitutionTypes country = new Models.GlobalParameters.InstitutionTypes("cn", 1)
+                Models.GlobalParameters.InstitutionTypes institution = new Models.GlobalParameters.InstitutionTypes("cn", 1)
                 {
-                    Description = InstitutionType.Text,
+                    Id = int.Parse(InstitutionTypesId.Value),
+                    Description = InstitutionType.Text
 
                 };
-                if (country.Save())
+                if (institution.Save())
                 {
                     SuccessAlert($"{InstitutionType.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/InstitutionTypes/InstitutionTypesEnquiries");
                 }
 
             }

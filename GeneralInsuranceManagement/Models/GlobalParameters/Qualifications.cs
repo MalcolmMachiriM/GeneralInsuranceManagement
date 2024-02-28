@@ -20,10 +20,12 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         protected int mId;
         protected string mMSgflg;
         protected string mQualificationName;
+        protected DateTime mDateModified;
 
         public int Id { get { return mId; } set { mId = value; } }
         public string Msgflg { get { return mMSgflg; } set { mMSgflg = value; } }
         public string QualificationName { get { return mQualificationName; } set { mQualificationName = value; } }
+        public DateTime DateModified { get { return mDateModified; } set { mDateModified = value; } }
         public Database Database => db;
 
         public string OwnerType => GetType().Name;
@@ -69,5 +71,75 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
             return db.ExecuteDataSet(CommandType.Text, sql);
 
         }
+        protected internal virtual void LoadDataRecord(DataRow rw)
+        {
+            mId = ((rw["Id"] != DBNull.Value) ? int.Parse(rw["Id"].ToString()) : 0);
+            mQualificationName = ((rw["QualificationName"] != DBNull.Value) ? (rw["QualificationName"].ToString()) : "");
+            mDateModified = ((rw["DateModified"] != DBNull.Value) ? DateTime.Parse(rw["DateModified"].ToString()) : DateTime.MinValue);
+
+        }
+        public virtual bool Retrieve()
+        {
+            return Retrieve(mId);
+        }
+
+        public virtual bool Retrieve(long ID)
+        {
+            string text = ID <= 0 ? "SELECT * FROM Qualifications WHERE ID = " + mId : "SELECT * FROM Qualifications WHERE ID = " + ID;
+            return Retrieve(text);
+        }
+
+        protected virtual bool Retrieve(string sql)
+        {
+            try
+            {
+                DataSet dataSet = db.ExecuteDataSet(CommandType.Text, sql);
+                if (dataSet != null && dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
+                {
+                    LoadDataRecord(dataSet.Tables[0].Rows[0]);
+                    dataSet = null;
+                    return true;
+                }
+
+                SetErrorDetails("Qualification not found.");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                SetErrorDetails(ex.Message);
+                return false;
+            }
+        }
+        #region "Delete"
+
+        public virtual bool Delete()
+        {
+
+            //Return Delete("UPDATE Users SET Deleted = 1 WHERE ID = " & mID) 
+            return Delete("DELETE FROM Qualifications WHERE ID = " + mId);
+
+        }
+
+        protected virtual bool Delete(string DeleteSQL)
+        {
+
+
+            try
+            {
+                db.ExecuteNonQuery(CommandType.Text, DeleteSQL);
+                return true;
+
+
+            }
+            catch (Exception e)
+            {
+                SetErrorDetails(e.Message);
+                return false;
+
+            }
+
+        }
+
+        #endregion
     }
 }

@@ -12,7 +12,31 @@ namespace GeneralInsuranceManagement.GlobalParameters.IdentificationTypes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["IdentificationTypesId"] != null)
+                {
+                    IdentificationTypesId.Value = Request.QueryString["IdentificationTypesId"].ToString();
+                    getdetails(IdentificationTypesId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    IdentificationTypesId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.IdentificationTypes identification = new Models.GlobalParameters.IdentificationTypes("cn", 1);
+            if (identification.Retrieve(long.Parse(value)))
+            {
+                IdentificationType.Text = identification.IdentificationTypeName;
+                IdentificationTypesFormat.Text = identification.Format;
+                MinimumLength.Text = identification.MinimumLengthRequired.ToString();
+                MaximumLength.Text = identification.MaximumLengthRequired.ToString();
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,15 +68,17 @@ namespace GeneralInsuranceManagement.GlobalParameters.IdentificationTypes
             {
                 Models.GlobalParameters.IdentificationTypes identity = new Models.GlobalParameters.IdentificationTypes("cn", 1)
                 {
+                    Id = int.Parse(IdentificationTypesId.Value),
                     IdentificationTypeName = IdentificationType.Text,
                     Format = IdentificationTypesFormat.Text,
-                    MinimumLengthRequired = MinimumLength.Text,
-                    MaximumLengthRequired = MaximumLength.Text,
+                    MinimumLengthRequired = int.Parse(MinimumLength.Text),
+                    MaximumLengthRequired = int.Parse(MaximumLength.Text),
 
                 };
                 if (identity.Save())
                 {
                     SuccessAlert($"{IdentificationType.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/IdentificationTypes/IdentificationTypesEnquiries");
                 }
 
             }

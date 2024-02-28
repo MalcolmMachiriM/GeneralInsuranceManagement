@@ -18,6 +18,10 @@ namespace GeneralInsuranceManagement.GlobalParameters.PaymentMethods
                 {
                     txtuserid.Value = Session["UserId"].ToString();
                 }
+                else
+                {
+                    txtuserid.Value = "0";
+                }
                 getPaymentMethod();
             }
         }
@@ -56,6 +60,39 @@ namespace GeneralInsuranceManagement.GlobalParameters.PaymentMethods
         protected void SuccessAlert(string MsgFlg)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
+        #region rowcommand
+        protected void grdAcctypes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var Id = e.CommandArgument.ToString();
+            if (e.CommandName == "selectRecord")
+            {
+                Response.Redirect(string.Format("~/GlobalParameters/PaymentMethods/PaymentMethodsCreate?PaymentMethodsId=" + Id, Id), false);
+            }
+            if (e.CommandName == "deleteRecord")
+            {
+                Models.GlobalParameters.PaymentMethod paymentMethod = new Models.GlobalParameters.PaymentMethod("cn", 1);
+                if (paymentMethod.Retrieve(long.Parse(Id)))
+                {
+                    if (paymentMethod.Delete())
+                    {
+                        SuccessAlert("Record Successfully Deleted");
+                        getPaymentMethod();
+                    }
+                    else
+                    {
+                        WarningAlert("Failed to Delete Record");
+                    }
+                }
+                else
+                {
+                    WarningAlert("Record not Found");
+                }
+
+            }
+
 
         }
         #endregion

@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="Countries.aspx.cs" Inherits="GeneralInsuranceManagement.GlobalParameters.Countries.Countries" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="StopOrdersNamesEnquiries.aspx.cs" Inherits="GeneralInsuranceManagement.GlobalParameters.StopOrdersNames.StopOrdersNames" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-        <div class="breadcrumb-title pe-3">Countries</div>
+        <div class="breadcrumb-title pe-3">Stop Orders</div>
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
@@ -33,29 +33,37 @@
 
     <asp:Panel runat="server" ID="usersCard">
         <h5 class="mb-0 text-uppercase">
-            <span><i class="bx bx-flag" style="font-size: larger"></i></span>
-            Countries
+            <span><i class="bx bx-building-house" style="font-size: larger"></i></span>
+            Stop Orders
         </h5>
         <hr />
+        <div class="row; col-sm-3">
+            <a runat="server" href="~/GlobalParameters/StopOrdersNames/StopOrderNamesCreate" class="btn btn-primary">Create
+            </a>
+        </div>
+        <br />
 
         <div class="card ">
             <div class="card-body">
                 <div class="table-responsive">
                     <%--<div class="col-sm-12 align-content-center">--%>
                     <asp:GridView ID="grdAcctypes" ClientIDMode="Static" Width="100%" runat="server"
-                        AutoGenerateColumns="False" AutoGenerateSelectButton="False"
+                        AutoGenerateColumns="False" OnRowCommand="grdAcctypes_RowCommand" AutoGenerateSelectButton="False"
                         DataKeyNames="ID"
                         CssClass="table table-striped table-bordered example" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
                         Style="border-collapse: collapse !important; width=100%"
                         AllowPaging="True" AllowSorting="True" PageSize="10">
                         <Columns>
                             <asp:BoundField Visible="false" DataField="ID" HeaderText="ID"></asp:BoundField>
-                            <asp:BoundField DataField="Name" HeaderText="Country Name"></asp:BoundField>
-                            <asp:BoundField DataField="Code" HeaderText="Country Code"></asp:BoundField>
+                            <asp:BoundField DataField="Name" HeaderText="Stop Orders"></asp:BoundField>
+                            <asp:BoundField DataField="EmployerName" HeaderText="Employer Name"></asp:BoundField>
+                            <asp:BoundField DataField="EmployeeNumber" HeaderText="Employee Number"></asp:BoundField>
                             <asp:TemplateField HeaderText="Select">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="Edit" runat="server" ForeColor="blue" CssClass="bx bxs-edit" CommandArgument='<%#Eval("ID")%>'
                                         CommandName="selectRecord"></asp:LinkButton>
+                                    <asp:LinkButton ID="delete" runat="server" ForeColor="red" CssClass="bx bxs-trash" CommandArgument='<%#Eval("ID")%>'
+                                        CommandName="deleteRecord"></asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

@@ -37,13 +37,18 @@
             Habits And Interests
         </h5>
         <hr />
+        <div class="row; col-sm-3">
+            <a runat="server" href="~/GlobalParameters/HabitsAndInterests/HabitsAndInterestsCreate" class="btn btn-primary">Create
+            </a>
+        </div>
+        <br />
 
         <div class="card ">
             <div class="card-body">
                 <div class="table-responsive">
                     <%--<div class="col-sm-12 align-content-center">--%>
                     <asp:GridView ID="grdAcctypes" ClientIDMode="Static" Width="100%" runat="server"
-                        AutoGenerateColumns="False" AutoGenerateSelectButton="False"
+                        AutoGenerateColumns="False" OnRowCommand="grdAcctypes_RowCommand" AutoGenerateSelectButton="False"
                         DataKeyNames="ID"
                         CssClass="table table-striped table-bordered example" GridLines="None" role="grid" aria-describedby="DataTables_Table_0_info"
                         Style="border-collapse: collapse !important; width=100%"
@@ -55,6 +60,8 @@
                                 <ItemTemplate>
                                     <asp:LinkButton ID="Edit" runat="server" ForeColor="blue" CssClass="bx bxs-edit" CommandArgument='<%#Eval("ID")%>'
                                         CommandName="selectRecord"></asp:LinkButton>
+                                    <asp:LinkButton ID="delete" runat="server" ForeColor="red" CssClass="bx bxs-trash" CommandArgument='<%#Eval("ID")%>'
+                                        CommandName="deleteRecord"></asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

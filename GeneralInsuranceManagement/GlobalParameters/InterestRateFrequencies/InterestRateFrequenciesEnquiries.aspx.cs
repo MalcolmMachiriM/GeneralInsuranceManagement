@@ -18,6 +18,10 @@ namespace GeneralInsuranceManagement.GlobalParameters.InterestRateFrequencies
                 {
                     txtuserid.Value = Session["UserId"].ToString();
                 }
+                else
+                {
+                    txtuserid.Value = "0";
+                }
                 getinterestfrq();
             }
         }
@@ -56,6 +60,39 @@ namespace GeneralInsuranceManagement.GlobalParameters.InterestRateFrequencies
         protected void SuccessAlert(string MsgFlg)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
+        #region rowcommand
+        protected void grdAcctypes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var Id = e.CommandArgument.ToString();
+            if (e.CommandName == "selectRecord")
+            {
+                Response.Redirect(string.Format("~/GlobalParameters/InterestRateFrequencies/InterestRateFrequenciesCreate?InterestRatefreqId=" + Id, Id), false);
+            }
+            if (e.CommandName == "deleteRecord")
+            {
+                Models.GlobalParameters.InterestRateFrequencies InterestRatefreq = new Models.GlobalParameters.InterestRateFrequencies("cn", 1);
+                if (InterestRatefreq.Retrieve(long.Parse(Id)))
+                {
+                    if (InterestRatefreq.Delete())
+                    {
+                        SuccessAlert("Record Successfully Deleted");
+                        getinterestfrq();
+                    }
+                    else
+                    {
+                        WarningAlert("Failed to Delete Record");
+                    }
+                }
+                else
+                {
+                    WarningAlert("Record not Found");
+                }
+
+            }
+
 
         }
         #endregion

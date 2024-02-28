@@ -66,7 +66,8 @@ namespace GeneralInsuranceManagement.UserManagement
                         {
                             WarningAlert(ex.Message);
                         }
-                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        //IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        Response.Redirect("~/Dashboard/Dashboard.aspx");
                         break;
                     case SignInStatus.LockedOut:
                         Response.Redirect("/Account/Lockout");

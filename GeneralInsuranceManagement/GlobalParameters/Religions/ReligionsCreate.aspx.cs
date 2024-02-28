@@ -12,7 +12,28 @@ namespace GeneralInsuranceManagement.GlobalParameters.Religions
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["ReligionsId"] != null)
+                {
+                    ReligionsId.Value = Request.QueryString["ReligionsId"].ToString();
+                    getdetails(ReligionsId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    ReligionsId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.Religions religions = new Models.GlobalParameters.Religions("cn", 1);
+            if (religions.Retrieve(long.Parse(value)))
+            {
+                Religion.Text = religions.Name;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,12 +65,14 @@ namespace GeneralInsuranceManagement.GlobalParameters.Religions
             {
                 Models.GlobalParameters.Religions religion = new Models.GlobalParameters.Religions("cn", 1)
                 {
+                    Id = int.Parse(ReligionsId.Value),
                     Name = Religion.Text,
 
                 };
                 if (religion.Save())
                 {
                     SuccessAlert($"{Religion.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/Religions/ReligionsEnquiries");
                 }
 
             }

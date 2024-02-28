@@ -12,7 +12,28 @@ namespace GeneralInsuranceManagement.GlobalParameters.Timegroups
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["TimegroupsId"] != null)
+                {
+                    TimegroupsId.Value = Request.QueryString["TimegroupsId"].ToString();
+                    getdetails(TimegroupsId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    TimegroupsId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.TImeGroups timegroups = new Models.GlobalParameters.TImeGroups("cn", 1);
+            if (timegroups.Retrieve(long.Parse(value)))
+            {
+                Timegroups.Text = timegroups.Description;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -42,7 +63,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.Timegroups
         {
             Models.GlobalParameters.TImeGroups title = new Models.GlobalParameters.TImeGroups("cn", 1)
             {
-                Id = int.Parse(Id.Value),
+                Id = int.Parse(TimegroupsId.Value),
                 Description = Timegroups.Text
             };
             try
@@ -50,6 +71,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.Timegroups
                 if (title.Save())
                 {
                     SuccessAlert("Time group saved");
+                    Response.Redirect("~/GlobalParameters/Timegroups/TimegroupsEnquiries");
                 }
             }
             catch (Exception ex)

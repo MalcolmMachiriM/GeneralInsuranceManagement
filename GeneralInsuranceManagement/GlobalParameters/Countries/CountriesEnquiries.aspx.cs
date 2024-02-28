@@ -18,15 +18,19 @@ namespace GeneralInsuranceManagement.GlobalParameters.Countries
                 {
                     txtuserid.Value = Session["UserId"].ToString();
                 }
+                else
+                {
+                    txtuserid.Value = "0";
+                }
                 getCountries();
             }
         }
 
         private void getCountries()
         {
-            Models.GlobalParameters.Countries countries = new Models.GlobalParameters.Countries("cn", long.Parse(txtuserid.Value));
+            Models.GlobalParameters.Countries country = new Models.GlobalParameters.Countries("cn", long.Parse(txtuserid.Value));
             string sql = "select * from Countries";
-            DataSet ds = countries.GetUsers(sql);
+            DataSet ds = country.GetUsers(sql);
             if (ds != null)
             {
                 grdAcctypes.DataSource = ds;
@@ -56,6 +60,39 @@ namespace GeneralInsuranceManagement.GlobalParameters.Countries
         protected void SuccessAlert(string MsgFlg)
         {
             ScriptManager.RegisterStartupScript(this, GetType(), "showSuccess", "Swal.fire('Success!', '" + MsgFlg + "', 'success');", true);
+
+        }
+        #endregion
+        #region rowcommand
+        protected void grdAcctypes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var Id = e.CommandArgument.ToString();
+            if (e.CommandName == "selectRecord")
+            {
+                Response.Redirect(string.Format("~/GlobalParameters/Countries/CountriesCreate?CountriesId=" + Id, Id), false);
+            }
+            if (e.CommandName == "deleteRecord")
+            {
+                Models.GlobalParameters.Countries countries = new Models.GlobalParameters.Countries("cn", 1);
+                if (countries.Retrieve(long.Parse(Id)))
+                {
+                    if (countries.Delete())
+                    {
+                        SuccessAlert("Record Successfully Deleted");
+                        getCountries();
+                    }
+                    else
+                    {
+                        WarningAlert("Failed to Delete Record");
+                    }
+                }
+                else
+                {
+                    WarningAlert("Record not Found");
+                }
+
+            }
+
 
         }
         #endregion

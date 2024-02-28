@@ -1,10 +1,5 @@
-﻿using GeneralInsuranceManagement.Models.GlobalParameters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace GeneralInsuranceManagement.GlobalParameters.AccountTypes
 {
@@ -12,7 +7,29 @@ namespace GeneralInsuranceManagement.GlobalParameters.AccountTypes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["AccountTypeId"] != null)
+                {
+                    AccountTypeId.Value = Request.QueryString["AccountTypeId"].ToString();
+                    getdetails(AccountTypeId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    AccountTypeId.Value = "0";
+                }
+            }
+        }
 
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.AccountTypes accountTypes = new Models.GlobalParameters.AccountTypes("cn", 1);
+            if (accountTypes.Retrieve(long.Parse(value)))
+            {
+                AccountTypes.Text = accountTypes.Type;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,15 +61,17 @@ namespace GeneralInsuranceManagement.GlobalParameters.AccountTypes
             {
                 Models.GlobalParameters.AccountTypes account = new Models.GlobalParameters.AccountTypes("cn", 1)
                 {
+                    Id = int.Parse(AccountTypeId.Value),
                     Type = AccountTypes.Text,
-                    
+
                 };
                 if (account.Save())
                 {
                     SuccessAlert($"{AccountTypes.Text} saved successfully");
+                    Response.Redirect("~/GlobalParameters/AccountTypes/AccountTypesEnquiries");
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 WarningAlert(ex.Message);
             }

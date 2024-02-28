@@ -19,15 +19,17 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         protected string mMSgflg;
         protected string mCode;
         protected string mBankName;
-        protected string mNumberOfBranches;
-        protected string mAccountNumberLength;
+        protected int mNumberOfBranches;
+        protected int mAccountNumberLength;
+        protected DateTime mDateModified;
 
         public int Id { get { return mId; } set { mId = value; } }
         public string Msgflg { get { return mMSgflg; } set { mMSgflg = value; } }
         public string Code { get { return mCode; } set { mCode = value; } }
         public string BankName { get { return mBankName; } set { mBankName = value; } }
-        public string NumberOfBranches { get { return mNumberOfBranches; } set { mNumberOfBranches = value; } }
-        public string AccountNumberLength { get { return mAccountNumberLength; } set { mAccountNumberLength = value; } }
+        public int NumberOfBranches { get { return mNumberOfBranches; } set { mNumberOfBranches = value; } }
+        public int AccountNumberLength { get { return mAccountNumberLength; } set { mAccountNumberLength = value; } }
+        public DateTime DateModified { get { return mDateModified; }set { mDateModified = value; } }
         public Database Database => db;
 
         public string OwnerType => GetType().Name;
@@ -63,8 +65,8 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
             db.AddInParameter(cmd, "@Id", DbType.Int32, mId);
             db.AddInParameter(cmd, "@Code", DbType.String, mCode);
             db.AddInParameter(cmd, "@BankName", DbType.String, mBankName);
-            db.AddInParameter(cmd, "@NumberOfBranches", DbType.String, mNumberOfBranches);
-            db.AddInParameter(cmd, "@AccountNumberLength", DbType.String, mAccountNumberLength);
+            db.AddInParameter(cmd, "@NumberOfBranches", DbType.Int32, mNumberOfBranches);
+            db.AddInParameter(cmd, "@AccountNumberLength", DbType.Int32, mAccountNumberLength);
         }
         protected void SetErrorDetails(string str)
         {
@@ -77,5 +79,78 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
             return db.ExecuteDataSet(CommandType.Text, sql);
 
         }
+        protected internal virtual void LoadDataRecord(DataRow rw)
+        {
+            mId = ((rw["Id"] != DBNull.Value) ? int.Parse(rw["Id"].ToString()) : 0);
+            mCode = ((rw["Code"] != DBNull.Value) ? (rw["Code"].ToString()) : "");
+            mBankName = ((rw["BankName"] != DBNull.Value) ? (rw["BankName"].ToString()) : "");
+            mNumberOfBranches = ((rw["NumberOfBranches"] != DBNull.Value) ? int.Parse(rw["NumberOfBranches"].ToString()) : 0);
+            mAccountNumberLength = ((rw["AccountNumberLength"] != DBNull.Value) ? int.Parse(rw["AccountNumberLength"].ToString()) : 0);
+            mDateModified = ((rw["DateModified"] != DBNull.Value) ? DateTime.Parse(rw["DateModified"].ToString()) : DateTime.MinValue);
+
+        }
+        public virtual bool Retrieve()
+        {
+            return Retrieve(mId);
+        }
+
+        public virtual bool Retrieve(long ID)
+        {
+            string text = ID <= 0 ? "SELECT * FROM Banks WHERE ID = " + mId : "SELECT * FROM Banks WHERE ID = " + ID;
+            return Retrieve(text);
+        }
+
+        protected virtual bool Retrieve(string sql)
+        {
+            try
+            {
+                DataSet dataSet = db.ExecuteDataSet(CommandType.Text, sql);
+                if (dataSet != null && dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
+                {
+                    LoadDataRecord(dataSet.Tables[0].Rows[0]);
+                    dataSet = null;
+                    return true;
+                }
+
+                SetErrorDetails("Bank not found.");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                SetErrorDetails(ex.Message);
+                return false;
+            }
+        }
+        #region "Delete"
+
+        public virtual bool Delete()
+        {
+
+            //Return Delete("UPDATE Users SET Deleted = 1 WHERE ID = " & mID) 
+            return Delete("DELETE FROM Banks WHERE ID = " + mId);
+
+        }
+
+        protected virtual bool Delete(string DeleteSQL)
+        {
+
+
+            try
+            {
+                db.ExecuteNonQuery(CommandType.Text, DeleteSQL);
+                return true;
+
+
+            }
+            catch (Exception e)
+            {
+                SetErrorDetails(e.Message);
+                return false;
+
+            }
+
+        }
+
+        #endregion
     }
 }
