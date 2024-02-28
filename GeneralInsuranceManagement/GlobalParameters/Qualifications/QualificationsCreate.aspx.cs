@@ -12,7 +12,28 @@ namespace GeneralInsuranceManagement.GlobalParameters.Qualifications
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["QualificationsId"] != null)
+                {
+                    QualificationsId.Value = Request.QueryString["QualificationsId"].ToString();
+                    getdetails(QualificationsId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    QualificationsId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.Qualifications qualifications = new Models.GlobalParameters.Qualifications("cn", 1);
+            if (qualifications.Retrieve(long.Parse(value)))
+            {
+                QualificationName.Text = qualifications.QualificationName;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,12 +65,14 @@ namespace GeneralInsuranceManagement.GlobalParameters.Qualifications
             {
                 Models.GlobalParameters.Qualifications quali = new Models.GlobalParameters.Qualifications("cn", 1)
                 {
+                    Id = int.Parse(QualificationsId.Value),
                     QualificationName = QualificationName.Text,
 
                 };
                 if (quali.Save())
                 {
                     SuccessAlert($"{QualificationName.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/Qualifications/QualificationsEnquiries");
                 }
 
             }

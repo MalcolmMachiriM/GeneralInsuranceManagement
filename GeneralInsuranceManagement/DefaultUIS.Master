@@ -14,7 +14,20 @@
     <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
     <link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
     <link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
-    <link href="assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <%--<link href="assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />--%>
+
+    <!-- Include DataTables CSS -->
+    <%--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.min.css">--%>
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Include DataTables JS -->
+    <%--<script type="text/javascript" src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.min.js"></script>--%>
+
+    <%--<script type="text/javascript">
+        $(document).ready(function () {
+            $('#grdAcctypes').DataTable();
+        });
+    </script>--%>
 
 
     <!-- loader-->
@@ -146,6 +159,23 @@
 
     <%--<asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>--%>
+    <style>
+        .scrollable-list {
+            max-height: 250px; /* Adjust as needed */
+            overflow-y: auto;
+        }
+
+            .scrollable-list ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+                .scrollable-list ul li {
+                    padding: 0;
+                }
+
+    </style>
 </head>
 <body>
     <form runat="server">
@@ -169,7 +199,7 @@
                 <!--navigation-->
                 <ul class="metismenu" id="menu">
                     <li>
-                        <a runat="server" href="~/Default">
+                        <a runat="server" href="~/Dashboard/Dashboard.aspx">
                             <div class="parent-icon">
                                 <i class='bx bx-home-alt'></i>
                             </div>
@@ -237,7 +267,7 @@
                             </li>
                         </ul>
                     </li>
-                    
+
                     <li class="menu-label">Policies &amp Premiums</li>
                     <li>
                         <a class="has-arrow" href="javascript:;">
@@ -422,40 +452,44 @@
                             </div>
                             <div class="menu-title">System Settings</div>
                         </a>
+
                         <ul>
                             <li><a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>Global Parameters</a>
-                                <ul>
-                                    <li><a runat="server" href="GlobalParameters/Timegroups/TimegroupsCreate.aspx"><i class='bx bx-time'></i>Time Groups</a></li>
-                                    <li><a runat="server" href="GlobalParameters/InstitutionTypes/InstitutionTypesCreate.aspx"><i class='bx bx-arch'></i>Institution Types</a></li>
-                                    <li><a runat="server" href="GlobalParameters/HumanDemographicGroups/HumanDemographicGroupsCreate.aspx"><i class='bx bx-user'></i>Human Demographic Group</a></li>
-                                    <li><a runat="server" href="GlobalParameters/PremiumPaymentFrequencies/PremiumPaymentFrequenciesCreate.aspx"><i class='bx bx-crown'></i>Premium Payment Frequency</a></li>
-                                    <li><a runat="server" href="GlobalParameters/BusinessDecisions/BusinessDecisionsCreate.aspx"><i class='bx bx-briefcase'></i>Business Decision</a></li>
-                                    <li><a runat="server" href="GlobalParameters/RelationshipTypes/RelationshipTypesCreate.aspx"><i class='bx bx-group'></i>Relationship Types</a></li>
-                                    <li><a runat="server" href="GlobalParameters/RequirementsTypes/RequirementsTypesCreate.aspx"><i class='bx bx-detail'></i>Requirements Types</a></li>
-                                    <li><a runat="server" href="GlobalParameters/PaymentMethods/PaymentMethodsCreate.aspx"><i class='bx bx-credit-card'></i>Payment Methods</a></li>
-                                    <li><a runat="server" href="GlobalParameters/InterestRateTypes/InterestRateTypesCreate.aspx"><i class='bx bx-credit-card-alt'></i>Interest Rate Types</a></li>
-                                    <li><a runat="server" href="GlobalParameters/InterestRateFrequencies/InterestRateFrequenciesCreate.aspx"><i class='bx bx-timer'></i>Interest Rate Frequencies</a></li>
-                                    <li><a runat="server" href="GlobalParameters/Banks/BanksCreate.aspx"><i class='bx bx-buildings'></i>Banks</a></li>
-                                    <li><a runat="server" href="GlobalParameters/StopOrdersNames/StopOrderNamesCreate.aspx"><i class='bx bx-building-house'></i>Stop Order Names</a></li>
-                                    <li><a runat="server" href="GlobalParameters/Countries/CountriesCreate.aspx"><i class='bx bx-flag'></i>Countries</a></li>
-                                    <li><a runat="server" href="GlobalParameters/Cities/CitiesCreate.aspx"><i class='bx bx-flag'></i>Cities</a></li>
-                                    <li><a runat="server" href="GlobalParameters/IdentificationTypes/IdentificationTypesCreate.aspx"><i class='bx bx-id-card'></i>Identification Types</a></li>
-                                    <li><a runat="server" href="GlobalParameters/Languages/LanguagesCreate.aspx"><i class='bx bx-user-voice'></i>Languages</a></li>
-                                    <li><a runat="server" href="GlobalParameters/MedicalRequirements/MedicalRequirementsCreate.aspx"><i class='bx bx-plus-medical'></i>Medical Requirements</a></li>
-                                    <li><a runat="server" href="GlobalParameters/HabitsAndInterests/HabitsAndInterestsCreate.aspx"><i class='bx bx-cycling'></i>Habits And Interests</a></li>
-                                    <li><a runat="server" href="GlobalParameters/Currencies/CurrenciesCreate.aspx"><i class='bx bx-money'></i>Currencies</a></li>
-                                    <li><a runat="server" href="GlobalParameters/Occupations/OccupationsCreate.aspx"><i class='bx bx-briefcase-alt'></i>Occupations</a></li>
-                                    <li><a runat="server" href="GlobalParameters/AddressTypes/AddressTypesCreate.aspx"><i class='bx bx-current-location'></i>Address Types</a></li>
-                                    <li><a runat="server" href="GlobalParameters/MaritalStatus/MaritalStatusCreate.aspx"><i class='bx bx-user-plus'></i>Marital Status</a></li>
-                                    <li><a runat="server" href="GlobalParameters/Titles/TitlesCreate.aspx"><i class='bx bx-user-check'></i>Titles</a></li>
-                                    <li><a runat="server" href="GlobalParameters/IncomeTypes/IncomeTypesCreate.aspx"><i class='bx bx-credit-card-front'></i>IncomeTypes</a></li>
-                                    <li><a runat="server" href="GlobalParameters/Qualifications/QualificationsCreate.aspx"><i class='bx bx-detail'></i>Qualifications</a></li>
-                                    <li><a runat="server" href="GlobalParameters/Religions/ReligionsCreate.aspx"><i class='bx bx-church'></i>Religions</a></li>
-                                    <li><a runat="server" href="GlobalParameters/AccountTypes/AccountTypesCreate.aspx"><i class='bx bx-credit-card'></i>Account Types</a></li>
-                                    <li><a runat="server" href="GlobalParameters/UnderwritingQuestions/UnderwritingQuestionsCreate.aspx"><i class='bx bx-message-alt-detail'></i>Underwriting Questions</a></li>
-                                </ul>
+                                <div class="scrollable-list">
+                                    <ul>
+                                        <li><a runat="server" href="GlobalParameters/Timegroups/TimegroupsEnquiries.aspx"><i class='bx bx-time'></i>Time Groups</a></li>
+                                        <li><a runat="server" href="GlobalParameters/InstitutionTypes/InstitutionTypesEnquiries.aspx"><i class='bx bx-arch'></i>Institution Types</a></li>
+                                        <li><a runat="server" href="GlobalParameters/HumanDemographicGroups/HumanDemographicGroupsEnquiries.aspx"><i class='bx bx-user'></i>Human Demographic Group</a></li>
+                                        <li><a runat="server" href="GlobalParameters/PremiumPaymentFrequencies/PremiumPaymentFrequenciesEnquiries.aspx"><i class='bx bx-crown'></i>Premium Payment Frequency</a></li>
+                                        <li><a runat="server" href="GlobalParameters/BusinessDecisions/BusinessDecisionsEnquiries.aspx"><i class='bx bx-briefcase'></i>Business Decision</a></li>
+                                        <li><a runat="server" href="GlobalParameters/RelationshipTypes/RelationshipTypesEnquiries.aspx"><i class='bx bx-group'></i>Relationship Types</a></li>
+                                        <li><a runat="server" href="GlobalParameters/RequirementsTypes/RequirementsTypesEnquiries.aspx"><i class='bx bx-detail'></i>Requirements Types</a></li>
+                                        <li><a runat="server" href="GlobalParameters/PaymentMethods/PaymentMethodsEnquiries.aspx"><i class='bx bx-credit-card'></i>Payment Methods</a></li>
+                                        <li><a runat="server" href="GlobalParameters/InterestRateTypes/InterestRateTypesEnquiries.aspx"><i class='bx bx-credit-card-alt'></i>Interest Rate Types</a></li>
+                                        <li><a runat="server" href="GlobalParameters/InterestRateFrequencies/InterestRateFrequenciesEnquiries.aspx"><i class='bx bx-timer'></i>Interest Rate Frequencies</a></li>
+                                        <li><a runat="server" href="GlobalParameters/Banks/BanksEnquiries.aspx"><i class='bx bx-buildings'></i>Banks</a></li>
+                                        <li><a runat="server" href="GlobalParameters/StopOrdersNames/StopOrdersNamesEnquiries.aspx"><i class='bx bx-building-house'></i>Stop Order Names</a></li>
+                                        <li><a runat="server" href="GlobalParameters/Countries/CountriesEnquiries.aspx"><i class='bx bx-flag'></i>Countries</a></li>
+                                        <li><a runat="server" href="GlobalParameters/Cities/CitiesEnquiries.aspx"><i class='bx bx-flag'></i>Cities</a></li>
+                                        <li><a runat="server" href="GlobalParameters/IdentificationTypes/IdentificationTypesEnquiries.aspx"><i class='bx bx-id-card'></i>Identification Types</a></li>
+                                        <li><a runat="server" href="GlobalParameters/Languages/LanguagesEnquiries.aspx"><i class='bx bx-user-voice'></i>Languages</a></li>
+                                        <li><a runat="server" href="GlobalParameters/MedicalRequirements/MedicalRequirementsEnquiries.aspx"><i class='bx bx-plus-medical'></i>Medical Requirements</a></li>
+                                        <li><a runat="server" href="GlobalParameters/HabitsAndInterests/HabitsAndInterestsEnquiries.aspx"><i class='bx bx-cycling'></i>Habits And Interests</a></li>
+                                        <li><a runat="server" href="GlobalParameters/Currencies/CurrenciesEnquiries.aspx"><i class='bx bx-money'></i>Currencies</a></li>
+                                        <li><a runat="server" href="GlobalParameters/Occupations/OccupationsEnquiries.aspx"><i class='bx bx-briefcase-alt'></i>Occupations</a></li>
+                                        <li><a runat="server" href="GlobalParameters/AddressTypes/AddressTypesEnquiries.aspx"><i class='bx bx-current-location'></i>Address Types</a></li>
+                                        <li><a runat="server" href="GlobalParameters/MaritalStatus/MaritalStatusEnquiries.aspx"><i class='bx bx-user-plus'></i>Marital Status</a></li>
+                                        <li><a runat="server" href="GlobalParameters/Titles/TitlesEnquiries.aspx"><i class='bx bx-user-check'></i>Titles</a></li>
+                                        <li><a runat="server" href="GlobalParameters/IncomeTypes/IncomeTypesEnquiries.aspx"><i class='bx bx-credit-card-front'></i>IncomeTypes</a></li>
+                                        <li><a runat="server" href="GlobalParameters/Qualifications/QualificationsEnquiries.aspx"><i class='bx bx-detail'></i>Qualifications</a></li>
+                                        <li><a runat="server" href="GlobalParameters/Religions/ReligionsEnquiries.aspx"><i class='bx bx-church'></i>Religions</a></li>
+                                        <li><a runat="server" href="GlobalParameters/AccountTypes/AccountTypesEnquiries.aspx"><i class='bx bx-credit-card'></i>Account Types</a></li>
+                                        <li><a runat="server" href="GlobalParameters/UnderwritingQuestions/UnderwritingQuestionsEnquiries.aspx"><i class='bx bx-message-alt-detail'></i>Underwriting Questions</a></li>
+                                    </ul>
+                                </div>
                             </li>
                         </ul>
+
                     </li>
                     <li>
                         <a href="https://codervent.com/rocker/documentation/index.html" target="_blank">
@@ -665,7 +699,8 @@
                                     <a class="dropdown-item d-flex align-items-center" runat="server" href="~/UserManagement/UserLogs"><i class="bx bx-cog fs-5"></i><span>Logs</span></a>
                                 </li>
                                 <li>
-                                    <p class="dropdown-item d-flex align-items-center"><i class="bx bx-log-out-circle"></i>
+                                    <p class="dropdown-item d-flex align-items-center">
+                                        <i class="bx bx-log-out-circle"></i>
                                         <asp:LoginStatus runat="server" CssClass="nav-link" LogoutAction="Redirect" LogoutText="Logout" LogoutPageUrl="~/UserManagement/userlogin" OnLoggingOut="Unnamed_LoggingOut" />
                                     </p>
                                 </li>
@@ -809,8 +844,8 @@
         <%: Scripts.Render("~/assets/js/app.js") %>
         <%: Scripts.Render("~/lib/font-awesome/js/fontawesome.js") %>
         <%: Scripts.Render("~/lib/font-awesome/js/fontawesome.min.js") %>
-        <%: Scripts.Render("~/assets/plugins/datatable/js/jquery.dataTables.min.js") %>
-        <%: Scripts.Render("~/assets/plugins/datatable/js/dataTables.bootstrap5.min.js") %>
+        <%--<%: Scripts.Render("~/assets/plugins/datatable/js/jquery.dataTables.min.js") %>--%>
+        <%--<%: Scripts.Render("~/assets/plugins/datatable/js/dataTables.bootstrap5.min.js") %>--%>
         <%: Scripts.Render("https://unpkg.com/feather-icons") %>
 
     </asp:PlaceHolder>
@@ -828,7 +863,7 @@
     </script>
     <!--app JS-->
     <script>
-		//new PerfectScrollbar(".app-container")
+        //new PerfectScrollbar(".app-container")
     </script>
     <script>
         feather.replace()

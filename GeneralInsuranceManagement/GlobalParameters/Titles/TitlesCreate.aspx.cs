@@ -12,7 +12,28 @@ namespace GeneralInsuranceManagement.GlobalParameters.Titles
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["TitleId"] != null)
+                {
+                    TitleId.Value = Request.QueryString["TitleId"].ToString();
+                    getdetails(TitleId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    TitleId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.Titles titles = new Models.GlobalParameters.Titles("cn", 1);
+            if (titles.Retrieve(long.Parse(value)))
+            {
+                Titles.Text = titles.Name;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -50,6 +71,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.Titles
                 if (title.Save())
                 {
                     SuccessAlert("Title saved");
+                    Response.Redirect("~/GlobalParameters/Titles/TitlesEnquiries");
                 }
             }
             catch (Exception ex)

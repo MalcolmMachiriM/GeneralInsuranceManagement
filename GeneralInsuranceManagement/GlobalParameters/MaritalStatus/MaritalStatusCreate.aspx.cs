@@ -12,7 +12,29 @@ namespace GeneralInsuranceManagement.GlobalParameters.MaritalStatus
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["MaritalStatusId"] != null)
+                {
+                    MaritalStatusId.Value = Request.QueryString["MaritalStatusId"].ToString();
+                    getdetails(MaritalStatusId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    MaritalStatusId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.MaritalStatus maritalStatus = new Models.GlobalParameters.MaritalStatus("cn", 1);
+            if (maritalStatus.Retrieve(long.Parse(value)))
+            {
+                MaritalStatus.Text = maritalStatus.Status;
+                MaritalStatusCode.Text = maritalStatus.Code;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,6 +66,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.MaritalStatus
             {
                 Models.GlobalParameters.MaritalStatus marital = new Models.GlobalParameters.MaritalStatus("cn", 1)
                 {
+                    Id = int.Parse(MaritalStatusId.Value),
                     Status = MaritalStatus.Text,
                     Code = MaritalStatusCode.Text,
 
@@ -51,6 +74,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.MaritalStatus
                 if (marital.Save())
                 {
                     SuccessAlert($"{MaritalStatus.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/MaritalStatus/MaritalStatusEnquiries");
                 }
 
             }

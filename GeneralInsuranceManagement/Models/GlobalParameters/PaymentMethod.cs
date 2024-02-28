@@ -22,6 +22,7 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         protected string mCode;
         protected bool mBankDetailsRequired;
         protected bool mMobileNumberRequired;
+        protected DateTime mDateModified;
         #endregion
         #region properties
         public int Id { get { return mId; } set { mId = value; } }
@@ -30,6 +31,7 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         public string Code { get { return mCode; } set { mCode = value; } }
         public bool BankDetailsRequired { get { return mBankDetailsRequired; } set { mBankDetailsRequired = value; } }
         public bool MobileNumberRequired { get { return mMobileNumberRequired; } set { mMobileNumberRequired = value; } }
+        public DateTime DateModified { get { return mDateModified; } set { mDateModified = value; } }
         public Database Database => db;
 
         public string OwnerType => GetType().Name;
@@ -76,6 +78,85 @@ namespace GeneralInsuranceManagement.Models.GlobalParameters
         {
             mMsgflg = str;
         }
+        #endregion
+        public virtual DataSet GetUsers(string sql)
+        {
+
+            return db.ExecuteDataSet(CommandType.Text, sql);
+
+        }
+        protected internal virtual void LoadDataRecord(DataRow rw)
+        {
+            mId = ((rw["Id"] != DBNull.Value) ? int.Parse(rw["Id"].ToString()) : 0);
+            mMethod = ((rw["Method"] != DBNull.Value) ? (rw["Method"].ToString()) : "");
+            mCode = ((rw["Code"] != DBNull.Value) ? (rw["Code"].ToString()) : "");
+            mBankDetailsRequired = ((rw["BankDetailsRequired"] != DBNull.Value) ? bool.Parse(rw["BankDetailsRequired"].ToString()) : false);
+            mMobileNumberRequired = ((rw["MobileNumberRequired"] != DBNull.Value) ? bool.Parse(rw["MobileNumberRequired"].ToString()) : false);
+            mDateModified = ((rw["DateModified"] != DBNull.Value) ? DateTime.Parse(rw["DateModified"].ToString()) : DateTime.MinValue);
+
+        }
+        public virtual bool Retrieve()
+        {
+            return Retrieve(mId);
+        }
+
+        public virtual bool Retrieve(long ID)
+        {
+            string text = ID <= 0 ? "SELECT * FROM PaymentMethods WHERE ID = " + mId : "SELECT * FROM PaymentMethods WHERE ID = " + ID;
+            return Retrieve(text);
+        }
+
+        protected virtual bool Retrieve(string sql)
+        {
+            try
+            {
+                DataSet dataSet = db.ExecuteDataSet(CommandType.Text, sql);
+                if (dataSet != null && dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
+                {
+                    LoadDataRecord(dataSet.Tables[0].Rows[0]);
+                    dataSet = null;
+                    return true;
+                }
+
+                SetErrorDetails("Payment Methods not found.");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                SetErrorDetails(ex.Message);
+                return false;
+            }
+        }
+        #region "Delete"
+
+        public virtual bool Delete()
+        {
+
+            //Return Delete("UPDATE Users SET Deleted = 1 WHERE ID = " & mID) 
+            return Delete("DELETE FROM PaymentMethods WHERE ID = " + mId);
+
+        }
+
+        protected virtual bool Delete(string DeleteSQL)
+        {
+
+
+            try
+            {
+                db.ExecuteNonQuery(CommandType.Text, DeleteSQL);
+                return true;
+
+
+            }
+            catch (Exception e)
+            {
+                SetErrorDetails(e.Message);
+                return false;
+
+            }
+
+        }
+
         #endregion
     }
 }

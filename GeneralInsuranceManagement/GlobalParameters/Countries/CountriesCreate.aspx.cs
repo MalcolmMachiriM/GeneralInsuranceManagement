@@ -12,7 +12,29 @@ namespace GeneralInsuranceManagement.GlobalParameters.Countries
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["CountriesId"] != null)
+                {
+                    CountriesId.Value = Request.QueryString["CountriesId"].ToString();
+                    getdetails(CountriesId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    CountriesId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.Countries countries = new Models.GlobalParameters.Countries("cn", 1);
+            if (countries.Retrieve(long.Parse(value)))
+            {
+                CountryName.Text = countries.CountryName;
+                CountryCode.Text = countries.Code;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,6 +66,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.Countries
             {
                 Models.GlobalParameters.Countries country = new Models.GlobalParameters.Countries("cn", 1)
                 {
+                    Id = int.Parse(CountriesId.Value),
                     CountryName = CountryName.Text,
                     Code = CountryCode.Text,
 
@@ -51,6 +74,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.Countries
                 if (country.Save())
                 {
                     SuccessAlert($"{CountryName.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/Countries/CountriesEnquiries");
                 }
 
             }

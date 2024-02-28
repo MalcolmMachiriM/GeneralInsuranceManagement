@@ -12,7 +12,28 @@ namespace GeneralInsuranceManagement.GlobalParameters.IncomeTypes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["IncomeTypesId"] != null)
+                {
+                    IncomeTypesId.Value = Request.QueryString["IncomeTypesId"].ToString();
+                    getdetails(IncomeTypesId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    IncomeTypesId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.IncomeTypes incomeTypes = new Models.GlobalParameters.IncomeTypes("cn", 1);
+            if (incomeTypes.Retrieve(long.Parse(value)))
+            {
+                IncomeType.Text = incomeTypes.IncomeType;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -42,14 +63,16 @@ namespace GeneralInsuranceManagement.GlobalParameters.IncomeTypes
         {
             try
             {
-                Models.GlobalParameters.IncomeTypes country = new Models.GlobalParameters.IncomeTypes("cn", 1)
+                Models.GlobalParameters.IncomeTypes incomeTypes = new Models.GlobalParameters.IncomeTypes("cn", 1)
                 {
+                    Id = int.Parse(IncomeTypesId.Value),
                     IncomeType = IncomeType.Text,
 
                 };
-                if (country.Save())
+                if (incomeTypes.Save())
                 {
                     SuccessAlert($"{IncomeType.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/IncomeTypes/IncomeTypesEnquiries");
                 }
 
             }

@@ -12,7 +12,28 @@ namespace GeneralInsuranceManagement.GlobalParameters.InterestRateTypes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["InterestRateTypesId"] != null)
+                {
+                    InterestRateTypesId.Value = Request.QueryString["InterestRateTypesId"].ToString();
+                    getdetails(InterestRateTypesId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    InterestRateTypesId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.InterestRateType interestRateType = new Models.GlobalParameters.InterestRateType("cn", 1);
+            if (interestRateType.Retrieve(long.Parse(value)))
+            {
+                InterestRateType.Text = interestRateType.Description;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,12 +65,14 @@ namespace GeneralInsuranceManagement.GlobalParameters.InterestRateTypes
             {
                 Models.GlobalParameters.InterestRateType interesttype = new Models.GlobalParameters.InterestRateType("cn", 1)
                 {
+                    Id = int.Parse(InterestRateTypesId.Value),
                     Description = InterestRateType.Text,
 
                 };
                 if (interesttype.Save())
                 {
                     SuccessAlert($"{InterestRateType.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/InterestRateTypes/InterestRateTypesEnquiries");
                 }
 
             }

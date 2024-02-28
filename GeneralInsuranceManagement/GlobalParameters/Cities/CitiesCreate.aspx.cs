@@ -12,7 +12,29 @@ namespace GeneralInsuranceManagement.GlobalParameters.Cities
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["CitiesId"] != null)
+                {
+                    CitiesId.Value = Request.QueryString["CitiesId"].ToString();
+                    getdetails(CitiesId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    CitiesId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.Cities cities = new Models.GlobalParameters.Cities("cn", 1);
+            if (cities.Retrieve(long.Parse(value)))
+            {
+                CountryName.Text = cities.CountryName;
+                CityName.Text = cities.City;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,6 +66,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.Cities
             {
                 Models.GlobalParameters.Cities city = new Models.GlobalParameters.Cities("cn", 1)
                 {
+                    Id = int.Parse(CitiesId.Value),
                     CountryName = CountryName.Text,
                     City = CityName.Text,
 
@@ -51,6 +74,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.Cities
                 if (city.Save())
                 {
                     SuccessAlert($"{CityName.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/Cities/CitiesEnquiries");
                 }
 
             }

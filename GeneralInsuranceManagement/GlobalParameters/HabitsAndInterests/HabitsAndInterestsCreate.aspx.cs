@@ -12,7 +12,28 @@ namespace GeneralInsuranceManagement.GlobalParameters.HabitsAndInterests
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["HabitsAndInterestsId"] != null)
+                {
+                    HabitsAndInterestsId.Value = Request.QueryString["HabitsAndInterestsId"].ToString();
+                    getdetails(HabitsAndInterestsId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    HabitsAndInterestsId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.HabitsAndInterests habitsAndInterests = new Models.GlobalParameters.HabitsAndInterests("cn", 1);
+            if (habitsAndInterests.Retrieve(long.Parse(value)))
+            {
+                HabitsAndInterests.Text = habitsAndInterests.Description;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,12 +65,14 @@ namespace GeneralInsuranceManagement.GlobalParameters.HabitsAndInterests
             {
                 Models.GlobalParameters.HabitsAndInterests country = new Models.GlobalParameters.HabitsAndInterests("cn", 1)
                 {
+                    Id = int.Parse(HabitsAndInterestsId.Value),
                     Description = HabitsAndInterests.Text,
 
                 };
                 if (country.Save())
                 {
                     SuccessAlert($"{HabitsAndInterests.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/HabitsAndInterests/HabitsAndInterestsEnquiries");
                 }
 
             }

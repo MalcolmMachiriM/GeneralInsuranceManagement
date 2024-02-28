@@ -12,7 +12,29 @@ namespace GeneralInsuranceManagement.GlobalParameters.PremiumPaymentFrequencies
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["PaymentfreqId"] != null)
+                {
+                    PaymentfreqId.Value = Request.QueryString["PaymentfreqId"].ToString();
+                    getdetails(PaymentfreqId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    PaymentfreqId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.PremiumPaymentFrequencies premiumFreq = new Models.GlobalParameters.PremiumPaymentFrequencies("cn", 1);
+            if (premiumFreq.Retrieve(long.Parse(value)))
+            {
+                PaymentFrequency.Text = premiumFreq.Frequency;
+                FrequencyCode.Text = premiumFreq.Code;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,6 +66,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.PremiumPaymentFrequencies
             {
                 Models.GlobalParameters.PremiumPaymentFrequencies premiumfrq = new Models.GlobalParameters.PremiumPaymentFrequencies("cn", 1)
                 {
+                    Id = int.Parse(PaymentfreqId.Value),
                     Frequency = PaymentFrequency.Text,
                     Code = FrequencyCode.Text,
 
@@ -51,6 +74,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.PremiumPaymentFrequencies
                 if (premiumfrq.Save())
                 {
                     SuccessAlert($"{PaymentFrequency.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/PremiumPaymentFrequencies/PremiumPaymentFrequenciesEnquiries");
                 }
 
             }

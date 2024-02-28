@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="HumanDemographicGroupsCreate.aspx.cs" Inherits="GeneralInsuranceManagement.GlobalParameters.HumanDemographicGroups" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultUIS.Master" AutoEventWireup="true" CodeBehind="HumanDemographicGroupsCreate.aspx.cs" Inherits="GeneralInsuranceManagement.GlobalParameters.HumanDemographicGroups.HumanDemographicGroupsCreate" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!--breadcrumb-->
@@ -31,14 +31,15 @@
     </div>
     <!--end breadcrumb-->
 
-    <asp:HiddenField ID="SchemeId" runat="server" />
+    <asp:HiddenField ID="Id" runat="server" />
+    <asp:HiddenField ID="HumanGroupsId" runat="server" />
 
     <div class="row">
         <div class="col-xl-8 mx-auto">
             <div class="card ">
                 <div class="card-body p-4">
                     <h5 class="mb-4">
-                        <span><i class='bx bx-user' style="font-size: x-large"></i></span>
+                        <span><i class="bx bx-user" style="font-size: larger"></i></span>
                         Human Demographic Groups
                     </h5>
                     <p class="text-danger">
@@ -57,12 +58,19 @@
                                 CssClass="text-danger" ErrorMessage="The Description field is required." />
                         </div>
                     </div>
+                    <%-- <div class="col-md-6">
+                       
+                        <asp:Label runat="server" class="form-label">Description</asp:Label>
+                        <asp:TextBox runat="server" ID="RegNo" CssClass="form-control" placeholder="Enter Time Group Description" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="Description"
+                            CssClass="text-danger" ErrorMessage="The Time Groups field is required." />
+                    </div>--%>
                     <!-- row -->
                     <asp:Panel ID="pnlSave" runat="server">
                         <div class="row">
                             <label class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <asp:Button runat="server" ID="btnCreate"  Text="Create" CssClass="btn btn-primary px-4 " />
+                                <asp:Button runat="server" ID="btnCreate" OnClick="btnCreate_Click" CssClass="btn btn-primary px-4 " />
                             </div>
                         </div>
                     </asp:Panel>

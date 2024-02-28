@@ -12,7 +12,28 @@ namespace GeneralInsuranceManagement.GlobalParameters.RequirementsTypes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["RequirementsTypesId"] != null)
+                {
+                    RequirementsTypesId.Value = Request.QueryString["RequirementsTypesId"].ToString();
+                    getdetails(RequirementsTypesId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    RequirementsTypesId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.RequirementsTypes requirements = new Models.GlobalParameters.RequirementsTypes("cn", 1);
+            if (requirements.Retrieve(long.Parse(value)))
+            {
+                RequirementsTypes.Text = requirements.Description;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,12 +65,14 @@ namespace GeneralInsuranceManagement.GlobalParameters.RequirementsTypes
             {
                 Models.GlobalParameters.RequirementsTypes religion = new Models.GlobalParameters.RequirementsTypes("cn", 1)
                 {
+                    Id = int.Parse(RequirementsTypesId.Value),
                     Description = RequirementsTypes.Text,
 
                 };
                 if (religion.Save())
                 {
                     SuccessAlert($"{RequirementsTypes.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/RequirementsTypes/RequirementsTypesEnquiries");
                 }
 
             }

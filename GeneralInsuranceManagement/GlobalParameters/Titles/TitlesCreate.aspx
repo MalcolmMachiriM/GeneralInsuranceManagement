@@ -69,7 +69,7 @@
                         <div class="row">
                             <label class="col-sm-3 col-form-label"></label>
                             <div class="col-sm-9">
-                                <asp:Button runat="server" OnClick="btnCreate_Click" ID="btnCreate" Text="Create" CssClass="btn btn-primary px-4 " />
+                                <asp:Button runat="server" OnClick="btnCreate_Click" ID="btnCreate" CssClass="btn btn-primary px-4 " />
                             </div>
                         </div>
                     </asp:Panel>

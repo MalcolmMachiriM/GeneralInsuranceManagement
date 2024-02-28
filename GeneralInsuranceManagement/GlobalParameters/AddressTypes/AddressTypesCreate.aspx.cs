@@ -12,7 +12,28 @@ namespace GeneralInsuranceManagement.GlobalParameters.AddressTypes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["AddressTypesId"] != null)
+                {
+                    AddressTypesId.Value = Request.QueryString["AddressTypesId"].ToString();
+                    getdetails(AddressTypesId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    AddressTypesId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.AddressTypes addressTypes = new Models.GlobalParameters.AddressTypes("cn", 1);
+            if (addressTypes.Retrieve(long.Parse(value)))
+            {
+                AddressTypes.Text = addressTypes.Description;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -44,12 +65,14 @@ namespace GeneralInsuranceManagement.GlobalParameters.AddressTypes
             {
                 Models.GlobalParameters.AddressTypes account = new Models.GlobalParameters.AddressTypes("cn", 1)
                 {
+                    Id = int.Parse(AddressTypesId.Value),
                     Description = AddressTypes.Text,
 
                 };
                 if (account.Save())
                 {
                     SuccessAlert($"{AddressTypes.Text} saved successfully");
+                    Response.Redirect("~/GlobalParameters/AddressTypes/AddressTypesEnquiries");
                 }
             }
             catch (Exception ex)

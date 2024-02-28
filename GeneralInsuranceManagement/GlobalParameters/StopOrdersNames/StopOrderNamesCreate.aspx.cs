@@ -12,7 +12,30 @@ namespace GeneralInsuranceManagement.GlobalParameters.StopOrdersNames
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["StopOrderNamesId"] != null)
+                {
+                    StopOrderNamesId.Value = Request.QueryString["StopOrderNamesId"].ToString();
+                    getdetails(StopOrderNamesId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    StopOrderNamesId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.StopOrders stopOrders = new Models.GlobalParameters.StopOrders("cn", 1);
+            if (stopOrders.Retrieve(long.Parse(value)))
+            {
+                StopOrderName.Text = stopOrders.Name;
+                EmployerName.Text = stopOrders.EmployerName;
+                EmployeeNumber.Text = stopOrders.EmployeeNumber;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -35,23 +58,24 @@ namespace GeneralInsuranceManagement.GlobalParameters.StopOrdersNames
         #endregion
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-            SaveTitle();
+            SaveStopOrder();
         }
 
-        private void SaveTitle()
+        private void SaveStopOrder()
         {
-            Models.GlobalParameters.StopOrders title = new Models.GlobalParameters.StopOrders("cn", 1)
+            Models.GlobalParameters.StopOrders stopOrders = new Models.GlobalParameters.StopOrders("cn", 1)
             {
-                Id = int.Parse(Id.Value),
+                Id = int.Parse(StopOrderNamesId.Value),
                 Name = StopOrderName.Text,
-                EmployerName = StopOrderName.Text,
-                EmployeeNumber = int.Parse(EmployeeNumber.Text)
+                EmployerName = EmployerName.Text,
+                EmployeeNumber = EmployeeNumber.Text
             };
             try
             {
-                if (title.Save())
+                if (stopOrders.Save())
                 {
-                    SuccessAlert("Title saved");
+                    SuccessAlert($"{StopOrderName.Text} saved successfully");
+                    Response.Redirect("~/GlobalParameters/StopOrdersNames/StopOrdersNamesEnquiries");
                 }
             }
             catch (Exception ex)

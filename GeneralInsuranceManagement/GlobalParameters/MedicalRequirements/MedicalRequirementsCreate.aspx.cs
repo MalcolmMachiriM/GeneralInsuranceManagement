@@ -12,7 +12,30 @@ namespace GeneralInsuranceManagement.GlobalParameters.MedicalRequirements
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Request.QueryString["MedicalRequirementsId"] != null)
+                {
+                    MedicalRequirementsId.Value = Request.QueryString["MedicalRequirementsId"].ToString();
+                    getdetails(MedicalRequirementsId.Value);
+                    btnCreate.Text = "Update";
+                }
+                else
+                {
+                    btnCreate.Text = "Create";
+                    MedicalRequirementsId.Value = "0";
+                }
+            }
+        }
+        private void getdetails(string value)
+        {
+            Models.GlobalParameters.MedicalRequirements medicals = new Models.GlobalParameters.MedicalRequirements("cn", 1);
+            if (medicals.Retrieve(long.Parse(value)))
+            {
+                MedicalRequirementsCode.Text = medicals.Code;
+                MedicalRequirements.Text = medicals.Description;
+                Tariff.Text = medicals.Tariff;
+            }
         }
         #region alerts
         protected void RedAlert(string MsgFlg)
@@ -43,7 +66,8 @@ namespace GeneralInsuranceManagement.GlobalParameters.MedicalRequirements
             try
             {
                 Models.GlobalParameters.MedicalRequirements medicals = new Models.GlobalParameters.MedicalRequirements("cn", 1)
-                {                    
+                {
+                    Id = int.Parse(MedicalRequirementsId.Value),
                     Code = MedicalRequirementsCode.Text,
                     Description = MedicalRequirements.Text,
                     Tariff = Tariff.Text,
@@ -52,6 +76,7 @@ namespace GeneralInsuranceManagement.GlobalParameters.MedicalRequirements
                 if (medicals.Save())
                 {
                     SuccessAlert($"{MedicalRequirements.Text} saved successfully!");
+                    Response.Redirect("~/GlobalParameters/MedicalRequirements/MedicalRequirementsEnquiries");
                 }
 
             }

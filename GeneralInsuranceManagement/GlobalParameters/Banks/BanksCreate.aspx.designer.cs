@@ -15,13 +15,13 @@ namespace GeneralInsuranceManagement.GlobalParameters.Banks
     {
 
         /// <summary>
-        /// SchemeId control.
+        /// BankId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField SchemeId;
+        protected global::System.Web.UI.WebControls.HiddenField BankId;
 
         /// <summary>
         /// ErrorMessage control.

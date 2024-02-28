@@ -15,13 +15,13 @@ namespace GeneralInsuranceManagement.GlobalParameters.InstitutionTypes
     {
 
         /// <summary>
-        /// SchemeId control.
+        /// InstitutionTypesId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField SchemeId;
+        protected global::System.Web.UI.WebControls.HiddenField InstitutionTypesId;
 
         /// <summary>
         /// ErrorMessage control.
